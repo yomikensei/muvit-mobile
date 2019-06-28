@@ -1,0 +1,3 @@
+rootProject.name = 'muvit'
+
+include ':app'
