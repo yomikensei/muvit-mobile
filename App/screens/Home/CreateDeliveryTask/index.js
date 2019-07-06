@@ -5,10 +5,9 @@ class CreateDeliveryTask extends Component {
   render() {
     return (
       <View>
-        <Text>
-          Create Delivery Task
-      </Text>
-      </View>);
+        <Text>Create Delivery Task</Text>
+      </View>
+    );
   }
 }
 

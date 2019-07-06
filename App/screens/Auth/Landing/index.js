@@ -1,61 +1,50 @@
+/* eslint-disable global-require */
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import colors from '../../../constants/colors.json';
 
 const styles = StyleSheet.create({
   container: {
+    display: 'flex',
+    flex: 1,
     justifyContent: 'center',
     height: '100%',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   text: {
     textAlign: 'center',
-    fontSize: 30,
+    fontSize: 20,
   },
   section_buttons: {
-    top: 100,
+    marginTop: 30,
     alignItems: 'center',
   },
-  button: {
-    width: '80%',
-    backgroundColor: '#8447ff',
-    borderRadius: 7,
-    height: 50,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    marginVertical: 5,
+  image: {
+    width: 300,
+    height: 300,
   },
   text_button: {
     textAlign: 'center',
     textAlignVertical: 'center',
-    color: '#FFFFFF',
+    color: colors.primary,
     fontFamily: 'Raleway-Bold',
-    fontSize: 18,
+    fontSize: 30,
   },
 });
 
 class Landing extends Component {
   render() {
-    const { navigation: { navigate } } = this.props;
+    const {
+      navigation: { navigate },
+    } = this.props;
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>
-          Landing page
-        </Text>
+        <Image source={require('../../../assets/images/muvit.png')} style={styles.image} />
+        <Text style={styles.text}>Quick deliveries anytime, anywhere</Text>
         <View style={styles.section_buttons}>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigate('Login')}
-          >
-            <Text style={styles.text_button}>
-              Login
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button}
-            onPress={() => navigate('Signup')}
-          >
-            <Text style={styles.text_button}>
-              Signup
-            </Text>
+          <TouchableOpacity style={styles.button} onPress={() => navigate('Login')}>
+            <Text style={styles.text_button}>Get started</Text>
           </TouchableOpacity>
         </View>
       </View>
