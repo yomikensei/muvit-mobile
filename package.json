@@ -4,12 +4,17 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start-ios": "node node_modules/react-native/local-cli/cli.js run-ios",
+    "start-android": "node node_modules/react-native/local-cli/cli.js run-android",
+    "release-ios": "node node_modules/react-native/local-cli/cli.js run-ios --variant release",
+    "release-android": "node node_modules/react-native/local-cli/cli.js run-android --variant release",
     "test": "jest",
     "lint": "eslint App/**/*.js"
   },
   "dependencies": {
     "axios": "^0.19.0",
     "lodash": "^4.17.11",
+    "native-base": "^2.12.1",
     "react": "16.8.3",
     "react-native": "0.59.9",
     "react-native-fs": "^2.13.3",
