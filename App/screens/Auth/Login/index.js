@@ -24,7 +24,9 @@ class Login extends Component {
   }
 
   submitLogin(values) {
-    const { navigation: { navigate } } = this.props;
+    const {
+      navigation: { navigate },
+    } = this.props;
     console.log(values);
     navigate('Home');
   }
@@ -33,9 +35,7 @@ class Login extends Component {
     // const { navigation: { navigate } } = this.props;
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>
-          Login Page
-        </Text>
+        <Text style={styles.text}>Login Page</Text>
         <View style={styles.section_form}>
           <LoginForm onSubmit={this.submitLogin} />
         </View>

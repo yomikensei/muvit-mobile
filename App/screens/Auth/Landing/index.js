@@ -15,6 +15,7 @@ const styles = StyleSheet.create({
   text: {
     textAlign: 'center',
     fontSize: 20,
+    fontFamily: 'ProximaNovaAltBold',
   },
   section_buttons: {
     marginTop: 30,
@@ -28,7 +29,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     textAlignVertical: 'center',
     color: colors.primary,
-    fontFamily: 'Raleway-Bold',
+    fontFamily: 'ProximaNovaAltBold',
     fontSize: 30,
   },
 });
@@ -40,7 +41,11 @@ class Landing extends Component {
     } = this.props;
     return (
       <View style={styles.container}>
-        <Image source={require('../../../assets/images/muvit.png')} style={styles.image} />
+        <Image
+          source={require('../../../assets/images/muvit.png')}
+          style={styles.image}
+          resizeMode="contain"
+        />
         <Text style={styles.text}>Quick deliveries anytime, anywhere</Text>
         <View style={styles.section_buttons}>
           <TouchableOpacity style={styles.button} onPress={() => navigate('Login')}>

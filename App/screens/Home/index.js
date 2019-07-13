@@ -1,16 +1,22 @@
-import { createDrawerNavigator } from 'react-navigation'
+import { createDrawerNavigator } from 'react-navigation';
+import Dashboard from './Dashboard';
 import CreateDeliveryTask from './CreateDeliveryTask';
 
 export default createDrawerNavigator(
   {
-    CreateDeliveryTask: {
-      screen: CreateDeliveryTask,
+    Dashboard: {
+      screen: Dashboard,
       navigationOptions: {
         header: null,
       },
     },
   },
   {
-    initialRouteName: 'CreateDeliveryTask',
+    CreateDeliveryTask: {
+      screen: CreateDeliveryTask,
+    },
+  },
+  {
+    initialRouteName: 'Dashboard',
   },
 );
