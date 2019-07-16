@@ -1,28 +1,32 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { Text, Container, List, ListItem } from 'native-base';
+import { Container, Content } from 'native-base';
 import FAB from 'react-native-fab';
 import AppHeader from '../../../../../components/AppHeader';
+import ItemCard from './components/ItemCard';
 
 class DeliveryTasks extends React.Component {
   render() {
+    const {
+      navigation: { navigate },
+    } = this.props;
     return (
       <Container>
-        <AppHeader headerText="Delivery Tasks" />
+        <AppHeader headerText="Delivery Tasks" icon="md-list-box" />
         <ScrollView>
-          <List>
-            <ListItem>
-              <Text>Simon Mignolet</Text>
-            </ListItem>
-            <ListItem>
-              <Text>Nathaniel Clyne</Text>
-            </ListItem>
-            <ListItem>
-              <Text>Dejan Lovren</Text>
-            </ListItem>
-          </List>
+          <Content padder>
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+            <ItemCard />
+          </Content>
         </ScrollView>
-        <FAB buttonColor="#006DEF" iconTextColor="#FFFFFF" onClickAction={() => {}} visible />
+        <FAB
+          buttonColor="#006DEF"
+          iconTextColor="#FFFFFF"
+          onClickAction={() => navigate('CreateDeliveryTask')}
+          visible
+        />
       </Container>
     );
   }
