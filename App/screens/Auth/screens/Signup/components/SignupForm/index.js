@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import {
-  View,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
-
-import TextInput from '../../../../../components/TextInput';
+import { View, StyleSheet } from 'react-native';
+import { Button, Text } from 'native-base';
+import TextInput from '../../../../../../components/TextInput';
+import colors from '../../../../../../constants/colors.json';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,20 +11,9 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   button: {
-    backgroundColor: '#8447ff',
-    borderRadius: 7,
-    height: 50,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    marginVertical: 5,
-    marginTop: 20,
-  },
-  text_button: {
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    color: '#FFFFFF',
-    fontFamily: 'Raleway-Bold',
-    fontSize: 18,
+    backgroundColor: colors.primary,
+    marginVertical: 10,
+    elevation: 0,
   },
 });
 
@@ -37,19 +22,11 @@ class SignupForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <View style={styles.container}>
-        <Field
-          name="name"
-          component={TextInput}
-          label="Name"
-          placeholder="Name"
-          returnKeyType="next"
-          autoFocus
-        />
+        <Field name="name" component={TextInput} label="Name" returnKeyType="next" autoFocus />
         <Field
           name="email"
           component={TextInput}
           label="Email"
-          placeholder="Email"
           keyboardType="email-address"
           returnKeyType="next"
         />
@@ -57,7 +34,6 @@ class SignupForm extends Component {
           name="prepass"
           component={TextInput}
           label="Password"
-          placeholder="Password"
           secureTextEntry
           returnKeyType="next"
         />
@@ -65,19 +41,13 @@ class SignupForm extends Component {
           name="confirmation"
           component={TextInput}
           label="Confirm Password"
-          placeholder="Confirm Password"
           secureTextEntry
           returnKeyType="next"
         />
 
-        <TouchableOpacity
-          style={styles.button}
-          onPress={handleSubmit}
-        >
-          <Text style={styles.text_button}>
-            Login
-          </Text>
-        </TouchableOpacity>
+        <Button full large rounded onPress={handleSubmit} style={styles.button}>
+          <Text> Register </Text>
+        </Button>
       </View>
     );
   }

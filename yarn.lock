@@ -5730,6 +5730,12 @@ path-type@^3.0.0:
   dependencies:
     pify "^3.0.0"
 
+payment@^2.0.3:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/payment/-/payment-2.3.0.tgz#b2a95e9c3052459647da3926b8b66c553d93098f"
+  dependencies:
+    qj "~2.0.0"
+
 performance-now@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
@@ -5897,6 +5903,10 @@ punycode@^2.1.0, punycode@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
 
+qj@~2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/qj/-/qj-2.0.0.tgz#054dd3b75ce018728d23a0605f030dfda0bd158a"
+
 qs@^6.5.0:
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
@@ -5987,6 +5997,13 @@ react-native-branch@2.2.5:
   version "2.2.5"
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.2.5.tgz#4074dd63b4973e6397d9ce50e97b57c77a518e9d"
 
+react-native-credit-card@^0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/react-native-credit-card/-/react-native-credit-card-0.1.9.tgz#3d64a102590122ddcaeca701cd11b8235dd2fbb6"
+  dependencies:
+    payment "^2.0.3"
+    react-native-flip-card "^3.3.0"
+
 react-native-drawer@2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/react-native-drawer/-/react-native-drawer-2.5.1.tgz#08b9314184f48c724f1b467f8859797369798654"
@@ -6003,6 +6020,12 @@ react-native-easy-grid@0.2.1:
 react-native-fab@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/react-native-fab/-/react-native-fab-1.0.8.tgz#653001e774e63debd0ea7e86d4f2b691df59284d"
+  dependencies:
+    prop-types "^15.5.10"
+
+react-native-flip-card@^3.3.0:
+  version "3.5.5"
+  resolved "https://registry.yarnpkg.com/react-native-flip-card/-/react-native-flip-card-3.5.5.tgz#14f13d5178660e5365e7be4ed8dbb6ff289dd1e8"
   dependencies:
     prop-types "^15.5.10"
 

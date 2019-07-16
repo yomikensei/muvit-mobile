@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet } from 'react-native';
 import { Container, Card, CardItem, Text, Icon, Button, View } from 'native-base';
 import PickupForm from './components/PickupForm';
 import DeliveryForm from './components/DeliveryForm';
-import colors from '../../../constants/colors.json';
+import colors from '../../../../../../constants/colors.json';
 
 const styles = StyleSheet.create({
   container: {

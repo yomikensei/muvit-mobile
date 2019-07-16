@@ -1,7 +1,7 @@
 /* eslint-disable global-require */
 import React from 'react';
-import { StyleSheet, Image } from 'react-native';
-import { Header, Body, Right, Text, Left, Icon } from 'native-base';
+import { StyleSheet } from 'react-native';
+import { Header, Body, Text, Icon } from 'native-base';
 import colors from '../../constants/colors.json';
 
 const styles = StyleSheet.create({
@@ -16,26 +16,23 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
   },
+  body: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
   icon: {
     color: '#ffffff',
+    marginHorizontal: 10,
   },
 });
 
 const AppHeader = ({ headerText, icon }) => (
   <Header style={styles.header}>
-    <Left>
+    <Body style={styles.body}>
       <Icon name={icon} style={styles.icon} />
-    </Left>
-    <Body>
       <Text style={styles.headerText}>{headerText}</Text>
     </Body>
-    <Right>
-      <Image
-        source={require('../../assets/images/muvit-text.png')}
-        resizeMode="contain"
-        style={styles.image}
-      />
-    </Right>
   </Header>
 );
 

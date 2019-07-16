@@ -1,10 +1,17 @@
 import { createStackNavigator } from 'react-navigation';
-import Login from './Login';
-import Signup from './Signup';
-import Landing from './Landing';
+import Login from './screens/Login';
+import Signup from './screens/Signup';
+import Landing from './screens/Landing';
+import Splash from './screens/Splash';
 
 export default createStackNavigator(
   {
+    Splash: {
+      screen: Splash,
+      navigationOptions: {
+        header: null,
+      },
+    },
     Landing: {
       screen: Landing,
       navigationOptions: {
@@ -25,6 +32,6 @@ export default createStackNavigator(
     },
   },
   {
-    initialRouteName: 'Landing',
+    initialRouteName: 'Splash',
   },
 );

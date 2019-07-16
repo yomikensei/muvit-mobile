@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
-import {
-  View,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
-
-import TextInput from '../../../../../components/TextInput';
+import { View, StyleSheet } from 'react-native';
+import { Button, Text } from 'native-base';
+import TextInput from '../../../../../../components/TextInput';
+import colors from '../../../../../../constants/colors.json';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,20 +11,9 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   button: {
-    backgroundColor: '#8447ff',
-    borderRadius: 7,
-    height: 50,
-    justifyContent: 'center',
-    flexDirection: 'row',
-    marginVertical: 5,
-    marginTop: 20,
-  },
-  text_button: {
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    color: '#FFFFFF',
-    fontFamily: 'Raleway-Bold',
-    fontSize: 18,
+    backgroundColor: colors.primary,
+    marginVertical: 10,
+    elevation: 0,
   },
 });
 
@@ -41,7 +26,6 @@ class LoginForm extends Component {
           name="email"
           component={TextInput}
           label="Email"
-          placeholder="Email"
           keyboardType="email-address"
           returnKeyType="next"
           autoFocus
@@ -49,20 +33,13 @@ class LoginForm extends Component {
         <Field
           name="password"
           component={TextInput}
-          label="Email"
-          placeholder="Password"
+          label="Password"
           secureTextEntry
           returnKeyType="next"
         />
-
-        <TouchableOpacity
-          style={styles.button}
-          onPress={handleSubmit}
-        >
-          <Text style={styles.text_button}>
-            Login
-          </Text>
-        </TouchableOpacity>
+        <Button full large rounded onPress={handleSubmit} style={styles.button}>
+          <Text> Login </Text>
+        </Button>
       </View>
     );
   }

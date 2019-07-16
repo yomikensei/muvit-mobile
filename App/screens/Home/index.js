@@ -1,22 +1,37 @@
-import { createDrawerNavigator } from 'react-navigation';
-import Dashboard from './Dashboard';
-import CreateDeliveryTask from './CreateDeliveryTask';
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { Icon } from 'native-base';
+import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
+import DeliveryTasks from './screens/DeliveryTask';
+import Profile from './screens/Profile';
 
-export default createDrawerNavigator(
-  {
-    Dashboard: {
-      screen: Dashboard,
-      navigationOptions: {
-        header: null,
-      },
-    },
+const styles = StyleSheet.create({
+  icon: {
+    color: '#ffffff',
+    marginBottom: 10,
   },
-  {
-    CreateDeliveryTask: {
-      screen: CreateDeliveryTask,
-    },
+});
+
+const RouteConfigs = {
+  DeliveryTasks: {
+    screen: DeliveryTasks,
+    navigationOptions: () => ({
+      tabBarIcon: () => <Icon name="md-list-box" style={styles.icon} />,
+    }),
   },
-  {
-    initialRouteName: 'Dashboard',
+  Profile: {
+    screen: Profile,
+    navigationOptions: () => ({
+      tabBarIcon: () => <Icon name="md-contact" style={styles.icon} />,
+    }),
   },
-);
+};
+
+const MaterialBottomTabNavigatorConfig = {
+  initialRouteName: 'DeliveryTasks',
+  activeColor: '#ffffff',
+  inactiveColor: '#f4f4f4',
+  barStyle: { backgroundColor: '#006DEF' },
+};
+
+export default createMaterialBottomTabNavigator(RouteConfigs, MaterialBottomTabNavigatorConfig);

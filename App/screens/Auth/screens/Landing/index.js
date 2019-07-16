@@ -1,15 +1,13 @@
 /* eslint-disable global-require */
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import colors from '../../../constants/colors.json';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import { Button, Icon } from 'native-base';
+import colors from '../../../../constants/colors.json';
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
-    flex: 1,
     justifyContent: 'center',
     height: '100%',
-    flexDirection: 'column',
     alignItems: 'center',
   },
   text: {
@@ -17,20 +15,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'ProximaNovaAltBold',
   },
-  section_buttons: {
-    marginTop: 30,
-    alignItems: 'center',
-  },
   image: {
     width: 300,
     height: 300,
   },
-  text_button: {
-    textAlign: 'center',
-    textAlignVertical: 'center',
-    color: colors.primary,
-    fontFamily: 'ProximaNovaAltBold',
-    fontSize: 30,
+  button: {
+    backgroundColor: colors.primary,
+    color: '#ffffff',
+    padding: 20,
+    marginVertical: 10,
+    elevation: 0,
   },
 });
 
@@ -42,15 +36,18 @@ class Landing extends Component {
     return (
       <View style={styles.container}>
         <Image
-          source={require('../../../assets/images/muvit.png')}
+          source={require('../../../../assets/images/muvit-illustration.png')}
           style={styles.image}
           resizeMode="contain"
         />
         <Text style={styles.text}>Quick deliveries anytime, anywhere</Text>
-        <View style={styles.section_buttons}>
-          <TouchableOpacity style={styles.button} onPress={() => navigate('Login')}>
-            <Text style={styles.text_button}>Get started</Text>
-          </TouchableOpacity>
+        <View>
+          <Button iconRight rounded style={styles.button} onPress={() => navigate('Login')}>
+            <Text style={{
+              color: '#ffffff',
+            }}>Get started</Text>
+            <Icon name="md-arrow-round-forward" />
+          </Button>
         </View>
       </View>
     );

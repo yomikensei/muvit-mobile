@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import LoginForm from './components/LoginForm';
+import colors from '../../../../constants/colors.json';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,37 +9,43 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   text: {
-    textAlign: 'center',
     fontSize: 30,
+    marginLeft: '10%',
+    fontWeight: 'bold',
+    color: '#000000',
   },
   section_form: {
-    top: 100,
     alignItems: 'center',
+    marginVertical: 20,
+  },
+  linkText: {
+    color: colors.primary,
+    textAlign: 'center',
   },
 });
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.submitLogin = this.submitLogin.bind(this);
-  }
-
-  submitLogin(values) {
+  submitLogin = (values) => {
     const {
       navigation: { navigate },
     } = this.props;
     console.log(values);
     navigate('Home');
-  }
+  };
 
   render() {
-    // const { navigation: { navigate } } = this.props;
+    const {
+      navigation: { navigate },
+    } = this.props;
     return (
       <View style={styles.container}>
-        <Text style={styles.text}>Login Page</Text>
+        <Text style={styles.text}>Welcome back.</Text>
         <View style={styles.section_form}>
           <LoginForm onSubmit={this.submitLogin} />
         </View>
+        <TouchableOpacity onPress={() => navigate('Signup')}>
+          <Text style={styles.linkText}>Don't have an account?</Text>
+        </TouchableOpacity>
       </View>
     );
   }
