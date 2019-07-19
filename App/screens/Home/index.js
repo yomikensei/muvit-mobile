@@ -1,37 +1,37 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { Icon } from 'native-base';
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import DeliveryTasks from './screens/DeliveryTask';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import TabBar from '../../components/TabBar';
+import History from './screens/DeliveryHistory';
 import Profile from './screens/Profile';
+import colors from '../../constants/colors';
 
-const styles = StyleSheet.create({
-  icon: {
-    color: '#ffffff',
-    marginBottom: 10,
+const App = createBottomTabNavigator(
+  {
+    History: {
+      screen: History,
+      navigationOptions: () => ({
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="list-alt" size={18} color={tintColor} />
+        ),
+      }),
+    },
+    Profile: {
+      screen: Profile,
+      navigationOptions: () => ({
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="users" size={18} color={tintColor} />
+        ),
+      }),
+    },
   },
-});
-
-const RouteConfigs = {
-  DeliveryTasks: {
-    screen: DeliveryTasks,
-    navigationOptions: () => ({
-      tabBarIcon: () => <Icon name="md-list-box" style={styles.icon} />,
-    }),
+  {
+    tabBarComponent: TabBar,
+    tabBarOptions: {
+      activeTintColor: colors.tabBar.text.active,
+      inactiveTintColor: colors.tabBar.text.inactive,
+    },
   },
-  Profile: {
-    screen: Profile,
-    navigationOptions: () => ({
-      tabBarIcon: () => <Icon name="md-contact" style={styles.icon} />,
-    }),
-  },
-};
+);
 
-const MaterialBottomTabNavigatorConfig = {
-  initialRouteName: 'DeliveryTasks',
-  activeColor: '#ffffff',
-  inactiveColor: '#f4f4f4',
-  barStyle: { backgroundColor: '#006DEF' },
-};
-
-export default createMaterialBottomTabNavigator(RouteConfigs, MaterialBottomTabNavigatorConfig);
+export default createAppContainer(App);
