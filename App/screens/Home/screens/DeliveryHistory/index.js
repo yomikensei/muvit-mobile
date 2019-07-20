@@ -1,9 +1,17 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
-import { Container, Content } from 'native-base';
+import { FlatList, StyleSheet } from 'react-native';
+import { Container } from 'native-base';
 import FAB from 'react-native-fab';
 import AppHeader from '../../../../components/AppHeader';
 import ItemCard from './components/ItemCard';
+import colors from '../../../../constants/colors.json';
+
+
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.background,
+  },
+});
 
 class DeliveryTasks extends React.Component {
   render() {
@@ -11,16 +19,14 @@ class DeliveryTasks extends React.Component {
       navigation: { navigate },
     } = this.props;
     return (
-      <Container>
+      <Container style={styles.container}>
         <AppHeader headerText="Delivery History" icon="md-list-box" />
-        <ScrollView>
-          <Content padder>
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-            <ItemCard />
-          </Content>
-        </ScrollView>
+        <FlatList
+          data={[{ key: 'a' }, { key: 'b' }, { key: 'b' }, { key: 'b' }, { key: 'b' }, { key: 'b' }, { key: 'b' }, { key: 'b' }, { key: 'b' }, { key: 'b' }]}
+          renderItem={({ item }) => (
+            <ItemCard item={item} />
+          )}
+        />
         <FAB
           buttonColor="#006DEF"
           iconTextColor="#FFFFFF"

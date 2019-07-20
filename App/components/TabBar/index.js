@@ -8,22 +8,22 @@ const { width } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
   tabView: {
-    backgroundColor: colors.background,
+    backgroundColor: colors.tabBar.background,
   },
   tabBar: {
     flexDirection: 'row',
     justifyContent: 'center',
     backgroundColor: colors.background,
     width: '100%',
-    // marginVertical: 15,
+    marginBottom: 7,
+    // marginTop: 2,
   },
   tabBarItem: {
     alignItems: 'center',
     padding: 20,
-    backgroundColor: 'white',
+    backgroundColor: colors.tabBar.background,
     height: 60,
     elevation: 40,
-    // width: 1,
   },
   tabBarItemText: {
     fontFamily: 'Raleway-SemiBold',
@@ -72,48 +72,50 @@ class TabBar extends PureComponent {
     const isStartTab = idx === 0;
     const isEndTab = idx === routes.length - 1;
     return (
-      <TouchableOpacity
-        key={idx}
-        onPress={() => {
-          navigation.navigate(routeName);
-        }}
-        style={{
-          ...styles.tabBarItem,
-          borderBottomLeftRadius: isStartTab ? 7 : 0,
-          borderTopLeftRadius: isStartTab ? 7 : 0,
-          borderBottomRightRadius: isEndTab ? 7 : 0,
-          borderTopRightRadius: isEndTab ? 7 : 0,
-          width: width / routes.length,
-        }}
-      >
-        <Transition
-          enterPose="enter"
-          exitPose="exit"
-          preEnterPose="exit"
-          enterAfterExit
-          animateOnMount
-        >
-          {!focused ?
-            (
-              <Container
-                key="active"
-              >
-                {renderIcon({ route, tintColor: color, focused: currentIndex === idx, index: idx })}
-              </Container>
-            ) : (
-              <Container
-                key="inactive"
-                style={{ alignItems: 'center' }}
-              >
-                <Text key={0} style={{ ...styles.tabBarItemText, color }}>
-                  {label}
-                </Text>
-                <Icon key={1} name="circle" size={5} solid color={color} />
-              </Container>
-            )}
-        </Transition>
 
-      </TouchableOpacity>
+      <React.Fragment>
+        <TouchableOpacity
+          key={idx}
+          onPress={() => {
+            navigation.navigate(routeName);
+          }}
+          style={{
+            ...styles.tabBarItem,
+            borderBottomLeftRadius: isStartTab ? 15 : 0,
+            borderTopLeftRadius: isStartTab ? 15 : 0,
+            borderBottomRightRadius: isEndTab ? 15 : 0,
+            borderTopRightRadius: isEndTab ? 15 : 0,
+            width: (width - 15) / routes.length,
+          }}
+        >
+          <Transition
+            enterPose="enter"
+            exitPose="exit"
+            preEnterPose="exit"
+            enterAfterExit
+            animateOnMount
+          >
+            {!focused ?
+              (
+                <Container
+                  key="active"
+                >
+                  {renderIcon({ route, tintColor: color, focused: currentIndex === idx, index: idx })}
+                </Container>
+              ) : (
+                <Container
+                  key="inactive"
+                  style={{ alignItems: 'center' }}
+                >
+                  <Text key={0} style={{ ...styles.tabBarItemText, color }}>
+                    {label}
+                  </Text>
+                  <Icon key={1} name="circle" size={5} solid color={color} />
+                </Container>
+              )}
+          </Transition>
+        </TouchableOpacity>
+      </React.Fragment>
     );
   }
 
