@@ -12,7 +12,7 @@ class DeliveryTasks extends React.Component {
     } = this.props;
     return (
       <Container>
-        <AppHeader headerText="Delivery Tasks" icon="md-list-box" />
+        <AppHeader headerText="Delivery History" icon="md-list-box" />
         <ScrollView>
           <Content padder>
             <ItemCard />
