@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     width: '90%',
     alignSelf: 'center',
-    borderRadius: 13,
+    borderRadius: 7,
   },
   container: {
     margin: 15,

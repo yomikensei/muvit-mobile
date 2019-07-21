@@ -3,10 +3,9 @@ import { FlatList, StyleSheet } from 'react-native';
 import { Container } from 'native-base';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import FAB from 'react-native-fab';
-import AppHeader from '../../../../components/AppHeader';
-import ItemCard from './components/ItemCard';
-import colors from '../../../../constants/colors.json';
-
+import AppHeader from '../../../../../../components/AppHeader';
+import ItemCard from './components/DeliveryItem';
+import colors from '../../../../../../constants/colors.json';
 
 const styles = StyleSheet.create({
   container: {
@@ -14,7 +13,7 @@ const styles = StyleSheet.create({
   },
 });
 
-class DeliveryTasks extends React.Component {
+class ListDeliveries extends React.Component {
   render() {
     const {
       navigation: { navigate },
@@ -41,4 +40,4 @@ class DeliveryTasks extends React.Component {
   }
 }
 
-export default DeliveryTasks;
+export default ListDeliveries;

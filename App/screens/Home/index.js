@@ -2,14 +2,15 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import TabBar from '../../components/TabBar';
-import DeliveryHistory from './screens/DeliveryHistory';
+import ListDeliveries from './screens/Deliveries/screens/ListDeliveries';
+import ListPayments from './screens/Payments/screens/ListPayments';
 import Profile from './screens/Profile';
 import colors from '../../constants/colors';
 
 const App = createBottomTabNavigator(
   {
     Delivery: {
-      screen: DeliveryHistory,
+      screen: ListDeliveries,
       navigationOptions: () => ({
         tabBarIcon: ({ tintColor }) => (
           <Icon name="list-alt" size={18} color={tintColor} />
@@ -17,7 +18,7 @@ const App = createBottomTabNavigator(
       }),
     },
     Payment: {
-      screen: DeliveryHistory,
+      screen: ListPayments,
       navigationOptions: () => ({
         tabBarIcon: ({ tintColor }) => (
           <Icon name="credit-card" size={18} color={tintColor} />
