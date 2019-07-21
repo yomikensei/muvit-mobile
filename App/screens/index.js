@@ -1,4 +1,4 @@
-import { createSwitchNavigator, createAppContainer } from 'react-navigation';
+import { createSwitchNavigator, createAppContainer, createStackNavigator } from 'react-navigation';
 import {
   createReduxContainer,
   createReactNavigationReduxMiddleware,
@@ -6,8 +6,27 @@ import {
 import { connect } from 'react-redux';
 
 import AuthStack from './Auth';
-import HomeStack from './Home';
+import Home from './Home';
 import AuthLoadingScreen from './AuthLoadingScreen';
+
+import CreateCard from './Home/screens/Cards/screens/CreateCard';
+
+const HomeStack = createStackNavigator({
+  HomeTab: {
+    screen: Home,
+    navigationOptions: () => ({
+      header: null,
+    }),
+  },
+  CreateCard: {
+    screen: CreateCard,
+    navigationOptions: () => ({
+      header: null,
+    }),
+  },
+}, {
+  initialRouteName: 'HomeTab',
+});
 
 export const AppNavigator = createAppContainer(
   createSwitchNavigator(

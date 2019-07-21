@@ -1,6 +1,6 @@
 /* eslint-disable global-require */
-import React from 'react';
-import { StyleSheet } from 'react-native';
+import React, { PureComponent } from 'react';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Header, Body, Text, Icon } from 'native-base';
 import colors from '../../constants/colors.json';
 
@@ -25,15 +25,28 @@ const styles = StyleSheet.create({
     color: '#ffffff',
     marginHorizontal: 10,
   },
+  backIcon: {
+    color: '#ffffff',
+    marginHorizontal: 10,
+    fontSize: 22,
+  },
 });
 
-const AppHeader = ({ headerText, icon }) => (
-  <Header style={styles.header}>
-    <Body style={styles.body}>
-      <Icon name={icon} style={styles.icon} />
-      <Text style={styles.headerText}>{headerText}</Text>
-    </Body>
-  </Header>
-);
+class AppHeader extends PureComponent {
+  render() {
+    const { headerText, icon, showBackButton, goBack } = this.props;
+    return (
+      <Header style={styles.header}>
+        <Body style={styles.body}>
+          {showBackButton ?
+            (<TouchableOpacity onPress={goBack}><Icon name="arrow-left" style={styles.backIcon} type="FontAwesome5" /></TouchableOpacity>) :
+            (<Icon name={icon} style={styles.icon} />
+            )}
+          <Text style={styles.headerText}>{headerText}</Text>
+        </Body>
+      </Header>
+    );
+  }
+}
 
 export default AppHeader;

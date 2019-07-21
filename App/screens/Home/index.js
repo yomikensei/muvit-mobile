@@ -4,7 +4,8 @@ import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import TabBar from '../../components/TabBar';
 import ListDeliveries from './screens/Deliveries/screens/ListDeliveries';
 import ListPayments from './screens/Payments/screens/ListPayments';
-import Profile from './screens/Profile';
+import ListCards from './screens/Cards/screens/ListCards';
+import ListSettings from './screens/Settings/screens/ListSettings';
 import colors from '../../constants/colors';
 
 const App = createBottomTabNavigator(
@@ -25,8 +26,8 @@ const App = createBottomTabNavigator(
         ),
       }),
     },
-    Profile: {
-      screen: Profile,
+    Cards: {
+      screen: ListCards,
       navigationOptions: () => ({
         tabBarIcon: ({ tintColor }) => (
           <Icon name="credit-card" size={18} color={tintColor} />
@@ -34,7 +35,7 @@ const App = createBottomTabNavigator(
       }),
     },
     Settings: {
-      screen: Profile,
+      screen: ListSettings,
       navigationOptions: () => ({
         tabBarIcon: ({ tintColor }) => (
           <Icon name="cogs" size={18} color={tintColor} />

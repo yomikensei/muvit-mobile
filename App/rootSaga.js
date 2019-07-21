@@ -12,7 +12,6 @@ import { fetchPaymentsRequest } from './services/payments/actions';
 function* pullData() {
   while (true) {
     const isLoggedIn = yield select(getIsLoggedIn);
-    console.log(isLoggedIn);
     if (isLoggedIn) {
       // TODO: Sync Organization Details also
       yield put(fetchDeliveriesRequest());
@@ -30,6 +29,6 @@ export default function* rootSaga() {
     deliveriesSaga.fetchDeliveriesSaga(),
     deliveriesSaga.createDeliverySaga(),
     paymentsSaga.fetchPaymentsSaga(),
-    pullData(),
+    // pullData(),
   ]);
 }
