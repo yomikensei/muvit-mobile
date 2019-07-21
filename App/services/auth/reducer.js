@@ -65,3 +65,14 @@ export default (state = initialState, action) => {
       return state;
   }
 };
+
+
+export const getIsLoggedIn = state => !!state.app.entities.auth.user;
+
+export const getUser = state => state.app.entities.auth.user;
+
+export const getLogin = state => state.app.entities.auth.login;
+
+export const getSignup = state => state.app.entities.auth.signup;
+
+export const getLogout = state => state.app.entities.auth.logout;

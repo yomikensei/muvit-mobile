@@ -7,15 +7,17 @@ import { connect } from 'react-redux';
 
 import AuthStack from './Auth';
 import HomeStack from './Home';
+import AuthLoadingScreen from './AuthLoadingScreen';
 
 export const AppNavigator = createAppContainer(
   createSwitchNavigator(
     {
+      AuthLoading: AuthLoadingScreen,
       Auth: createAppContainer(AuthStack),
       Home: createAppContainer(HomeStack),
     },
     {
-      initialRouteName: 'Auth',
+      initialRouteName: 'AuthLoading',
     },
   ),
 );
