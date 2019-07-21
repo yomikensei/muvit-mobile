@@ -6,23 +6,27 @@ import FSStorage, { DocumentDir } from 'redux-persist-fs-storage';
 import { createNavigationReducer } from 'react-navigation-redux-helpers';
 
 import authReducer from './services/auth/reducer';
+import deliveriesReducer from './services/deliveries/reducer';
+import paymentsReducer from './services/payments/reducer';
+import cardsReducer from './services/cards/reducer';
 import * as authTypes from './services/auth/constants';
 
-import AppNavigator from './screens';
+import AppwithNavigationState from './screens';
 
 const storage = FSStorage(DocumentDir, 'parkmonitor');
 
 const entitiesReducer = (state, action) => {
   const reducer = combineReducers({
     auth: authReducer,
+    cards: cardsReducer,
+    deliveries: deliveriesReducer,
+    payments: paymentsReducer,
   });
-
   if (action.type === authTypes.LOGOUT_SUCCESS) {
     return reducer(undefined, action);
   }
   return reducer(state, action);
 };
-
 
 const appPersistConfig = {
   timeout: 30000,
@@ -51,7 +55,7 @@ const appReducer = combineReducers({
   // ui: persistReducer(uiPersistConfig, uiReducer),
 });
 
-const navReducer = createNavigationReducer(AppNavigator);
+const navReducer = createNavigationReducer(AppwithNavigationState);
 
 export default combineReducers({
   app: persistReducer(appPersistConfig, appReducer),
