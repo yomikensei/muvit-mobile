@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
-import { View, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text, ActivityIndicator } from 'react-native';
 import TextInput from '../../../../../../components/TextInput';
 import colors from '../../../../../../constants/colors.json';
+import { getLogin } from '../../../../../../services/auth/reducer';
 
 const styles = StyleSheet.create({
   container: {
@@ -32,7 +34,7 @@ const styles = StyleSheet.create({
 
 class LoginForm extends Component {
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, loginState: { inProgress } } = this.props;
     return (
       <View style={styles.container}>
         <Field
@@ -48,18 +50,27 @@ class LoginForm extends Component {
           component={TextInput}
           label="Password"
           secureTextEntry
-          returnKeyType="next"
+          returnKeyType="done"
         />
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-          <Text style={styles.text_button}>
-            Login
-          </Text>
+          {!inProgress ? (
+            <Text style={styles.text_button}>
+              Login
+            </Text>
+          ) :
+            <ActivityIndicator color="#FFFFFF" size={30} />
+          }
         </TouchableOpacity>
       </View>
     );
   }
 }
 
-export default reduxForm({
+const mapStateToProps = state => ({
+  loginState: getLogin(state),
+});
+
+
+export default connect(mapStateToProps)(reduxForm({
   form: 'loginForm',
-})(LoginForm);
+})(LoginForm));
