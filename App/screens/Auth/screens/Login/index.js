@@ -1,7 +1,10 @@
+/* eslint-disable no-shadow */
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import LoginForm from './components/LoginForm';
 import colors from '../../../../constants/colors.json';
+import { loginRequest } from '../../../../services/auth/actions';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,12 +28,23 @@ const styles = StyleSheet.create({
 });
 
 class Login extends Component {
-  submitLogin = (values) => {
-    const {
-      navigation: { navigate },
-    } = this.props;
-    console.log(values);
-    navigate('Home');
+  constructor(props) {
+    super(props);
+    this.login = this.login.bind(this);
+  }
+
+  login = (values) => {
+    if (values.password && values.email) {
+      const { loginRequest } = this.props;
+      loginRequest({ credentials: values });
+    } else {
+      Alert.alert(
+        '',
+        'Please ensure all fields on the form are filled',
+        [],
+        { cancelable: true },
+      );
+    }
   };
 
   render() {
@@ -41,7 +55,7 @@ class Login extends Component {
       <View style={styles.container}>
         <Text style={styles.text}>Welcome back.</Text>
         <View style={styles.section_form}>
-          <LoginForm onSubmit={this.submitLogin} />
+          <LoginForm onSubmit={this.login} />
         </View>
         <TouchableOpacity onPress={() => navigate('Signup')}>
           <Text style={styles.linkText}>Don't have an account?</Text>
@@ -51,4 +65,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default connect(null, { loginRequest })(Login);

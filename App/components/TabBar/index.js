@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     width: '100%',
     marginBottom: 7,
-    // marginTop: 2,
   },
   tabBarItem: {
     alignItems: 'center',
@@ -73,49 +72,47 @@ class TabBar extends PureComponent {
     const isEndTab = idx === routes.length - 1;
     return (
 
-      <React.Fragment>
-        <TouchableOpacity
-          key={idx}
-          onPress={() => {
-            navigation.navigate(routeName);
-          }}
-          style={{
-            ...styles.tabBarItem,
-            borderBottomLeftRadius: isStartTab ? 15 : 0,
-            borderTopLeftRadius: isStartTab ? 15 : 0,
-            borderBottomRightRadius: isEndTab ? 15 : 0,
-            borderTopRightRadius: isEndTab ? 15 : 0,
-            width: (width - 15) / routes.length,
-          }}
+      <TouchableOpacity
+        key={idx}
+        onPress={() => {
+          navigation.navigate(routeName);
+        }}
+        style={{
+          ...styles.tabBarItem,
+          borderBottomLeftRadius: isStartTab ? 15 : 0,
+          borderTopLeftRadius: isStartTab ? 15 : 0,
+          borderBottomRightRadius: isEndTab ? 15 : 0,
+          borderTopRightRadius: isEndTab ? 15 : 0,
+          width: (width - 15) / routes.length,
+        }}
+      >
+        <Transition
+          enterPose="enter"
+          exitPose="exit"
+          preEnterPose="exit"
+          enterAfterExit
+          animateOnMount
         >
-          <Transition
-            enterPose="enter"
-            exitPose="exit"
-            preEnterPose="exit"
-            enterAfterExit
-            animateOnMount
-          >
-            {!focused ?
-              (
-                <Container
-                  key="active"
-                >
-                  {renderIcon({ route, tintColor: color, focused: currentIndex === idx, index: idx })}
-                </Container>
-              ) : (
-                <Container
-                  key="inactive"
-                  style={{ alignItems: 'center' }}
-                >
-                  <Text key={0} style={{ ...styles.tabBarItemText, color }}>
-                    {label}
-                  </Text>
-                  <Icon key={1} name="circle" size={5} solid color={color} />
-                </Container>
-              )}
-          </Transition>
-        </TouchableOpacity>
-      </React.Fragment>
+          {!focused ?
+            (
+              <Container
+                key="active"
+              >
+                {renderIcon({ route, tintColor: color, focused: currentIndex === idx, index: idx })}
+              </Container>
+            ) : (
+              <Container
+                key="inactive"
+                style={{ alignItems: 'center' }}
+              >
+                <Text key={0} style={{ ...styles.tabBarItemText, color }}>
+                  {label}
+                </Text>
+                <Icon key={1} name="circle" size={5} solid color={color} />
+              </Container>
+            )}
+        </Transition>
+      </TouchableOpacity>
     );
   }
 

@@ -7,8 +7,25 @@ import * as actions from './actions';
 import api from '../api';
 import { clearState, saveState } from '../../localStorage';
 
-function* login(action) {
-  yield console.log(action);
+function* login({ credentials }) {
+  try {
+    const { data: { user, token } } = yield call(api, {
+      url: '/user/login',
+      data: credentials,
+      method: 'post',
+    });
+    yield put(actions.loginSuccess({ authInfo: { user } }));
+    yield saveState({ user, token });
+    yield put(
+      NavigationActions.navigate({
+        routeName: 'Home',
+      }),
+    );
+    yield put(reset('loginForm'));
+  } catch (error) {
+    console.log(error.response);
+    yield put(actions.loginFailure());
+  }
 }
 
 function* signup({ credentials }) {
@@ -23,11 +40,11 @@ function* signup({ credentials }) {
     yield put(
       NavigationActions.navigate({
         routeName: 'Home',
-        action: NavigationActions.navigate({ routeName: 'Delivery' }),
       }),
     );
     yield put(reset('signupForm'));
   } catch (error) {
+    yield put(actions.signupFailure());
     console.log(error.response);
   }
 }
