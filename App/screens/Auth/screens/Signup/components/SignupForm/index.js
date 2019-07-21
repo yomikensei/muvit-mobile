@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import TextInput from '../../../../../../components/TextInput';
 import colors from '../../../../../../constants/colors.json';
+import { getSignup } from '../../../../../../services/auth/reducer';
 
 const styles = StyleSheet.create({
   container: {
@@ -32,7 +34,7 @@ const styles = StyleSheet.create({
 
 class SignupForm extends Component {
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, signupState: { inProgress } } = this.props;
     return (
       <View style={styles.container}>
         <Field
@@ -77,15 +79,23 @@ class SignupForm extends Component {
           returnKeyType="done"
         />
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-          <Text style={styles.text_button}>
+          {!inProgress ? (
+            <Text style={styles.text_button}>
             Sign Up
-          </Text>
+            </Text>
+          ) :
+            <ActivityIndicator color="#FFFFFF" size={30} />
+          }
         </TouchableOpacity>
       </View>
     );
   }
 }
 
-export default reduxForm({
+const mapStateToProps = state => ({
+  signupState: getSignup(state),
+});
+
+export default connect(mapStateToProps)(reduxForm({
   form: 'signupForm',
-})(SignupForm);
+})(SignupForm));

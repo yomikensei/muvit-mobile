@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
 });
 
 const TextInput = (props) => {
-  const { label, input: { onChange, onBlur, onFocus, value }, ...rest } = props;
+  const { label, input: { onChange, onBlur, onFocus }, ...rest } = props;
   return (
     <View style={styles.inputContainer}>
       <Item floatingLabel>
@@ -18,7 +18,6 @@ const TextInput = (props) => {
           onChange={onChange}
           onFocus={onFocus}
           onBlur={onBlur}
-          value={value}
           {...rest}
         />
       </Item>

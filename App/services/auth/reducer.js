@@ -32,6 +32,25 @@ export default (state = initialState, action) => {
         },
       };
 
+    case types.LOGIN_SUCCESS:
+      return {
+        ...state,
+        user: action.authInfo.user,
+        login: {
+          inProgress: true,
+          error: null,
+        },
+      };
+
+    case types.LOGIN_FAILURE:
+      return {
+        ...state,
+        login: {
+          inProgress: true,
+          error: null,
+        },
+      };
+
     case types.SIGNUP_REQUEST:
       return {
         ...state,
@@ -42,10 +61,9 @@ export default (state = initialState, action) => {
       };
 
     case types.SIGNUP_SUCCESS:
-      const { authInfo: { user } } = action;
       return {
         ...state,
-        user,
+        user: action.authInfo.user,
         signup: {
           inProgress: false,
           error: null,
