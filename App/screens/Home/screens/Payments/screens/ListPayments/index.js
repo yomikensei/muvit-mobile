@@ -17,7 +17,7 @@ class ListDeliveries extends React.Component {
       <Container style={styles.container}>
         <AppHeader headerText="Payment History" icon="md-list-box" />
         <FlatList
-          data={[{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}]}
+          data={[{}, {}, {}]}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
             <ItemCard item={item} />

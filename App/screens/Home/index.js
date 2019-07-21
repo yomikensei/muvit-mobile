@@ -13,7 +13,7 @@ const App = createBottomTabNavigator(
       screen: ListDeliveries,
       navigationOptions: () => ({
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="list-alt" size={18} color={tintColor} />
+          <Icon name="box-open" size={18} color={tintColor} />
         ),
       }),
     },
@@ -21,7 +21,7 @@ const App = createBottomTabNavigator(
       screen: ListPayments,
       navigationOptions: () => ({
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="credit-card" size={18} color={tintColor} />
+          <Icon name="money-bill-wave" size={18} color={tintColor} />
         ),
       }),
     },
@@ -29,7 +29,7 @@ const App = createBottomTabNavigator(
       screen: Profile,
       navigationOptions: () => ({
         tabBarIcon: ({ tintColor }) => (
-          <Icon name="users" size={18} color={tintColor} />
+          <Icon name="credit-card" size={18} color={tintColor} />
         ),
       }),
     },
