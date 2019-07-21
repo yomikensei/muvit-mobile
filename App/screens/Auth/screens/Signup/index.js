@@ -1,7 +1,10 @@
+/* eslint-disable no-shadow */
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { connect } from 'react-redux';
+import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
 import SignupForm from './components/SignupForm';
 import colors from '../../../../constants/colors.json';
+import { signupRequest } from '../../../../services/auth/actions';
 
 const styles = StyleSheet.create({
   container: {
@@ -25,12 +28,31 @@ const styles = StyleSheet.create({
 });
 
 class Signup extends Component {
-  submitSignup = (values) => {
-    const {
-      navigation: { navigate },
-    } = this.props;
-    console.log(values);
-    navigate('DeliveryTask');
+  constructor(props) {
+    super(props);
+    this.signup = this.signup.bind(this);
+  }
+
+  signup = (values) => {
+    const { prepass, confirmation, firstname, lastname, phone, email } = values;
+    const { signupRequest } = this.props;
+    if (prepass && confirmation && firstname && lastname && phone && email) {
+      if (prepass !== confirmation) {
+        Alert.alert(
+          '',
+          'Passwords do not match',
+          [],
+          { cancelable: true },
+        );
+      } else signupRequest({ credentials: values });
+    } else {
+      Alert.alert(
+        '',
+        'Please ensure all fields on the form are filled',
+        [],
+        { cancelable: true },
+      );
+    }
   };
 
   render() {
@@ -41,7 +63,7 @@ class Signup extends Component {
       <View style={styles.container}>
         <Text style={styles.text}>Create an account.</Text>
         <View style={styles.section_form}>
-          <SignupForm onSubmit={this.submitSignup} />
+          <SignupForm onSubmit={this.signup} />
         </View>
         <TouchableOpacity onPress={() => navigate('Login')}>
           <Text style={styles.linkText}>Already have an account?</Text>
@@ -51,4 +73,5 @@ class Signup extends Component {
   }
 }
 
-export default Signup;
+
+export default connect(null, { signupRequest })(Signup);

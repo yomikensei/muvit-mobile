@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     textAlignVertical: 'center',
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: 'Raleway-Bold',
   },
 });
 

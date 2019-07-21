@@ -11,7 +11,7 @@ const customTextProps = {
   style: {
     color: '#6a6e75',
     letterSpacing: 0.1,
-    fontFamily: 'ProximaNovaAltBold',
+    fontFamily: 'Raleway-Medium',
   },
 };
 
@@ -19,7 +19,7 @@ const customTextInputProps = {
   style: {
     color: '#6a6e75',
     letterSpacing: 0.1,
-    fontFamily: 'ProximaNovaAltBold',
+    fontFamily: 'Raleway-Medium',
   },
 };
 

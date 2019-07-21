@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     textAlignVertical: 'center',
     fontSize: 18,
-    fontWeight: 'bold',
+    fontFamily: 'Raleway-Bold',
   },
 });
 
@@ -35,12 +35,31 @@ class SignupForm extends Component {
     const { handleSubmit } = this.props;
     return (
       <View style={styles.container}>
-        <Field name="name" component={TextInput} label="Name" returnKeyType="next" autoFocus />
+        <Field
+          name="firstname"
+          component={TextInput}
+          label="First Name"
+          returnKeyType="next"
+          autoFocus
+        />
+        <Field
+          name="lastname"
+          component={TextInput}
+          label="Last Name"
+          returnKeyType="next"
+        />
         <Field
           name="email"
           component={TextInput}
           label="Email"
           keyboardType="email-address"
+          returnKeyType="next"
+        />
+        <Field
+          name="phone"
+          component={TextInput}
+          label="Phone"
+          keyboardType="phone-pad"
           returnKeyType="next"
         />
         <Field
@@ -55,12 +74,11 @@ class SignupForm extends Component {
           component={TextInput}
           label="Confirm Password"
           secureTextEntry
-          returnKeyType="next"
+          returnKeyType="done"
         />
-
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           <Text style={styles.text_button}>
-            Register
+            Sign Up
           </Text>
         </TouchableOpacity>
       </View>

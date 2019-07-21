@@ -9,12 +9,18 @@ const styles = StyleSheet.create({
 });
 
 const TextInput = (props) => {
-  const { label, ...rest } = props;
+  const { label, input: { onChange, onBlur, onFocus, value }, ...rest } = props;
   return (
     <View style={styles.inputContainer}>
       <Item floatingLabel>
         <Label>{label}</Label>
-        <Input {...rest} />
+        <Input
+          onChange={onChange}
+          onFocus={onFocus}
+          onBlur={onBlur}
+          value={value}
+          {...rest}
+        />
       </Item>
     </View>
   );

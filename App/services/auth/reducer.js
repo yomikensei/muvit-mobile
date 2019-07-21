@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 import * as types from './constants';
 
 const initialState = {
@@ -27,6 +28,35 @@ export default (state = initialState, action) => {
         ...state,
         login: {
           inProgress: true,
+          error: null,
+        },
+      };
+
+    case types.SIGNUP_REQUEST:
+      return {
+        ...state,
+        signup: {
+          inProgress: true,
+          error: null,
+        },
+      };
+
+    case types.SIGNUP_SUCCESS:
+      const { authInfo: { user } } = action;
+      return {
+        ...state,
+        user,
+        signup: {
+          inProgress: false,
+          error: null,
+        },
+      };
+
+    case types.SIGNUP_FAILURE:
+      return {
+        ...state,
+        signup: {
+          inProgress: false,
           error: null,
         },
       };

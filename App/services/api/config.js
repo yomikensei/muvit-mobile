@@ -1,3 +1,3 @@
 export default {
-  url: '',
+  url: 'https://muvit-api.herokuapp.com',
 };

@@ -47,6 +47,7 @@ const App = createBottomTabNavigator(
       activeTintColor: colors.tabBar.text.active,
       inactiveTintColor: colors.tabBar.text.inactive,
     },
+    initialRouteName: 'Delivery',
   },
 );
 

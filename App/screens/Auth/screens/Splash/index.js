@@ -14,12 +14,11 @@ const styles = StyleSheet.create({
   image: {
     width: 200,
     height: 200,
-    elevation: 2,
   },
 });
 const Splash = ({ navigation: { navigate } }) => {
   useEffect(() => {
-    setTimeout(() => navigate('Landing'), 10000);
+    setTimeout(() => navigate('Landing'), 2000);
   }, []);
 
   return (
