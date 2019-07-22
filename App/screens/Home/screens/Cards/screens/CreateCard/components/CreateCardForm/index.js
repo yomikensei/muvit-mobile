@@ -1,9 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
 import CardInput from '../../../../../../../../components/CardInput';
 import colors from '../../../../../../../../constants/colors.json';
+import { getCreateCard } from '../../../../../../../../services/cards/reducer';
 
 const styles = StyleSheet.create({
   cardInput: {
@@ -32,8 +34,7 @@ const styles = StyleSheet.create({
 
 class CreateCardForm extends Component {
   render() {
-    const inProgress = false;
-    const { handleSubmit } = this.props;
+    const { handleSubmit, createCard: { inProgress } } = this.props;
     return (
       <View>
         <View style={styles.cardInput}>
@@ -56,6 +57,10 @@ class CreateCardForm extends Component {
   }
 }
 
-export default reduxForm({
+const mapStateToProps = state => ({
+  createCard: getCreateCard(state),
+});
+
+export default connect(mapStateToProps)(reduxForm({
   form: 'createCardForm',
-})(CreateCardForm);
+})(CreateCardForm));

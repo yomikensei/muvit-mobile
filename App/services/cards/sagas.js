@@ -1,6 +1,8 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 import { NavigationActions } from 'react-navigation';
 import { call, put, takeLatest, select } from 'redux-saga/effects';
+import RNPaystack from 'react-native-paystack';
 import api from '../api';
 import * as actions from './actions';
 import * as types from './constants';
@@ -14,12 +16,34 @@ function* fetchCards({ page }) {
   }
 }
 
-
-function* createCard(action) {
+function* createCard({ card: _card }) {
   try {
-    yield console.log(action);
+    const { data: { data: { access_code: accessCode } } } = yield call(api, {
+      method: 'get',
+      url: '/card/initialize',
+    });
+    const { reference } = yield RNPaystack.chargeCardWithAccessCode({
+      ..._card,
+      accessCode,
+    });
+    const { data: { data: { card } } } = yield call(api, {
+      method: 'post',
+      url: '/card',
+      data: {
+        transaction_reference: reference,
+      },
+    });
+    yield put(actions.createCardSuccess({ card }));
+    yield put(
+      NavigationActions.navigate({
+        routeName: 'HomeTab',
+      }),
+    );
   } catch (error) {
-    yield console.log(error);
+    yield put(actions.createCardFailure());
+    yield console.log(error.response);
+    yield console.log(error.message);
+    yield console.log(error.code);
   }
 }
 

@@ -6,7 +6,7 @@ import {
 
 const api = async (payload) => {
   const result = await loadState();
-  const token = (!!result && !!result.auth && result.auth.token) || '';
+  const token = (!!result && result.token) || '';
   const headers = {
     Authorization: `Bearer ${token}`,
   };
