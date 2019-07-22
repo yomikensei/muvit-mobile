@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import CreditCard from 'react-native-credit-card';
@@ -13,15 +14,15 @@ const styles = StyleSheet.create({
   },
 });
 
-const ItemCard = ({ cardColor }) => (
+const ItemCard = ({ item: { brand, last4, exp_month, exp_year }, cardColor }) => (
   <View style={styles.view}>
     <CreditCard
       style={{ ...styles.card, backgroundColor: cardColor }}
-      type="mastercard"
-      number="************6666"
-      name="John Doe"
-      expiry="0521"
-      cvc="123"
+      type={brand}
+      number={`************.${last4}`}
+      name="XXXX XXXX"
+      expiry={`${exp_month}${exp_year.slice(2, 4)}`}
+      cvc="XXX"
       bar
       shiny
     />
