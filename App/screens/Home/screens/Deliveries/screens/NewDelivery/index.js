@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Container } from 'native-base';
 import AppHeader from '../../../../../../components/AppHeader';
+import NewDeliveryForm from './components/NewDeliveryForm';
 
 const styles = StyleSheet.create({
   container: {
     justifyContent: 'center',
+    alignItems: 'center',
+    marginHorizontal: 25,
   },
 });
 
@@ -17,9 +20,7 @@ class NewDelivery extends Component {
       <Container>
         <AppHeader showBackButton goBack={() => navigate('HomeTab')} headerText="Create a Delivery" icon="md-list-box" />
         <View style={styles.container}>
-          <Text>
-            Create Delivery
-          </Text>
+          <NewDeliveryForm />
         </View>
       </Container>
     );

@@ -1,7 +1,12 @@
+/* eslint-disable no-case-declarations */
 import * as types from './constants';
 
 const initialState = {
   fetchDeliveries: {
+    inProgress: false,
+    error: false,
+  },
+  createDelivery: {
     inProgress: false,
     error: false,
   },
@@ -38,9 +43,42 @@ const reducer = (state = initialState, action) => {
         },
       };
 
+    case types.CREATE_DELIVERY_REQUEST:
+      return {
+        ...state,
+        createDelivery: {
+          inProgress: true,
+          error: false,
+        },
+      };
+
+    case types.CREATE_DELIVERY_FAILURE:
+      return {
+        ...state,
+        createDelivery: {
+          inProgress: false,
+          error: true,
+        },
+      };
+
+    case types.CREATE_DELIVERY_SUCCESS:
+      const { byId } = state;
+      byId[action.delivery.id] = action.delivery;
+      return {
+        ...state,
+        byId,
+        createDelivery: {
+          inProgress: false,
+          error: false,
+        },
+      };
+
     default:
       return state;
   }
 };
 
 export default reducer;
+
+export const getDeliveries = ({ app: { entities: { deliveries: { byId } } } }) => Object.values(byId);
+export const getCreateDelivery = ({ app: { entities: { deliveries: { createDelivery } } } }) => createDelivery;

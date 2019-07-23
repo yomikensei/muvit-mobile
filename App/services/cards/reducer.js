@@ -69,7 +69,7 @@ const reducer = (state = initialState, action) => {
         byId,
         createCard: {
           inProgress: false,
-          error: true,
+          error: false,
         },
       };
 
