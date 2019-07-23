@@ -10,6 +10,7 @@ import Home from './Home';
 import AuthLoadingScreen from './AuthLoadingScreen';
 
 import CreateCard from './Home/screens/Cards/screens/CreateCard';
+import NewDelivery from './Home/screens/Deliveries/screens/NewDelivery';
 
 const HomeStack = createStackNavigator({
   HomeTab: {
@@ -20,6 +21,12 @@ const HomeStack = createStackNavigator({
   },
   CreateCard: {
     screen: CreateCard,
+    navigationOptions: () => ({
+      header: null,
+    }),
+  },
+  NewDelivery: {
+    screen: NewDelivery,
     navigationOptions: () => ({
       header: null,
     }),

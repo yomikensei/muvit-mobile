@@ -31,7 +31,7 @@ class ListDeliveries extends React.Component {
         <FAB
           buttonColor={colors.primary}
           iconTextColor="#FFFFFF"
-          onClickAction={() => navigate('CreateDeliveryTask')}
+          onClickAction={() => navigate('NewDelivery')}
           iconTextComponent={<Icon name="add" />}
           visible
         />

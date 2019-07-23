@@ -65,7 +65,7 @@ class CreateCard extends React.Component {
     return (
       <Container>
         <AppHeader showBackButton goBack={() => navigate('HomeTab')} headerText="Add a card" icon="md-list-box" />
-        <View onSubmit={this.verifyCard} style={styles.container}>
+        <View style={styles.container}>
           <CreateCardForm onSubmit={this.verifyCard} />
         </View>
       </Container>
