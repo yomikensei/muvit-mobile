@@ -13,15 +13,12 @@ const styles = StyleSheet.create({
     height: 40,
     justifyContent: 'center',
     borderRadius: 5,
-    // elevation: 5,
   },
   text_label: {
     marginVertical: 5,
     fontFamily: 'Raleway-SemiBold',
   },
   text_location: {
-    // color: 'white',
-    // textAlign: 'center',
     marginHorizontal: 25,
   },
 });
@@ -58,7 +55,7 @@ class PlaceInput extends Component {
 
     RNGooglePlaces.openAutocompleteModal({
       country: 'NG',
-      initialQuery: !pristine && self.state.selectedLocation.name,
+      initialQuery: !pristine ? self.state.selectedLocation.name : '',
     }, ['name', 'address', 'location', 'placeID'])
       .then((place) => {
         self.selectLocation(place);
