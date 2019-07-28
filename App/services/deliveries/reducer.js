@@ -114,3 +114,4 @@ export default reducer;
 
 export const getDeliveries = ({ app: { entities: { deliveries: { byId } } } }) => Object.values(byId);
 export const getCreateDelivery = ({ app: { entities: { deliveries: { createDelivery } } } }) => createDelivery;
+export const getFetchPricing = ({ app: { entities: { deliveries: { fetchPricing } } } }) => fetchPricing;

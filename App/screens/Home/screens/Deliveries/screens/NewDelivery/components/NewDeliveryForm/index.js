@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { getCreateDelivery } from 'services/deliveries/reducer';
+import { getFetchPricing } from 'services/deliveries/reducer';
 import TextInput from 'components/TextInput';
 import PlaceInput from 'components/PlaceInput';
 
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
 
 class NewDeliveryForm extends Component {
   render() {
-    const { handleSubmit, createDeliveryState: { inProgress } } = this.props;
+    const { handleSubmit, fetchPricingState: { inProgress } } = this.props;
     return (
       <View style={styles.container}>
 
@@ -92,7 +92,7 @@ class NewDeliveryForm extends Component {
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           {!inProgress ? (
             <Text style={styles.text_button}>
-              Create Delivery
+              Fetch Delivery Pricing
             </Text>
           ) :
             <ActivityIndicator color="#FFFFFF" size={30} />
@@ -105,7 +105,7 @@ class NewDeliveryForm extends Component {
 
 
 const mapStateToProps = state => ({
-  createDeliveryState: getCreateDelivery(state),
+  fetchPricingState: getFetchPricing(state),
 });
 
 export default connect(mapStateToProps)(reduxForm({

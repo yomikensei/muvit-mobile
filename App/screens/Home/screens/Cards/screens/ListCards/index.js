@@ -45,7 +45,6 @@ class ListCards extends React.Component {
       navigation: { navigate },
       cards,
     } = this.props;
-    console.log(cards);
     return (
       <Container style={styles.container}>
         <AppHeader headerText="My Cards" icon="md-list-box" />

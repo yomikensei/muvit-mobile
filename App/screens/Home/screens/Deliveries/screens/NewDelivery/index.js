@@ -1,12 +1,11 @@
 /* eslint-disable no-shadow */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createDeliveryRequest } from 'services/deliveries/actions';
+import { fetchDeliveryPricingRequest } from 'services/deliveries/actions';
 import { View, StyleSheet } from 'react-native';
 import { Container } from 'native-base';
 import AppHeader from 'components/AppHeader';
 import NewDeliveryForm from './components/NewDeliveryForm';
-
 
 const styles = StyleSheet.create({
   container: {
@@ -19,12 +18,12 @@ const styles = StyleSheet.create({
 class NewDelivery extends Component {
   constructor(props) {
     super(props);
-    this.createDelivery = this.createDelivery.bind(this);
+    this.fetchPricing = this.fetchPricing.bind(this);
   }
 
-  createDelivery(values) {
-    const { createDeliveryRequest } = this.props;
-    createDeliveryRequest({ delivery: values });
+  fetchPricing(values) {
+    const { fetchDeliveryPricingRequest } = this.props;
+    fetchDeliveryPricingRequest({ delivery: values });
   }
 
   render() {
@@ -34,11 +33,11 @@ class NewDelivery extends Component {
       <Container>
         <AppHeader showBackButton goBack={() => navigate('HomeTab')} headerText="Create a Delivery" icon="md-list-box" />
         <View style={styles.container}>
-          <NewDeliveryForm onSubmit={this.createDelivery} />
+          <NewDeliveryForm onSubmit={this.fetchPricing} />
         </View>
       </Container>
     );
   }
 }
 
-export default connect(null, { createDeliveryRequest })(NewDelivery);
+export default connect(null, { fetchDeliveryPricingRequest })(NewDelivery);

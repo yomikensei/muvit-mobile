@@ -23,10 +23,29 @@ function* createDelivery(action) {
   }
 }
 
-function* fetchDeliveryPricing(action) {
+function* fetchDeliveryPricing({ delivery }) {
   try {
-    yield console.log(action);
+    const { location_delivery: { placeID: location_delivery }, location_pickup: { placeID: location_pickup } } = delivery;
+    const { data: { data: { details } } } = yield call(api, {
+      url: '/task/info',
+      method: 'post',
+      data: {
+        location_pickup,
+        location_delivery,
+      },
+    });
+    yield put(actions.fetchDeliveryPricingSuccess({ details }));
+    yield put(
+      NavigationActions.navigate({
+        routeName: 'ViewDeliveryPricing',
+        params: {
+          delivery,
+          details,
+        },
+      }),
+    );
   } catch (error) {
+    yield put(actions.fetchDeliveryPricingFailure());
     yield console.log(error);
   }
 }
