@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable no-case-declarations */
 import * as types from './constants';
 
@@ -10,11 +11,13 @@ const initialState = {
     inProgress: false,
     error: false,
   },
+  selectedCard: null,
   byId: {},
   meta: {},
 };
 
 const reducer = (state = initialState, action) => {
+  let { byId } = state;
   switch (action.type) {
     case types.FETCH_CARDS_REQUEST:
       return {
@@ -35,8 +38,14 @@ const reducer = (state = initialState, action) => {
       };
 
     case types.FETCH_CARDS_SUCCESS:
+      const { cards } = action;
+      byId = state.byId;
+      cards.forEach((card) => {
+        byId[card.id] = card;
+      });
       return {
         ...state,
+        byId,
         fetchCards: {
           inProgress: false,
           error: false,
@@ -62,7 +71,6 @@ const reducer = (state = initialState, action) => {
       };
 
     case types.CREATE_CARD_SUCCESS:
-      const { byId } = state;
       byId[action.card.id] = action.card;
       return {
         ...state,

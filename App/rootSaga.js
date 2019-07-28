@@ -13,10 +13,10 @@ function* pullData() {
   while (true) {
     const isLoggedIn = yield select(getIsLoggedIn);
     if (isLoggedIn) {
-      // TODO: Sync Organization Details also
-      yield put(fetchDeliveriesRequest());
+      // yield put(fetchDeliveriesRequest());
+      yield put(fetchCardsRequest());
     }
-    yield delay(1000 * 60 * 1 / 6);
+    yield delay(1000 * 60 * 1);
   }
 }
 
@@ -30,6 +30,6 @@ export default function* rootSaga() {
     deliveriesSaga.createDeliverySaga(),
     deliveriesSaga.fetchDeliveryPricingSaga(),
     paymentsSaga.fetchPaymentsSaga(),
-    // pullData(),
+    pullData(),
   ]);
 }

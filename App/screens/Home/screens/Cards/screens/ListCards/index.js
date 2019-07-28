@@ -5,13 +5,11 @@ import { Container } from 'native-base';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import MDIcon from 'react-native-vector-icons/MaterialIcons';
 import FAB from 'react-native-fab';
-import _ from 'lodash';
 import AppHeader from '../../../../../../components/AppHeader';
 import CardItem from './components/CardItem';
 import colors from '../../../../../../constants/colors.json';
 import { getCards } from '../../../../../../services/cards/reducer';
 
-const cardColors = ['#385A9D', '#202020', '#191919', '#4D8FA7', '#6E1817'];
 const { height } = Dimensions.get('window');
 
 const styles = StyleSheet.create({
@@ -52,7 +50,7 @@ class ListCards extends React.Component {
           data={cards}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
-            <CardItem cardColor={_.sample(cardColors)} item={item} />
+            <CardItem cardColor="#202020" item={item} />
           )}
           ListEmptyComponent={
            (
