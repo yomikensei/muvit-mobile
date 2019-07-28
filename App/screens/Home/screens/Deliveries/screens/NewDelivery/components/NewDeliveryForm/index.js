@@ -92,7 +92,7 @@ class NewDeliveryForm extends Component {
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           {!inProgress ? (
             <Text style={styles.text_button}>
-              Fetch Delivery Pricing
+              FETCH DELIVERY PRICING
             </Text>
           ) :
             <ActivityIndicator color="#FFFFFF" size={30} />
