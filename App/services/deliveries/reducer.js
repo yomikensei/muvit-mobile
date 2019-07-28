@@ -10,6 +10,10 @@ const initialState = {
     inProgress: false,
     error: false,
   },
+  fetchPricing: {
+    inProgress: false,
+    error: false,
+  },
   byId: {},
   meta: {},
 };
@@ -72,6 +76,34 @@ const reducer = (state = initialState, action) => {
           error: false,
         },
       };
+
+    case types.FETCH_DELIVERY_PRICING_REQUEST:
+      return {
+        ...state,
+        fetchPricing: {
+          inProgress: true,
+          error: false,
+        },
+      };
+
+    case types.FETCH_DELIVERY_PRICING_FAILURE:
+      return {
+        ...state,
+        fetchPricing: {
+          inProgress: false,
+          error: true,
+        },
+      };
+
+    case types.FETCH_DELIVERY_PRICING_SUCCESS:
+      return {
+        ...state,
+        fetchPricing: {
+          inProgress: false,
+          error: false,
+        },
+      };
+
 
     default:
       return state;

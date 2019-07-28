@@ -23,6 +23,13 @@ function* createDelivery(action) {
   }
 }
 
+function* fetchDeliveryPricing(action) {
+  try {
+    yield console.log(action);
+  } catch (error) {
+    yield console.log(error);
+  }
+}
 
 export function* fetchDeliveriesSaga() {
   yield takeLatest(types.FETCH_DELIVERIES_REQUEST, fetchDeliveries);
@@ -30,4 +37,8 @@ export function* fetchDeliveriesSaga() {
 
 export function* createDeliverySaga() {
   yield takeLatest(types.CREATE_DELIVERY_REQUEST, createDelivery);
+}
+
+export function* fetchDeliveryPricingSaga() {
+  yield takeLatest(types.FETCH_DELIVERY_PRICING_REQUEST, fetchDeliveryPricing);
 }

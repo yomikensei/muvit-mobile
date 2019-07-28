@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     top: 20,
     borderRadius: 7,
-    elevation: 20,
+    elevation: 5,
     width: 180,
     height: 50,
   },

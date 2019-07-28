@@ -2,6 +2,7 @@
 import { call, put, takeLatest, select } from 'redux-saga/effects';
 import { NavigationActions } from 'react-navigation';
 import { reset } from 'redux-form';
+import Snackbar from 'react-native-snackbar';
 import * as types from './constants';
 import * as actions from './actions';
 import api from '../api';
@@ -9,7 +10,7 @@ import { clearState, saveState } from '../../localStorage';
 
 function* login({ credentials }) {
   try {
-    const { data: { user, token } } = yield call(api, {
+    const { data: { data: { user, token } } } = yield call(api, {
       url: '/user/login',
       data: credentials,
       method: 'post',
@@ -24,7 +25,11 @@ function* login({ credentials }) {
     yield put(reset('loginForm'));
   } catch (error) {
     console.log(error.response);
-    yield put(actions.loginFailure());
+    yield put(actions.loginFailure({ error: error.response.data.message }));
+    yield Snackbar.show({
+      title: 'Hello world',
+      duration: Snackbar.LENGTH_SHORT,
+    });
   }
 }
 

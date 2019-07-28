@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { getCreateDelivery } from '../../../../../../../../services/deliveries/reducer';
-import TextInput from '../../../../../../../../components/TextInput';
-import PlaceInput from '../../../../../../../../components/PlaceInput';
+import { getCreateDelivery } from 'services/deliveries/reducer';
+import TextInput from 'components/TextInput';
+import PlaceInput from 'components/PlaceInput';
 
 const styles = StyleSheet.create({
   container: {
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginVertical: 10,
     borderRadius: 7,
-    elevation: 10,
+    elevation: 3,
     width: '100%',
     height: 40,
   },
@@ -45,7 +45,7 @@ class NewDeliveryForm extends Component {
         <View style={styles.section}>
           <Field
             style={styles.placeInput}
-            name="pickup_location"
+            name="location_pickup"
             component={PlaceInput}
             label="Pickup Location"
             returnKeyType="next"
@@ -54,13 +54,13 @@ class NewDeliveryForm extends Component {
           <Field
             name="name_pickup"
             component={TextInput}
-            label="Delivery Contact Name"
+            label="Pickup Contact Name"
             returnKeyType="next"
           />
           <Field
             name="phone_pickup"
             component={TextInput}
-            label="Delivery Contact Phone Number"
+            label="Pickup Contact Phone Number"
             keyboardType="phone-pad"
             returnKeyType="next"
           />
@@ -72,7 +72,7 @@ class NewDeliveryForm extends Component {
             style={styles.placeInput}
             name="location_delivery"
             component={PlaceInput}
-            label="Pickup Location"
+            label="Delivery Location"
             returnKeyType="next"
           />
           <Field

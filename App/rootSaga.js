@@ -28,6 +28,7 @@ export default function* rootSaga() {
     cardsSaga.createCardSaga(),
     deliveriesSaga.fetchDeliveriesSaga(),
     deliveriesSaga.createDeliverySaga(),
+    deliveriesSaga.fetchDeliveryPricingSaga(),
     paymentsSaga.fetchPaymentsSaga(),
     // pullData(),
   ]);

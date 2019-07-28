@@ -27,3 +27,17 @@ export const createDeliverySuccess = ({ delivery }) => ({
 export const createDeliveryFailure = () => ({
   type: types.CREATE_DELIVERY_FAILURE,
 });
+
+export const fetchDeliveryPricingRequest = ({ delivery }) => ({
+  type: types.FETCH_DELIVERY_PRICING_REQUEST,
+  delivery,
+});
+
+export const fetchDeliveryPricingSuccess = ({ details }) => ({
+  type: types.FETCH_DELIVERY_PRICING_SUCCESS,
+  details,
+});
+
+export const fetchDeliveryPricingFailure = () => ({
+  type: types.FETCH_DELIVERY_PRICING_FAILURE,
+});

@@ -37,7 +37,7 @@ export default (state = initialState, action) => {
         ...state,
         user: action.authInfo.user,
         login: {
-          inProgress: true,
+          inProgress: false,
           error: null,
         },
       };
@@ -46,7 +46,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         login: {
-          inProgress: true,
+          inProgress: false,
           error: null,
         },
       };

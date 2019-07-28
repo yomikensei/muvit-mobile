@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
     borderRadius: 7,
     width: 180,
     height: 50,
+    elevation: 5,
   },
   text_button: {
     color: '#ffffff',
