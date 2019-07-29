@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { Badge } from 'native-base';
+import moment from 'moment';
 
 const styles = StyleSheet.create({
   card: {
@@ -14,14 +14,12 @@ const styles = StyleSheet.create({
   container: {
     margin: 15,
   },
-  view_badge: {
+  text_status: {
     borderRadius: 3,
     justifyContent: 'center',
     height: 22,
     marginTop: 10,
-  },
-  text_badge: {
-    color: 'white',
+    fontFamily: 'Raleway-Bold',
   },
   row_1: {
     flexDirection: 'row',
@@ -30,36 +28,46 @@ const styles = StyleSheet.create({
   },
 });
 
-const ItemCard = () => (
-  <TouchableOpacity style={styles.card}>
-    <View style={styles.container}>
-      <View style={styles.row_1}>
+const ItemCard = ({ item: delivery }) => {
+  let { createdAt } = delivery;
+  createdAt = moment(createdAt).format('DD.MM.YYYY HH:mm A');
+  return (
+    <TouchableOpacity style={styles.card}>
+      <View style={styles.container}>
+        <View style={styles.row_1}>
+          <View>
+            <Text>
+              {`#${delivery.code}`}
+            </Text>
+          </View>
+          <View>
+            <Text numberOfLines={1}>
+              {createdAt}
+            </Text>
+          </View>
+        </View>
         <View>
-          <Text>
-            #1982819829
+          <Text
+            numberOfLines={1}
+          >
+            {`From: ${delivery.location_pickup.name}, ${delivery.location_pickup.address}`}
+          </Text>
+          <Text
+            numberOfLines={1}
+          >
+            {`To: ${delivery.location_delivery.name}, ${delivery.location_delivery.address}`}
           </Text>
         </View>
         <View>
-          <Text>
-            14/07/2019
+          <Text
+            style={{ ...styles.text_status, color: delivery.completion_status === 'complete' ? 'green' : 'orange' }}
+          >
+            {delivery.completion_status.toUpperCase()}
           </Text>
         </View>
       </View>
-      <View>
-        <Text>
-          From: Eleganza, Lekki Phase 1
-        </Text>
-        <Text>
-          To: MKO Abiola Gardens, Alausa, Ikeja
-        </Text>
-      </View>
-      <View>
-        <Badge style={styles.view_badge} success>
-          <Text style={styles.text_badge}>Delivered</Text>
-        </Badge>
-      </View>
-    </View>
-  </TouchableOpacity>
-);
+    </TouchableOpacity>
+  );
+};
 
 export default ItemCard;
