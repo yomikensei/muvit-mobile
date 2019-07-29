@@ -40,8 +40,13 @@ const reducer = (state = initialState, action) => {
       };
 
     case types.FETCH_DELIVERIES_SUCCESS:
+      const { deliveries } = action;
+      deliveries.forEach((delivery) => {
+        byId[delivery.id] = delivery;
+      });
       return {
         ...state,
+        byId,
         fetchDeliveries: {
           inProgress: false,
           error: false,

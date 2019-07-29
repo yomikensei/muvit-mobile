@@ -10,9 +10,14 @@ import * as types from './constants';
 
 function* fetchDeliveries({ page }) {
   try {
-    yield console.log(page);
+    const { data: { data: deliveries } } = yield call(api, {
+      method: 'get',
+      url: '/tasks',
+    });
+    yield put(actions.fetchDeliveriesSuccess({ deliveries }));
   } catch (error) {
     yield console.log(error);
+    yield put(actions.fetchDeliveriesFailure());
   }
 }
 

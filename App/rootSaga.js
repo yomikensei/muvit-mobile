@@ -13,7 +13,7 @@ function* pullData() {
   while (true) {
     const isLoggedIn = yield select(getIsLoggedIn);
     if (isLoggedIn) {
-      // yield put(fetchDeliveriesRequest());
+      yield put(fetchDeliveriesRequest());
       yield put(fetchCardsRequest());
     }
     yield delay(1000 * 60 * 2);
