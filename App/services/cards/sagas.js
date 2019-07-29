@@ -51,6 +51,10 @@ function* createCard({ card: _card }) {
     });
   } catch (error) {
     yield put(actions.createCardFailure());
+    yield Snackbar.show({
+      title: 'Unable to add card',
+      duration: Snackbar.LENGTH_SHORT,
+    });
     yield console.log(error.response);
     yield console.log(error.message);
     yield console.log(error.code);

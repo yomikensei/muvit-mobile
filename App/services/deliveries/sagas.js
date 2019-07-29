@@ -1,6 +1,8 @@
 /* eslint-disable no-unused-vars */
 import { NavigationActions } from 'react-navigation';
 import { call, put, takeLatest, select } from 'redux-saga/effects';
+import Snackbar from 'react-native-snackbar';
+import { getSelectedCard } from 'services/cards/reducer';
 import api from '../api';
 import * as actions from './actions';
 import * as types from './constants';
@@ -15,11 +17,35 @@ function* fetchDeliveries({ page }) {
 }
 
 
-function* createDelivery(action) {
+function* createDelivery({ delivery }) {
   try {
-    yield console.log(action);
+    const card = yield select(getSelectedCard);
+    const { data: { data: { task } } } = yield call(api, {
+      method: 'post',
+      url: '/task',
+      data: {
+        ...delivery,
+        card,
+        payment_method: 'card',
+      },
+    });
+    yield put(actions.createDeliverySuccess({ delivery: task }));
+    yield put(
+      NavigationActions.navigate({
+        routeName: 'HomeTab',
+      }),
+    );
+    yield Snackbar.show({
+      title: 'Delivery created successfully',
+      duration: Snackbar.LENGTH_SHORT,
+    });
   } catch (error) {
     yield console.log(error);
+    yield put(actions.createDeliveryFailure());
+    yield Snackbar.show({
+      title: 'Failed to create delivery, please try again in a moment',
+      duration: Snackbar.LENGTH_SHORT,
+    });
   }
 }
 

@@ -132,7 +132,7 @@ class ViewDeliveryPricing extends PureComponent {
             </View>
 
           </View>
-          <TouchableOpacity style={styles.button} onPress={() => { createDeliveryRequest(delivery); }}>
+          <TouchableOpacity style={styles.button} onPress={() => { createDeliveryRequest({ delivery }); }}>
             {!inProgress ? (
               <Text style={styles.text_button}>
                 CREATE DELIVERY

@@ -19,6 +19,7 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+  const { byId } = state;
   switch (action.type) {
     case types.FETCH_DELIVERIES_REQUEST:
       return {
@@ -66,7 +67,6 @@ const reducer = (state = initialState, action) => {
       };
 
     case types.CREATE_DELIVERY_SUCCESS:
-      const { byId } = state;
       byId[action.delivery.id] = action.delivery;
       return {
         ...state,
