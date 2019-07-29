@@ -3,6 +3,7 @@
 import { NavigationActions } from 'react-navigation';
 import { call, put, takeLatest, select } from 'redux-saga/effects';
 import RNPaystack from 'react-native-paystack';
+import Snackbar from 'react-native-snackbar';
 import api from '../api';
 import * as actions from './actions';
 import * as types from './constants';
@@ -14,7 +15,6 @@ function* fetchCards({ page }) {
       method: 'get',
       url: '/cards',
     });
-    yield console.log(cards);
     yield put(actions.fetchCardsSuccess({ cards }));
   } catch (error) {
     yield console.log(error);
@@ -45,6 +45,10 @@ function* createCard({ card: _card }) {
         routeName: 'HomeTab',
       }),
     );
+    yield Snackbar.show({
+      title: 'Card added successfully',
+      duration: Snackbar.LENGTH_SHORT,
+    });
   } catch (error) {
     yield put(actions.createCardFailure());
     yield console.log(error.response);

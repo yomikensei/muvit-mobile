@@ -17,7 +17,8 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  let { byId } = state;
+  // eslint-disable-next-line prefer-const
+  let { byId, selectedCard } = state;
   switch (action.type) {
     case types.FETCH_CARDS_REQUEST:
       return {
@@ -46,6 +47,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         byId,
+        selectedCard: (!selectedCard && (cards.length > 0)) ? cards[0].id : selectedCard,
         fetchCards: {
           inProgress: false,
           error: false,
@@ -75,10 +77,17 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         byId,
+        selectedCard: action.card.id,
         createCard: {
           inProgress: false,
           error: false,
         },
+      };
+
+    case types.SELECT_CARD:
+      return {
+        ...state,
+        selectedCard: action.cardId,
       };
 
     default:
@@ -90,3 +99,4 @@ export default reducer;
 
 export const getCards = ({ app: { entities: { cards: { byId } } } }) => Object.values(byId);
 export const getCreateCard = ({ app: { entities: { cards: { createCard } } } }) => createCard;
+export const getSelectedCard = ({ app: { entities: { cards: { selectedCard } } } }) => selectedCard;

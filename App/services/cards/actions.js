@@ -27,3 +27,8 @@ export const createCardSuccess = ({ card }) => ({
 export const createCardFailure = () => ({
   type: types.CREATE_CARD_FAILURE,
 });
+
+export const selectCard = cardId => ({
+  type: types.SELECT_CARD,
+  cardId,
+});

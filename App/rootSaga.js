@@ -16,7 +16,7 @@ function* pullData() {
       // yield put(fetchDeliveriesRequest());
       yield put(fetchCardsRequest());
     }
-    yield delay(1000 * 60 * 1);
+    yield delay(1000 * 60 * 2);
   }
 }
 

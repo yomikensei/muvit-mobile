@@ -27,7 +27,7 @@ function* login({ credentials }) {
     console.log(error.response);
     yield put(actions.loginFailure({ error: error.response.data.message }));
     yield Snackbar.show({
-      title: 'Hello world',
+      title: 'Error loggin in, please check your credentials',
       duration: Snackbar.LENGTH_SHORT,
     });
   }

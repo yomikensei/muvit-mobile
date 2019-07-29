@@ -8,7 +8,6 @@ const styles = StyleSheet.create({
   view: {
     justifyContent: 'center',
     marginVertical: 10,
-    // backgroundColor: 'green',
     flexDirection: 'row',
   },
   card: {
@@ -21,12 +20,11 @@ const styles = StyleSheet.create({
     fontSize: 25,
     marginHorizontal: 10,
     left: 20,
-    // backgroundColor: 'red',
     alignSelf: 'center',
   },
 });
 
-const ItemCard = ({ item: { brand, last4, exp_month, exp_year }, cardColor }) => (
+const ItemCard = ({ item: { brand, last4, exp_month, exp_year }, cardColor, isSelectedCard, selectCard }) => (
   <View style={styles.view}>
     <CreditCard
       style={{ ...styles.card, backgroundColor: cardColor }}
@@ -38,7 +36,14 @@ const ItemCard = ({ item: { brand, last4, exp_month, exp_year }, cardColor }) =>
       bar
       shiny
     />
-    <Icon style={styles.icon} name="check-circle" />
+    <Icon
+      onPress={selectCard}
+      style={{
+        ...styles.icon,
+        color: isSelectedCard ? '#82cdff' : 'grey',
+      }}
+      name="check-circle"
+    />
   </View>
 
 );
