@@ -6,8 +6,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import FAB from 'react-native-fab';
 import AppHeader from 'components/AppHeader';
 import colors from 'constants/colors.json';
-import { getDeliveries } from 'services/deliveries/reducer';
-import DeliveryItem from './components/DeliveryItem';
+import { getRides } from 'services/rides/reducer';
+import RideItems from './components/RideItem';
 
 const styles = StyleSheet.create({
   container: {
@@ -15,20 +15,20 @@ const styles = StyleSheet.create({
   },
 });
 
-class ListDeliveries extends React.Component {
+class ListRides extends React.Component {
   render() {
     const {
       navigation: { navigate },
-      deliveries,
+      rides,
     } = this.props;
     return (
       <Container style={styles.container}>
-        <AppHeader headerText="Delivery History" icon="md-list-box" />
+        <AppHeader headerText="Ride History" icon="md-list-box" />
         <FlatList
-          data={deliveries}
+          data={rides}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
-            <DeliveryItem item={item} />
+            <RideItems item={item} />
           )}
           ListEmptyComponent={
             (
@@ -55,7 +55,7 @@ class ListDeliveries extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  deliveries: getDeliveries(state),
+  rides: getRides(state),
 });
 
-export default connect(mapStateToProps)(ListDeliveries);
+export default connect(mapStateToProps)(ListRides);

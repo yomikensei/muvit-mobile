@@ -7,7 +7,7 @@ import { createNavigationReducer } from 'react-navigation-redux-helpers';
 
 import authReducer from './services/auth/reducer';
 import deliveriesReducer from './services/deliveries/reducer';
-import paymentsReducer from './services/payments/reducer';
+import ridesReducer from './services/rides/reducer';
 import cardsReducer from './services/cards/reducer';
 import * as authTypes from './services/auth/constants';
 
@@ -20,7 +20,7 @@ const entitiesReducer = (state, action) => {
     auth: authReducer,
     cards: cardsReducer,
     deliveries: deliveriesReducer,
-    payments: paymentsReducer,
+    rides: ridesReducer,
   });
   if (action.type === authTypes.LOGOUT_SUCCESS) {
     return reducer(undefined, action);
