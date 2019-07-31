@@ -3,8 +3,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { FlatList, StyleSheet, View, Text, Dimensions } from 'react-native';
 import { Container } from 'native-base';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import MDIcon from 'react-native-vector-icons/MaterialIcons';
+import IconFA from 'react-native-vector-icons/FontAwesome5';
+import IconMD from 'react-native-vector-icons/MaterialIcons';
 import FAB from 'react-native-fab';
 import AppHeader from 'components/AppHeader';
 import colors from 'constants/colors.json';
@@ -59,7 +59,7 @@ class ListCards extends React.Component {
           ListEmptyComponent={
             (
               <View style={styles.view_empty}>
-                <Icon style={styles.icon_empty} name="sad-tear" />
+                <IconFA style={styles.icon_empty} name="sad-tear" />
                 <Text style={styles.text_empty}>
                   No cards available, please add a card
                 </Text>
@@ -72,7 +72,7 @@ class ListCards extends React.Component {
           buttonColor={colors.primary}
           iconTextColor="#FFFFFF"
           onClickAction={() => navigate('CreateCard')}
-          iconTextComponent={<MDIcon name="add" />}
+          iconTextComponent={<IconMD name="add" />}
           visible
         />
       </Container>
