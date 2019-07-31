@@ -1,11 +1,11 @@
 /* eslint-disable no-shadow */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchDeliveryPricingRequest } from 'services/deliveries/actions';
+import { fetchRidePricingRequest } from 'services/rides/actions';
 import { View, StyleSheet } from 'react-native';
 import { Container } from 'native-base';
 import AppHeader from 'components/AppHeader';
-import NewDeliveryForm from './components/NewRideForm';
+import NewRideForm from './components/NewRideForm';
 
 const styles = StyleSheet.create({
   container: {
@@ -22,8 +22,8 @@ class NewRide extends Component {
   }
 
   fetchPricing(values) {
-    const { fetchDeliveryPricingRequest } = this.props;
-    fetchDeliveryPricingRequest({ delivery: values });
+    const { fetchRidePricingRequest } = this.props;
+    fetchRidePricingRequest({ ride: values });
   }
 
   render() {
@@ -33,11 +33,11 @@ class NewRide extends Component {
       <Container>
         <AppHeader showBackButton goBack={() => navigate('HomeTab')} headerText="Order a ride" icon="md-list-box" />
         <View style={styles.container}>
-          <NewDeliveryForm onSubmit={this.fetchPricing} />
+          <NewRideForm onSubmit={this.fetchPricing} />
         </View>
       </Container>
     );
   }
 }
 
-export default connect(null, { fetchDeliveryPricingRequest })(NewRide);
+export default connect(null, { fetchRidePricingRequest })(NewRide);

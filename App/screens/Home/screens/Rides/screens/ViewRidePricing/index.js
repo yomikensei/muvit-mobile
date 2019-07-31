@@ -4,9 +4,9 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
 import { Container } from 'native-base';
-import { createDeliveryRequest } from 'services/deliveries/actions';
+import { createRideRequest } from 'services/rides/actions';
 import AppHeader from 'components/AppHeader';
-import { getCreateDelivery } from 'services/deliveries/reducer';
+import { getCreateRide } from 'services/rides/reducer';
 
 const styles = StyleSheet.create({
   container: {
@@ -50,10 +50,10 @@ const styles = StyleSheet.create({
 
 class ViewRidePricing extends PureComponent {
   render() {
-    const { navigation: { navigate, state: { params: { delivery, details } } }, createDeliveryRequest, createRideState: { inProgress } } = this.props;
+    const { navigation: { navigate, state: { params: { ride, details } } }, createRideRequest, createRideState: { inProgress } } = this.props;
     return (
       <Container>
-        <AppHeader showBackButton goBack={() => navigate('NewRide')} headerText="Confirm Ride" icon="md-list-box" />
+        <AppHeader showBackButton goBack={() => navigate('OrderRide')} headerText="Confirm Ride" icon="md-list-box" />
         <View style={styles.container}>
           <View style={styles.content}>
             <View style={styles.section}>
@@ -61,16 +61,16 @@ class ViewRidePricing extends PureComponent {
                 Current Location
               </Text>
               <Text>
-                {`${delivery.location_origin.name} ${delivery.location_origin.address}`}
+                {`${ride.location_origin.name} ${ride.location_origin.address}`}
               </Text>
             </View>
 
             <View style={styles.section}>
               <Text style={styles.header_section}>
-                Destination Location
+                Destination
               </Text>
               <Text>
-                {`${delivery.location_destination.name} ${delivery.location_destination.address}`}
+                {`${ride.location_destination.name} ${ride.location_destination.address}`}
               </Text>
             </View>
 
@@ -100,10 +100,10 @@ class ViewRidePricing extends PureComponent {
             </View>
 
           </View>
-          <TouchableOpacity style={styles.button} onPress={() => { createDeliveryRequest({ delivery }); }}>
+          <TouchableOpacity style={styles.button} onPress={() => { createRideRequest({ ride }); }}>
             {!inProgress ? (
               <Text style={styles.text_button}>
-                Order
+                ORDER RIDE
               </Text>
             ) :
               <ActivityIndicator color="#FFFFFF" size={30} />
@@ -116,7 +116,7 @@ class ViewRidePricing extends PureComponent {
 }
 
 const mapStateToProps = state => ({
-  createRideState: getCreateDelivery(state),
+  createRideState: getCreateRide(state),
 });
 
-export default connect(mapStateToProps, { createDeliveryRequest })(ViewRidePricing);
+export default connect(mapStateToProps, { createRideRequest })(ViewRidePricing);

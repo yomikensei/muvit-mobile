@@ -4,10 +4,10 @@ import * as authSaga from './services/auth/sagas';
 import * as cardsSaga from './services/cards/sagas';
 import * as deliveriesSaga from './services/deliveries/sagas';
 import * as paymentsSaga from './services/payments/sagas';
+import * as ridesSaga from './services/rides/sagas';
 import { getIsLoggedIn, getUser } from './services/auth/reducer';
 import { fetchDeliveriesRequest } from './services/deliveries/actions';
 import { fetchCardsRequest } from './services/cards/actions';
-import { fetchPaymentsRequest } from './services/payments/actions';
 
 function* pullData() {
   while (true) {
@@ -30,6 +30,8 @@ export default function* rootSaga() {
     deliveriesSaga.createDeliverySaga(),
     deliveriesSaga.fetchDeliveryPricingSaga(),
     paymentsSaga.fetchPaymentsSaga(),
+    ridesSaga.createRideSaga(),
+    ridesSaga.fetchRidePricingSaga(),
     pullData(),
   ]);
 }

@@ -23,9 +23,9 @@ function* fetchRides({ page }) {
 function* createRide({ ride }) {
   try {
     const card = yield select(getSelectedCard);
-    const { data: { data: { _ride } } } = yield call(api, {
+    const { data: { data: { ride: _ride } } } = yield call(api, {
       method: 'post',
-      url: '/task',
+      url: '/ride',
       data: {
         ...ride,
         card,
@@ -75,7 +75,7 @@ function* fetchRidePricing({ ride }) {
     );
   } catch (error) {
     yield put(actions.fetchRidePricingFailure());
-    yield console.log(error);
+    yield console.log(error.response);
   }
 }
 

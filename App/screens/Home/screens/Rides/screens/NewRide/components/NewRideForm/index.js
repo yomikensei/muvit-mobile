@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { getFetchPricing } from 'services/deliveries/reducer';
+import { getFetchPricing } from 'services/rides/reducer';
 import PlaceInput from 'components/PlaceInput';
 
 const styles = StyleSheet.create({
@@ -57,7 +57,7 @@ class NewRideForm extends Component {
             style={styles.placeInput}
             name="location_destination"
             component={PlaceInput}
-            label="Delivery Location"
+            label="Destination"
             returnKeyType="next"
           />
         </View>
