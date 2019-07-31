@@ -48,7 +48,7 @@ class ListDeliveries extends React.Component {
       <Container style={styles.container}>
         <AppHeader headerText="Delivery History" icon="md-list-box" />
         <FlatList
-          data={[]}
+          data={deliveries}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
             <DeliveryItem item={item} />
