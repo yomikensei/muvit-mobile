@@ -13,6 +13,7 @@ import CreateCard from './Home/screens/Cards/screens/CreateCard';
 
 import NewDelivery from './Home/screens/Deliveries/screens/NewDelivery';
 import ViewDeliveryPricing from './Home/screens/Deliveries/screens/ViewDeliveryPricing';
+import ViewDelivery from './Home/screens/Deliveries/screens/ViewDelivery';
 
 import OrderRide from './Home/screens/Rides/screens/NewRide';
 import ViewRidePricing from './Home/screens/Rides/screens/ViewRidePricing';
@@ -39,6 +40,12 @@ const HomeStack = createStackNavigator({
   },
   ViewDeliveryPricing: {
     screen: ViewDeliveryPricing,
+    navigationOptions: () => ({
+      header: null,
+    }),
+  },
+  ViewDelivery: {
+    screen: ViewDelivery,
     navigationOptions: () => ({
       header: null,
     }),

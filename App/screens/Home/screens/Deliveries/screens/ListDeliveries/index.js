@@ -48,22 +48,21 @@ class ListDeliveries extends React.Component {
       <Container style={styles.container}>
         <AppHeader headerText="Delivery History" icon="md-list-box" />
         <FlatList
-          data={deliveries}
+          data={deliveries.reverse()}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
-            <DeliveryItem item={item} />
+            <DeliveryItem item={item} navigate={navigate} />
           )}
           ListEmptyComponent={
             (
               <View style={styles.view_empty}>
-                <IconFA style={styles.icon_empty} name="sad-tear" />
+                <IconFA style={styles.icon_empty} name="sad-tear" navigate={navigate} />
                 <Text style={styles.text_empty}>
                   No deliveries available, please order a delivery
                 </Text>
               </View>
             )
           }
-          inverted
         />
         <FAB
           buttonColor={colors.primary}

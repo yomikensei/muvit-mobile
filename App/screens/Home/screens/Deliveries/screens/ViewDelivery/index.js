@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { View, Text, StyleSheet } from 'react-native';
 import { Container } from 'native-base';
 import moment from 'moment';
-import { getRide } from 'services/rides/reducer';
+import { getDelivery } from 'services/deliveries/reducer';
 import AppHeader from 'components/AppHeader';
 import colors from 'constants/colors.json';
 
@@ -26,16 +26,16 @@ const styles = StyleSheet.create({
   },
 });
 
-class ViewRide extends Component {
+class ViewDelivery extends Component {
   render() {
-    const { navigation: { navigate }, ride: { location_origin, location_destination, createdAt, bill, code } } = this.props;
+    const { navigation: { navigate }, delivery: { location_pickup, location_delivery, createdAt, bill, code, name_pickup, name_delivery, phone_pickup, phone_delivery } } = this.props;
     return (
       <Container style={styles.container}>
-        <AppHeader showBackButton goBack={() => navigate('HomeTab')} headerText="Ride Details" icon="md-list-box" />
+        <AppHeader showBackButton goBack={() => navigate('HomeTab')} headerText="Delivery Details" icon="md-list-box" />
         <View style={styles.view}>
           <View style={styles.section}>
             <Text style={styles.header_section}>
-              Ride Code
+              Delivery Code
             </Text>
             <Text style={styles.body_section}>
               {`#${code}`}
@@ -43,21 +43,52 @@ class ViewRide extends Component {
           </View>
           <View style={styles.section}>
             <Text style={styles.header_section}>
-              Start Location
+              Pickup Location
             </Text>
             <Text style={styles.body_section}>
-              {`${location_origin.name}, ${location_origin.address}`}
+              {`${location_pickup.name}, ${location_pickup.address}`}
             </Text>
           </View>
           <View style={styles.section}>
             <Text style={styles.header_section}>
-              Destination
+              Pickup Contact Name
             </Text>
             <Text style={styles.body_section}>
-              {`${location_destination.name}, ${location_destination.address}`}
+              {name_pickup}
             </Text>
           </View>
-
+          <View style={styles.section}>
+            <Text style={styles.header_section}>
+              Pickup Contact Phone
+            </Text>
+            <Text style={styles.body_section}>
+              {phone_pickup}
+            </Text>
+          </View>
+          <View style={styles.section}>
+            <Text style={styles.header_section}>
+              Delivery Location
+            </Text>
+            <Text style={styles.body_section}>
+              {`${location_delivery.name}, ${location_delivery.address}`}
+            </Text>
+          </View>
+          <View style={styles.section}>
+            <Text style={styles.header_section}>
+              Delivery Contact Name
+            </Text>
+            <Text style={styles.body_section}>
+              {name_delivery}
+            </Text>
+          </View>
+          <View style={styles.section}>
+            <Text style={styles.header_section}>
+              Delivery Contact Phone
+            </Text>
+            <Text style={styles.body_section}>
+              {phone_delivery}
+            </Text>
+          </View>
           <View style={styles.section}>
             <Text style={styles.header_section}>
               Return Trip
@@ -92,7 +123,7 @@ class ViewRide extends Component {
 }
 
 const mapStateToProps = (state, { navigation: { state: { params: { id } } } }) => ({
-  ride: getRide(state, id),
+  delivery: getDelivery(state, id),
 });
 
-export default connect(mapStateToProps)(ViewRide);
+export default connect(mapStateToProps)(ViewDelivery);

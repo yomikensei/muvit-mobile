@@ -48,7 +48,7 @@ class ListRides extends React.Component {
       <Container style={styles.container}>
         <AppHeader headerText="Ride History" icon="md-list-box" />
         <FlatList
-          data={rides}
+          data={rides.reverse()}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
             <RideItem item={item} navigate={navigate} />
