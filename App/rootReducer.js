@@ -22,7 +22,7 @@ const entitiesReducer = (state, action) => {
     deliveries: deliveriesReducer,
     rides: ridesReducer,
   });
-  if (action.type === authTypes.LOGOUT_SUCCESS) {
+  if (action.type === authTypes.LOGOUT) {
     return reducer(undefined, action);
   }
   return reducer(state, action);

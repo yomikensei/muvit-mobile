@@ -6,6 +6,7 @@ import AppHeader from 'components/AppHeader';
 import Avatar from 'components/Avatar';
 import colors from 'constants/colors.json';
 import { getUser } from 'services/auth/reducer';
+import { logout } from 'services/auth/actions';
 
 const { height: screenHeight, width: screenWidth } = Dimensions.get('window');
 
@@ -37,10 +38,11 @@ const styles = StyleSheet.create({
 
 class Profile extends React.Component {
   render() {
-    const { user: { firstname, lastname, email, phone } } = this.props;
+    // eslint-disable-next-line no-shadow
+    const { user: { firstname, lastname, email, phone }, logout, navigation: { navigate } } = this.props;
     return (
       <Container>
-        <AppHeader headerText="Settings" icon="md-contact" />
+        <AppHeader navigate={navigate} logout={logout} showLogout headerText="Settings" icon="md-contact" />
         <ScrollView>
           <Content contentContainerStyle={styles.content}>
             <View style={styles.centerContent}>
@@ -74,4 +76,4 @@ const mapStateToProps = state => ({
   user: getUser(state),
 });
 
-export default connect(mapStateToProps)(Profile);
+export default connect(mapStateToProps, { logout })(Profile);

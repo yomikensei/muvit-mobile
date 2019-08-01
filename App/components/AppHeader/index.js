@@ -1,8 +1,10 @@
 /* eslint-disable global-require */
 import React, { PureComponent } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
-import { Header, Body, Text, Icon } from 'native-base';
-import colors from '../../constants/colors.json';
+import { Header, Body, Text, Icon, Right } from 'native-base';
+import colors from 'constants/colors.json';
+// eslint-disable-next-line import/no-unresolved
+import { clearState } from 'app/localStorage';
 
 const styles = StyleSheet.create({
   header: {
@@ -30,11 +32,26 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     fontSize: 22,
   },
+  button_logout: {
+    elevation: 5,
+    backgroundColor: 'white',
+    height: 35,
+    width: 80,
+    borderRadius: 5,
+    justifyContent: 'center',
+  },
+  text_logout: {
+    textAlign: 'center',
+    textAlignVertical: 'center',
+    color: colors.primary,
+    fontFamily: 'Raleway-Bold',
+    fontSize: 14,
+  },
 });
 
 class AppHeader extends PureComponent {
   render() {
-    const { headerText, icon, showBackButton, goBack } = this.props;
+    const { headerText, icon, showBackButton, goBack, showLogout, logout, navigate } = this.props;
     return (
       <Header style={styles.header}>
         <Body style={styles.body}>
@@ -44,6 +61,23 @@ class AppHeader extends PureComponent {
             )}
           <Text style={styles.headerText}>{headerText}</Text>
         </Body>
+        {showLogout && (
+          <Right>
+            <TouchableOpacity
+              onPress={() => {
+                clearState();
+                navigate('Auth');
+                logout();
+              }}
+              style={styles.button_logout}
+            >
+              <Text style={styles.text_logout}>
+                LOGOUT
+              </Text>
+            </TouchableOpacity>
+          </Right>
+        )
+        }
       </Header>
     );
   }
