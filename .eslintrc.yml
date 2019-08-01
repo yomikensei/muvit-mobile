@@ -18,8 +18,10 @@ rules:
         - '.jsx'
   jsx-a11y/label-has-for: off
   import/no-extraneous-dependencies: off
+  camelcase: off
   no-console: off
   no-underscore-dangle: off
+  no-absolute-path: off
   object-curly-newline: off
   operator-linebreak: off
   react/forbid-prop-types: off
@@ -32,3 +34,7 @@ globals:
   expect: 0
   describe: 0
   navigator: 0
+settings:
+  import/resolver:
+    node:
+      paths: ['App']

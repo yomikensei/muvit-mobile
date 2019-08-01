@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
-import { View, StyleSheet } from 'react-native';
-import { Button, Text } from 'native-base';
+import { View, StyleSheet, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
 import TextInput from '../../../../../../components/TextInput';
 import colors from '../../../../../../constants/colors.json';
+import { getSignup } from '../../../../../../services/auth/reducer';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,22 +13,55 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: colors.primary,
+    color: '#ffffff',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignSelf: 'center',
     marginVertical: 10,
-    elevation: 0,
+    borderRadius: 7,
+    elevation: 20,
+    width: 180,
+    height: 50,
+  },
+  text_button: {
+    color: '#ffffff',
+    paddingHorizontal: 10,
+    textAlignVertical: 'center',
+    fontSize: 18,
+    fontFamily: 'Raleway-Bold',
   },
 });
 
 class SignupForm extends Component {
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, signupState: { inProgress } } = this.props;
     return (
       <View style={styles.container}>
-        <Field name="name" component={TextInput} label="Name" returnKeyType="next" autoFocus />
+        <Field
+          name="firstname"
+          component={TextInput}
+          label="First Name"
+          returnKeyType="next"
+          autoFocus
+        />
+        <Field
+          name="lastname"
+          component={TextInput}
+          label="Last Name"
+          returnKeyType="next"
+        />
         <Field
           name="email"
           component={TextInput}
           label="Email"
           keyboardType="email-address"
+          returnKeyType="next"
+        />
+        <Field
+          name="phone"
+          component={TextInput}
+          label="Phone"
+          keyboardType="phone-pad"
           returnKeyType="next"
         />
         <Field
@@ -42,17 +76,26 @@ class SignupForm extends Component {
           component={TextInput}
           label="Confirm Password"
           secureTextEntry
-          returnKeyType="next"
+          returnKeyType="done"
         />
-
-        <Button full large rounded onPress={handleSubmit} style={styles.button}>
-          <Text> Register </Text>
-        </Button>
+        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+          {!inProgress ? (
+            <Text style={styles.text_button}>
+            Sign Up
+            </Text>
+          ) :
+            <ActivityIndicator color="#FFFFFF" size={30} />
+          }
+        </TouchableOpacity>
       </View>
     );
   }
 }
 
-export default reduxForm({
+const mapStateToProps = state => ({
+  signupState: getSignup(state),
+});
+
+export default connect(mapStateToProps)(reduxForm({
   form: 'signupForm',
-})(SignupForm);
+})(SignupForm));

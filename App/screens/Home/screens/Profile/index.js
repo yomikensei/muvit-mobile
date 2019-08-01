@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { ScrollView, StyleSheet, Dimensions } from 'react-native';
 import { View, Text, Container, Content, List, ListItem, Icon } from 'native-base';
-import CreditCard from 'react-native-credit-card';
-import AppHeader from '../../../../components/AppHeader';
-import Avatar from '../../../../components/Avatar';
-import colors from '../../../../constants/colors.json';
+import AppHeader from 'components/AppHeader';
+import Avatar from 'components/Avatar';
+import colors from 'constants/colors.json';
+import { getUser } from 'services/auth/reducer';
+import { logout } from 'services/auth/actions';
 
 const { height: screenHeight, width: screenWidth } = Dimensions.get('window');
 
@@ -22,6 +24,7 @@ const styles = StyleSheet.create({
   profileAvatarText: {
     color: '#ffffff',
     fontSize: 40,
+    textTransform: 'uppercase',
   },
   icon: {
     color: colors.primary,
@@ -35,46 +38,42 @@ const styles = StyleSheet.create({
 
 class Profile extends React.Component {
   render() {
+    // eslint-disable-next-line no-shadow
+    const { user: { firstname, lastname, email, phone }, logout, navigation: { navigate } } = this.props;
     return (
       <Container>
-        <AppHeader headerText="Profile" icon="md-contact" />
+        <AppHeader navigate={navigate} logout={logout} showLogout headerText="Settings" icon="md-contact" />
         <ScrollView>
           <Content contentContainerStyle={styles.content}>
             <View style={styles.centerContent}>
               <Avatar backgroundColor={colors.primary} borderWidth={0} width={120} height={120}>
                 <View>
-                  <Text style={styles.profileAvatarText}>JD</Text>
+                  <Text style={styles.profileAvatarText}>{`${firstname[0]}${lastname[0]}`}</Text>
                 </View>
               </Avatar>
             </View>
             <List>
               <ListItem>
                 <Icon name="md-contact" style={styles.icon} />
-                <Text>John Doe</Text>
+                <Text>{`${firstname} ${lastname}`}</Text>
               </ListItem>
               <ListItem>
                 <Icon name="md-mail" style={styles.icon} />
-                <Text>john.doe@gmail.com</Text>
+                <Text>{email}</Text>
               </ListItem>
               <ListItem>
                 <Icon name="md-call" style={styles.icon} />
-                <Text>09094838478</Text>
+                <Text>{phone}</Text>
               </ListItem>
             </List>
-            <CreditCard
-              type="mastercard"
-              number="************6666"
-              name="John Doe"
-              expiry="0521"
-              cvc="123"
-              bar
-              style={styles.creditCard}
-            />
           </Content>
         </ScrollView>
       </Container>
     );
   }
 }
+const mapStateToProps = state => ({
+  user: getUser(state),
+});
 
-export default Profile;
+export default connect(mapStateToProps, { logout })(Profile);

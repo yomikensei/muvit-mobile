@@ -30,9 +30,8 @@ export const loginFailure = ({ error }) => ({
   error,
 });
 
-export const logoutRequest = ({ force } = { force: false }) => ({
+export const logoutRequest = () => ({
   type: types.LOGOUT_REQUEST,
-  force,
 });
 
 export const logoutSuccess = () => ({
@@ -41,4 +40,8 @@ export const logoutSuccess = () => ({
 
 export const logoutFailure = () => ({
   type: types.LOGOUT_FAILURE,
+});
+
+export const logout = () => ({
+  type: types.LOGOUT,
 });

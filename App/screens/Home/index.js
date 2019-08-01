@@ -1,37 +1,56 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
-import { Icon } from 'native-base';
-import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import DeliveryTasks from './screens/DeliveryTask';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import TabBar from '../../components/TabBar';
+import ListDeliveries from './screens/Deliveries/screens/ListDeliveries';
 import Profile from './screens/Profile';
+import ListCards from './screens/Cards/screens/ListCards';
+import ListRides from './screens/Rides/screens/ListRides';
+import colors from '../../constants/colors';
 
-const styles = StyleSheet.create({
-  icon: {
-    color: '#ffffff',
-    marginBottom: 10,
+const App = createBottomTabNavigator(
+  {
+    Delivery: {
+      screen: ListDeliveries,
+      navigationOptions: () => ({
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="box-open" size={18} color={tintColor} />
+        ),
+      }),
+    },
+    Rides: {
+      screen: ListRides,
+      navigationOptions: () => ({
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="motorcycle" size={18} color={tintColor} />
+        ),
+      }),
+    },
+    Cards: {
+      screen: ListCards,
+      navigationOptions: () => ({
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="credit-card" size={18} color={tintColor} />
+        ),
+      }),
+    },
+    Settings: {
+      screen: Profile,
+      navigationOptions: () => ({
+        tabBarIcon: ({ tintColor }) => (
+          <Icon name="cogs" size={18} color={tintColor} />
+        ),
+      }),
+    },
   },
-});
-
-const RouteConfigs = {
-  DeliveryTasks: {
-    screen: DeliveryTasks,
-    navigationOptions: () => ({
-      tabBarIcon: () => <Icon name="md-list-box" style={styles.icon} />,
-    }),
+  {
+    tabBarComponent: TabBar,
+    tabBarOptions: {
+      activeTintColor: colors.tabBar.text.active,
+      inactiveTintColor: colors.tabBar.text.inactive,
+    },
+    initialRouteName: 'Delivery',
   },
-  Profile: {
-    screen: Profile,
-    navigationOptions: () => ({
-      tabBarIcon: () => <Icon name="md-contact" style={styles.icon} />,
-    }),
-  },
-};
+);
 
-const MaterialBottomTabNavigatorConfig = {
-  initialRouteName: 'DeliveryTasks',
-  activeColor: '#ffffff',
-  inactiveColor: '#f4f4f4',
-  barStyle: { backgroundColor: '#006DEF' },
-};
-
-export default createMaterialBottomTabNavigator(RouteConfigs, MaterialBottomTabNavigatorConfig);
+export default createAppContainer(App);

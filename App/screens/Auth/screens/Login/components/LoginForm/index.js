@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
-import { View, StyleSheet } from 'react-native';
-import { Button, Text } from 'native-base';
+import { View, StyleSheet, TouchableOpacity, Text, ActivityIndicator } from 'react-native';
 import TextInput from '../../../../../../components/TextInput';
 import colors from '../../../../../../constants/colors.json';
+import { getLogin } from '../../../../../../services/auth/reducer';
 
 const styles = StyleSheet.create({
   container: {
@@ -12,14 +13,28 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: colors.primary,
+    color: '#ffffff',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignSelf: 'center',
     marginVertical: 10,
-    elevation: 0,
+    borderRadius: 7,
+    width: 180,
+    height: 50,
+    elevation: 5,
+  },
+  text_button: {
+    color: '#ffffff',
+    paddingHorizontal: 10,
+    textAlignVertical: 'center',
+    fontSize: 18,
+    fontFamily: 'Raleway-Bold',
   },
 });
 
 class LoginForm extends Component {
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, loginState: { inProgress } } = this.props;
     return (
       <View style={styles.container}>
         <Field
@@ -35,16 +50,27 @@ class LoginForm extends Component {
           component={TextInput}
           label="Password"
           secureTextEntry
-          returnKeyType="next"
+          returnKeyType="done"
         />
-        <Button full large rounded onPress={handleSubmit} style={styles.button}>
-          <Text> Login </Text>
-        </Button>
+        <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+          {!inProgress ? (
+            <Text style={styles.text_button}>
+              Login
+            </Text>
+          ) :
+            <ActivityIndicator color="#FFFFFF" size={30} />
+          }
+        </TouchableOpacity>
       </View>
     );
   }
 }
 
-export default reduxForm({
+const mapStateToProps = state => ({
+  loginState: getLogin(state),
+});
+
+
+export default connect(mapStateToProps)(reduxForm({
   form: 'loginForm',
-})(LoginForm);
+})(LoginForm));
