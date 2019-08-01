@@ -8,7 +8,7 @@ import FAB from 'react-native-fab';
 import AppHeader from 'components/AppHeader';
 import colors from 'constants/colors.json';
 import { getRides } from 'services/rides/reducer';
-import RideItems from './components/RideItem';
+import RideItem from './components/RideItem';
 
 const { height } = Dimensions.get('window');
 
@@ -51,7 +51,7 @@ class ListRides extends React.Component {
           data={rides}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
-            <RideItems item={item} />
+            <RideItem item={item} navigate={navigate} />
           )}
           ListEmptyComponent={
             (
@@ -63,7 +63,7 @@ class ListRides extends React.Component {
               </View>
             )
           }
-          inverted
+          // inverted
         />
         <FAB
           buttonColor={colors.primary}

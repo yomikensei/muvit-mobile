@@ -28,11 +28,18 @@ const styles = StyleSheet.create({
   },
 });
 
-const ItemCard = ({ item: ride }) => {
+const ItemCard = ({ item: ride, navigate }) => {
   let { createdAt } = ride;
   createdAt = moment(createdAt).format('DD.MM.YYYY HH:mm A');
   return (
-    <TouchableOpacity style={styles.card}>
+    <TouchableOpacity
+      style={styles.card}
+      onPress={() => {
+        navigate('ViewRide', {
+          id: ride.id,
+        });
+      }}
+    >
       <View style={styles.container}>
         <View style={styles.row_1}>
           <View>

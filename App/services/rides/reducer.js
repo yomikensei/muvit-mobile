@@ -117,6 +117,7 @@ const reducer = (state = initialState, action) => {
 
 export default reducer;
 
+export const getRide = ({ app: { entities: { rides: { byId } } } }, id) => byId[id];
 export const getRides = ({ app: { entities: { rides: { byId } } } }) => Object.values(byId);
 export const getCreateRide = ({ app: { entities: { rides: { createRide } } } }) => createRide;
 export const getFetchPricing = ({ app: { entities: { rides: { fetchPricing } } } }) => fetchPricing;

@@ -16,6 +16,7 @@ import ViewDeliveryPricing from './Home/screens/Deliveries/screens/ViewDeliveryP
 
 import OrderRide from './Home/screens/Rides/screens/NewRide';
 import ViewRidePricing from './Home/screens/Rides/screens/ViewRidePricing';
+import ViewRide from './Home/screens/Rides/screens/ViewRide';
 
 const HomeStack = createStackNavigator({
   HomeTab: {
@@ -50,6 +51,12 @@ const HomeStack = createStackNavigator({
   },
   ViewRidePricing: {
     screen: ViewRidePricing,
+    navigationOptions: () => ({
+      header: null,
+    }),
+  },
+  ViewRide: {
+    screen: ViewRide,
     navigationOptions: () => ({
       header: null,
     }),
