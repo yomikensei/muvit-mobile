@@ -5,6 +5,7 @@ import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { getFetchPricing } from 'services/rides/reducer';
 import PlaceInput from 'components/PlaceInput';
+import PickerInput from 'components/PickerInput';
 
 const styles = StyleSheet.create({
   container: {
@@ -61,6 +62,31 @@ class NewRideForm extends Component {
             returnKeyType="next"
           />
         </View>
+
+        <View style={styles.section}>
+          <Field
+            name="payment_method"
+            component={PickerInput}
+            items={[
+              { label: 'Card', value: 'card' },
+              { label: 'Cash', value: 'cash' },
+            ]}
+            prompt="Select a payment type"
+          />
+        </View>
+
+        <View style={styles.section}>
+          <Field
+            name="return_trip"
+            component={PickerInput}
+            items={[
+              { label: 'No', value: false },
+              { label: 'Yes', value: true },
+            ]}
+            prompt="Would you want a return trip?"
+          />
+        </View>
+
         <TouchableOpacity style={styles.button} onPress={handleSubmit}>
           {!inProgress ? (
             <Text style={styles.text_button}>

@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
 
 class ViewRide extends Component {
   render() {
-    const { navigation: { navigate }, ride: { location_origin, location_destination, createdAt, bill, code } } = this.props;
+    const { navigation: { navigate }, ride: { location_origin, location_destination, createdAt, bill, code, return_trip } } = this.props;
     return (
       <Container style={styles.container}>
         <AppHeader showBackButton goBack={() => navigate('HomeTab')} headerText="Ride Details" icon="md-list-box" />
@@ -63,7 +63,7 @@ class ViewRide extends Component {
               Return Trip
             </Text>
             <Text style={styles.body_section}>
-              No
+              {return_trip ? 'Yes' : 'No'}
             </Text>
           </View>
 

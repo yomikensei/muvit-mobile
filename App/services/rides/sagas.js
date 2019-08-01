@@ -54,13 +54,14 @@ function* createRide({ ride }) {
 
 function* fetchRidePricing({ ride }) {
   try {
-    const { location_origin: { placeID: location_origin }, location_destination: { placeID: location_destination } } = ride;
+    const { location_origin: { placeID: location_origin }, location_destination: { placeID: location_destination }, return_trip } = ride;
     const { data: { data: { details } } } = yield call(api, {
       url: '/ride/info',
       method: 'post',
       data: {
         location_origin,
         location_destination,
+        return_trip,
       },
     });
     yield put(actions.fetchRidePricingSuccess({ details }));
@@ -75,7 +76,7 @@ function* fetchRidePricing({ ride }) {
     );
   } catch (error) {
     yield put(actions.fetchRidePricingFailure());
-    yield console.log(error.response);
+    yield console.log(error);
   }
 }
 

@@ -56,13 +56,14 @@ function* createDelivery({ delivery }) {
 
 function* fetchDeliveryPricing({ delivery }) {
   try {
-    const { location_delivery: { placeID: location_delivery }, location_pickup: { placeID: location_pickup } } = delivery;
+    const { location_delivery: { placeID: location_delivery }, location_pickup: { placeID: location_pickup }, return_trip } = delivery;
     const { data: { data: { details } } } = yield call(api, {
       url: '/task/info',
       method: 'post',
       data: {
         location_pickup,
         location_delivery,
+        return_trip,
       },
     });
     yield put(actions.fetchDeliveryPricingSuccess({ details }));
