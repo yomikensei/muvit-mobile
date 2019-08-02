@@ -5,18 +5,23 @@ import * as cardsSaga from './services/cards/sagas';
 import * as deliveriesSaga from './services/deliveries/sagas';
 import * as paymentsSaga from './services/payments/sagas';
 import * as ridesSaga from './services/rides/sagas';
-import { getIsLoggedIn, getUser } from './services/auth/reducer';
+import { getIsLoggedIn } from './services/auth/reducer';
 import { fetchDeliveriesRequest } from './services/deliveries/actions';
 import { fetchCardsRequest } from './services/cards/actions';
 import { fetchRidesRequest } from './services/rides/actions';
 
+export function* fetchData() {
+  yield put(fetchDeliveriesRequest());
+  yield put(fetchCardsRequest());
+  yield put(fetchRidesRequest());
+}
+
 function* pullData() {
+  yield take('persist/REHYDRATE');
   while (true) {
     const isLoggedIn = yield select(getIsLoggedIn);
     if (isLoggedIn) {
-      yield put(fetchDeliveriesRequest());
-      yield put(fetchCardsRequest());
-      yield put(fetchRidesRequest());
+      yield fetchData();
     }
     yield delay(1000 * 60 * 2);
   }
