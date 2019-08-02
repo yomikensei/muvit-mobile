@@ -8,6 +8,7 @@ import * as ridesSaga from './services/rides/sagas';
 import { getIsLoggedIn, getUser } from './services/auth/reducer';
 import { fetchDeliveriesRequest } from './services/deliveries/actions';
 import { fetchCardsRequest } from './services/cards/actions';
+import { fetchRidesRequest } from './services/rides/actions';
 
 function* pullData() {
   while (true) {
@@ -15,6 +16,7 @@ function* pullData() {
     if (isLoggedIn) {
       yield put(fetchDeliveriesRequest());
       yield put(fetchCardsRequest());
+      yield put(fetchRidesRequest());
     }
     yield delay(1000 * 60 * 2);
   }
@@ -32,6 +34,7 @@ export default function* rootSaga() {
     paymentsSaga.fetchPaymentsSaga(),
     ridesSaga.createRideSaga(),
     ridesSaga.fetchRidePricingSaga(),
+    ridesSaga.fetchRidesSaga(),
     pullData(),
   ]);
 }

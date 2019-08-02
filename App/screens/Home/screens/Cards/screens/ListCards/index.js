@@ -51,7 +51,7 @@ class ListCards extends React.Component {
       <Container style={styles.container}>
         <AppHeader headerText="My Cards" icon="md-list-box" />
         <FlatList
-          data={cards}
+          data={cards.reverse()}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
             <CardItem cardColor="#202020" selectCard={() => selectCard(item.id)} isSelectedCard={item.id === selectedCard} item={item} />
@@ -66,7 +66,6 @@ class ListCards extends React.Component {
               </View>
             )
           }
-          inverted
         />
         <FAB
           buttonColor={colors.primary}

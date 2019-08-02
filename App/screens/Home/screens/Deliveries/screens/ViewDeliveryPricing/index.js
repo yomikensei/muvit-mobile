@@ -17,15 +17,15 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   content: {
-    marginVertical: 30,
+    marginVertical: 18,
   },
   header_section: {
     marginBottom: 5,
-    fontSize: 16,
-    fontFamily: 'Raleway-SemiBold',
+    fontSize: 14,
+    fontFamily: 'Raleway-Bold',
   },
   text_section: {
-
+    fontSize: 16,
   },
   button: {
     backgroundColor: 'grey',
@@ -103,6 +103,24 @@ class ViewDeliveryPricing extends PureComponent {
               </Text>
               <Text>
                 {delivery.phone_delivery}
+              </Text>
+            </View>
+
+            <View style={styles.section}>
+              <Text style={styles.header_section}>
+                Payment Method
+              </Text>
+              <Text>
+                {delivery.payment_method[0].toUpperCase() + delivery.payment_method.slice(1)}
+              </Text>
+            </View>
+
+            <View style={styles.section}>
+              <Text style={styles.header_section}>
+                Return Trip
+              </Text>
+              <Text>
+                {delivery.return_trip ? 'Yes' : 'No'}
               </Text>
             </View>
 

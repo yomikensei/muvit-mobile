@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
   },
   header_section: {
     fontFamily: 'Raleway-Bold',
-    // fontSize: ,
   },
   body_section: {
     fontSize: 16,

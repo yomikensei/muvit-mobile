@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     margin: 25,
   },
   section: {
-    marginBottom: 25,
+    marginBottom: 18,
   },
   header_section: {
     fontFamily: 'Raleway-Bold',
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
 
 class ViewDelivery extends Component {
   render() {
-    const { navigation: { navigate }, delivery: { location_pickup, location_delivery, createdAt, bill, code, name_pickup, name_delivery, phone_pickup, phone_delivery } } = this.props;
+    const { navigation: { navigate }, delivery: { location_pickup, location_delivery, createdAt, bill, code, name_pickup, name_delivery, phone_pickup, phone_delivery, payment_method } } = this.props;
     return (
       <Container style={styles.container}>
         <AppHeader showBackButton goBack={() => navigate('HomeTab')} headerText="Delivery Details" icon="md-list-box" />
@@ -94,6 +94,14 @@ class ViewDelivery extends Component {
             </Text>
             <Text style={styles.body_section}>
               No
+            </Text>
+          </View>
+          <View style={styles.section}>
+            <Text style={styles.header_section}>
+              Payment Method
+            </Text>
+            <Text style={styles.body_section}>
+              {payment_method[0].toUpperCase() + payment_method.slice(1)}
             </Text>
           </View>
 
