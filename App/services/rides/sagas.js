@@ -11,7 +11,7 @@ function* fetchRides({ page }) {
   try {
     const { data: { data: rides } } = yield call(api, {
       method: 'get',
-      url: '/rides',
+      url: '/ride',
     });
     yield put(actions.fetchRidesSuccess({ rides }));
   } catch (error) {
@@ -43,7 +43,7 @@ function* createRide({ ride }) {
       duration: Snackbar.LENGTH_SHORT,
     });
   } catch (error) {
-    yield console.log(error);
+    yield console.log(error.response);
     yield put(actions.createRideFailure());
     yield Snackbar.show({
       title: 'Failed to create ride, please try again in a moment',

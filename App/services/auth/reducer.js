@@ -80,7 +80,6 @@ export default (state = initialState, action) => {
       };
 
     case types.LOGOUT:
-      console.log('action');
       return state;
 
     default:
