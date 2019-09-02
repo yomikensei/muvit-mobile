@@ -17,6 +17,7 @@ const customTextProps = {
     letterSpacing: 0.1,
     fontFamily: 'Raleway-Medium',
   },
+  allowFontScaling: false,
 };
 
 const customTextInputProps = {
@@ -25,6 +26,7 @@ const customTextInputProps = {
     letterSpacing: 0.1,
     fontFamily: 'Raleway-Medium',
   },
+  allowFontScaling: false,
 };
 
 setCustomTextInput(customTextInputProps);
