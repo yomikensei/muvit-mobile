@@ -3,6 +3,10 @@ import { call, put, takeLatest, select } from 'redux-saga/effects';
 import { NavigationActions } from 'react-navigation';
 import { reset } from 'redux-form';
 import Snackbar from 'react-native-snackbar';
+import { fetchDeliveriesRequest } from 'services/deliveries/actions';
+import { fetchCardsRequest } from 'services/cards/actions';
+import { fetchRidesRequest } from 'services/rides/actions';
+    
 import * as types from './constants';
 import * as actions from './actions';
 import api from '../api';
@@ -17,6 +21,9 @@ function* login({ credentials }) {
     });
     yield put(actions.loginSuccess({ authInfo: { user } }));
     yield saveState({ user, token });
+    yield put(fetchCardsRequest());
+    yield put(fetchDeliveriesRequest());
+    yield put(fetchRidesRequest());
     yield put(
       NavigationActions.navigate({
         routeName: 'Home',

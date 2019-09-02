@@ -11,8 +11,8 @@ import { fetchCardsRequest } from './services/cards/actions';
 import { fetchRidesRequest } from './services/rides/actions';
 
 export function* fetchData() {
-  yield put(fetchDeliveriesRequest());
   yield put(fetchCardsRequest());
+  yield put(fetchDeliveriesRequest());
   yield put(fetchRidesRequest());
 }
 
