@@ -27,6 +27,7 @@ const styles = StyleSheet.create({
   tabBarItemText: {
     fontFamily: 'Raleway-SemiBold',
     marginBottom: 5,
+    fontSize: 12,
   },
 });
 

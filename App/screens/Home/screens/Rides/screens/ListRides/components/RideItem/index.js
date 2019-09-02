@@ -43,7 +43,7 @@ const ItemCard = ({ item: ride, navigate }) => {
       <View style={styles.container}>
         <View style={styles.row_1}>
           <View>
-            <Text>
+            <Text style={{ fontFamily: 'Raleway-SemiBold', color: 'black' }}>
               {`#${ride.code}`}
             </Text>
           </View>

@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator, ScrollView } from 'react-native';
 import { Container } from 'native-base';
 import { createRideRequest } from 'services/rides/actions';
 import AppHeader from 'components/AppHeader';
@@ -54,62 +54,65 @@ class ViewRidePricing extends PureComponent {
     return (
       <Container>
         <AppHeader showBackButton goBack={() => navigate('OrderRide')} headerText="Confirm Ride" icon="md-list-box" />
-        <View style={styles.container}>
-          <View style={styles.content}>
-            <View style={styles.section}>
-              <Text style={styles.header_section}>
-                Current Location
-              </Text>
-              <Text>
-                {`${ride.location_origin.name} ${ride.location_origin.address}`}
-              </Text>
-            </View>
+        <ScrollView>
+          <View style={styles.container}>
+            <View style={styles.content}>
+              <View style={styles.section}>
+                <Text style={styles.header_section}>
+                  Current Location
+                </Text>
+                <Text>
+                  {`${ride.location_origin.name} ${ride.location_origin.address}`}
+                </Text>
+              </View>
 
-            <View style={styles.section}>
-              <Text style={styles.header_section}>
-                Destination
-              </Text>
-              <Text>
-                {`${ride.location_destination.name} ${ride.location_destination.address}`}
-              </Text>
-            </View>
+              <View style={styles.section}>
+                <Text style={styles.header_section}>
+                  Destination
+                </Text>
+                <Text>
+                  {`${ride.location_destination.name} ${ride.location_destination.address}`}
+                </Text>
+              </View>
 
-            <View style={{ ...styles.section, marginTop: 35 }}>
-              <Text style={styles.header_section}>
-                Total Fee
-              </Text>
-              <Text>
-                {`₦ ${details.bill}`}
-              </Text>
-            </View>
-            <View style={styles.section}>
-              <Text style={styles.header_section}>
-                Total Distance
-              </Text>
-              <Text>
-                {details.distance}
-              </Text>
-            </View>
-            <View style={styles.section}>
-              <Text style={styles.header_section}>
-                Estimated Trip Duration
-              </Text>
-              <Text>
-                {details.duration}
-              </Text>
-            </View>
+              <View style={{ ...styles.section, marginTop: 35 }}>
+                <Text style={styles.header_section}>
+                  Total Fee
+                </Text>
+                <Text>
+                  {`₦ ${details.bill}`}
+                </Text>
+              </View>
+              <View style={styles.section}>
+                <Text style={styles.header_section}>
+                  Total Distance
+                </Text>
+                <Text>
+                  {details.distance}
+                </Text>
+              </View>
+              <View style={styles.section}>
+                <Text style={styles.header_section}>
+                  Estimated Trip Duration
+                </Text>
+                <Text>
+                  {details.duration}
+                </Text>
+              </View>
 
+            </View>
+            <TouchableOpacity style={styles.button} onPress={() => { createRideRequest({ ride }); }}>
+              {!inProgress ? (
+                <Text style={styles.text_button}>
+                  ORDER RIDE
+                </Text>
+              ) :
+                <ActivityIndicator color="#FFFFFF" size={30} />
+              }
+            </TouchableOpacity>
           </View>
-          <TouchableOpacity style={styles.button} onPress={() => { createRideRequest({ ride }); }}>
-            {!inProgress ? (
-              <Text style={styles.text_button}>
-                ORDER RIDE
-              </Text>
-            ) :
-              <ActivityIndicator color="#FFFFFF" size={30} />
-            }
-          </TouchableOpacity>
-        </View>
+        </ScrollView>
+
       </Container>
     );
   }

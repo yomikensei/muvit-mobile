@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchRidePricingRequest } from 'services/rides/actions';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { Container } from 'native-base';
 import AppHeader from 'components/AppHeader';
 import NewRideForm from './components/NewRideForm';
@@ -32,9 +32,11 @@ class NewRide extends Component {
     return (
       <Container>
         <AppHeader showBackButton goBack={() => navigate('HomeTab')} headerText="Order a ride" icon="md-list-box" />
-        <View style={styles.container}>
-          <NewRideForm onSubmit={this.fetchPricing} />
-        </View>
+        <ScrollView>
+          <View style={styles.container}>
+            <NewRideForm onSubmit={this.fetchPricing} />
+          </View>
+        </ScrollView>
       </Container>
     );
   }
