@@ -109,6 +109,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
     }
     signingConfigs {
       release {
@@ -156,6 +157,8 @@ dependencies {
     implementation project(':react-native-google-places')
     implementation project(':react-native-paystack')
     implementation project(':@react-native-community_async-storage')
+    implementation project(path: ":@react-native-firebase_app")
+    implementation project(path: ":@react-native-firebase_analytics")
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-config')
     implementation project(':react-native-fs')
@@ -173,3 +176,5 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
+
+apply plugin: 'com.google.gms.google-services'

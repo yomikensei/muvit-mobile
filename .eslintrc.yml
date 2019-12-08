@@ -6,6 +6,7 @@ plugins:
   - react
   - jsx-a11y
   - import
+  - prettier
 rules:
   max-len:
     - 0
