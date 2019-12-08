@@ -113,6 +113,7 @@
 		54F22C46D5214E8C8CE4AB63 /* libRNSentry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6514EF3DF18840E997ABC5A3 /* libRNSentry.a */; };
 		67116A1D3307439C85C5CE63 /* libRNSentry-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB8825C2ABD4AD6857FD553 /* libRNSentry-tvOS.a */; };
 		1A9EAF83549745C6A1060528 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C60B7293E4BD477B99E13652 /* libz.tbd */; };
+		367E59DFAD0F4395A1253363 /* libRNFBMessaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 246E78E7F6BC4393B36DC94D /* libRNFBMessaging.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -503,6 +504,8 @@
 		6514EF3DF18840E997ABC5A3 /* libRNSentry.a */ = {isa = PBXFileReference; name = "libRNSentry.a"; path = "libRNSentry.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		CDB8825C2ABD4AD6857FD553 /* libRNSentry-tvOS.a */ = {isa = PBXFileReference; name = "libRNSentry-tvOS.a"; path = "libRNSentry-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		C60B7293E4BD477B99E13652 /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
+		BD5BB58262C34D658ABBDB76 /* RNFBMessaging.xcodeproj */ = {isa = PBXFileReference; name = "RNFBMessaging.xcodeproj"; path = "../node_modules/@react-native-firebase/messaging/ios/RNFBMessaging.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		246E78E7F6BC4393B36DC94D /* libRNFBMessaging.a */ = {isa = PBXFileReference; name = "libRNFBMessaging.a"; path = "libRNFBMessaging.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -541,6 +544,7 @@
 				0CC0D9CA7F1E48A5AB5395FF /* libRNSnackbar.a in Frameworks */,
 				54F22C46D5214E8C8CE4AB63 /* libRNSentry.a in Frameworks */,
 				1A9EAF83549745C6A1060528 /* libz.tbd in Frameworks */,
+				367E59DFAD0F4395A1253363 /* libRNFBMessaging.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -744,6 +748,7 @@
 				AD63B583F9E04FF99DD8FBF0 /* RNGooglePlaces.xcodeproj */,
 				31DD37A4E586436DAD3B5DE7 /* RNSnackbar.xcodeproj */,
 				1CB46F9A97D8401C9E565B86 /* RNSentry.xcodeproj */,
+				BD5BB58262C34D658ABBDB76 /* RNFBMessaging.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1536,6 +1541,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1548,6 +1554,7 @@
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
 				);
 			};
 			name = Debug;
@@ -1582,6 +1589,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1594,6 +1602,7 @@
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
 				);
 			};
 			name = Release;
@@ -1625,6 +1634,7 @@
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
 				);
 			};
 			name = Debug;
@@ -1655,6 +1665,7 @@
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
 				);
 			};
 			name = Release;
@@ -1697,6 +1708,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1709,6 +1721,7 @@
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
 				);
 			};
 			name = Debug;
@@ -1751,6 +1764,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1763,6 +1777,7 @@
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
 				);
 			};
 			name = Release;
@@ -1804,6 +1819,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1816,6 +1832,7 @@
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
 				);
 			};
 			name = Debug;
@@ -1857,6 +1874,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1869,6 +1887,7 @@
 					"$(SRCROOT)/../node_modules/react-native-google-places/ios",
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
 				);
 			};
 			name = Release;

@@ -3,6 +3,7 @@ package com.muvit;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import io.invertase.firebase.messaging.ReactNativeFirebaseMessagingPackage;
 import io.sentry.RNSentryPackage;
 import com.azendoo.reactnativesnackbar.SnackbarPackage;
 import com.arttitude360.reactnative.rngoogleplaces.RNGooglePlacesPackage;
@@ -33,6 +34,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativeFirebaseMessagingPackage(),
             new RNSentryPackage(),
             new SnackbarPackage(),
             new RNGooglePlacesPackage(),
