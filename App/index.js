@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
-import messaging from '@react-native-firebase/messaging';
+import * as messaging from '@react-native-firebase/messaging';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
 import { PersistorProvider } from './services/contexts';
