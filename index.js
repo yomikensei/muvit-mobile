@@ -6,6 +6,7 @@ import { AppRegistry } from 'react-native';
 import { setCustomText, setCustomTextInput } from 'react-native-global-props';
 import RNPaystack from 'react-native-paystack';
 import Config from 'react-native-config';
+// eslint-disable-next-line import/no-unresolved
 import App from './App';
 import { name as appName } from './app.json';
 

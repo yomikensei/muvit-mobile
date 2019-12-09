@@ -6,7 +6,7 @@ import Snackbar from 'react-native-snackbar';
 import { fetchDeliveriesRequest } from 'services/deliveries/actions';
 import { fetchCardsRequest } from 'services/cards/actions';
 import { fetchRidesRequest } from 'services/rides/actions';
-    
+
 import * as types from './constants';
 import * as actions from './actions';
 import api from '../api';
