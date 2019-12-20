@@ -4,6 +4,7 @@ import {
   createReactNavigationReduxMiddleware,
 } from 'react-navigation-redux-helpers';
 import { connect } from 'react-redux';
+import NotificationWrapper from '../components/NotificationWrapper';
 
 import AuthStack from './Auth';
 import Home from './Home';
@@ -19,58 +20,61 @@ import OrderRide from './Home/screens/Rides/screens/NewRide';
 import ViewRidePricing from './Home/screens/Rides/screens/ViewRidePricing';
 import ViewRide from './Home/screens/Rides/screens/ViewRide';
 
-const HomeStack = createStackNavigator({
-  HomeTab: {
-    screen: Home,
-    navigationOptions: () => ({
-      header: null,
-    }),
+const HomeStack = createStackNavigator(
+  {
+    HomeTab: {
+      screen: Home,
+      navigationOptions: () => ({
+        header: null,
+      }),
+    },
+    CreateCard: {
+      screen: CreateCard,
+      navigationOptions: () => ({
+        header: null,
+      }),
+    },
+    NewDelivery: {
+      screen: NewDelivery,
+      navigationOptions: () => ({
+        header: null,
+      }),
+    },
+    ViewDeliveryPricing: {
+      screen: ViewDeliveryPricing,
+      navigationOptions: () => ({
+        header: null,
+      }),
+    },
+    ViewDelivery: {
+      screen: ViewDelivery,
+      navigationOptions: () => ({
+        header: null,
+      }),
+    },
+    OrderRide: {
+      screen: OrderRide,
+      navigationOptions: () => ({
+        header: null,
+      }),
+    },
+    ViewRidePricing: {
+      screen: ViewRidePricing,
+      navigationOptions: () => ({
+        header: null,
+      }),
+    },
+    ViewRide: {
+      screen: ViewRide,
+      navigationOptions: () => ({
+        header: null,
+      }),
+    },
   },
-  CreateCard: {
-    screen: CreateCard,
-    navigationOptions: () => ({
-      header: null,
-    }),
-  },
-  NewDelivery: {
-    screen: NewDelivery,
-    navigationOptions: () => ({
-      header: null,
-    }),
-  },
-  ViewDeliveryPricing: {
-    screen: ViewDeliveryPricing,
-    navigationOptions: () => ({
-      header: null,
-    }),
-  },
-  ViewDelivery: {
-    screen: ViewDelivery,
-    navigationOptions: () => ({
-      header: null,
-    }),
-  },
-  OrderRide: {
-    screen: OrderRide,
-    navigationOptions: () => ({
-      header: null,
-    }),
-  },
-  ViewRidePricing: {
-    screen: ViewRidePricing,
-    navigationOptions: () => ({
-      header: null,
-    }),
-  },
-  ViewRide: {
-    screen: ViewRide,
-    navigationOptions: () => ({
-      header: null,
-    }),
-  },
-}, {
-  initialRouteName: 'HomeTab',
-});
+  {
+    initialRouteName: 'HomeTab',
+  }
+);
 
 export const AppNavigator = createAppContainer(
   createSwitchNavigator(
@@ -81,20 +85,14 @@ export const AppNavigator = createAppContainer(
     },
     {
       initialRouteName: 'AuthLoading',
-    },
-  ),
-);
-
-export const reactNavigationReduxMiddleware = createReactNavigationReduxMiddleware(
-  state => state.nav,
+    }
+  )
 );
 
 const mapStateToProps = state => ({
   state: state.nav,
 });
 
-const AppWithNavigationState = connect(mapStateToProps)(
-  createReduxContainer(AppNavigator),
-);
+export const AppWithNavigationState = connect(mapStateToProps)(createReduxContainer(AppNavigator));
 
-export default AppWithNavigationState;
+export default NotificationWrapper(AppWithNavigationState);

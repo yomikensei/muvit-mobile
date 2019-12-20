@@ -23,6 +23,7 @@ rules:
   no-console: off
   no-underscore-dangle: off
   no-absolute-path: off
+  arrow-parens: off
   object-curly-newline: off
   operator-linebreak: off
   react/forbid-prop-types: off

@@ -9,6 +9,7 @@ import Config from 'react-native-config';
 // eslint-disable-next-line import/no-unresolved
 import App from './App';
 import { name as appName } from './app.json';
+import BackgroundMessaging from './App/BackgroundMessaging';
 
 const { PAYSTACK_KEY_PUBLIC } = Config;
 
@@ -37,3 +38,4 @@ console.disableYellowBox = true;
 RNPaystack.init({ publicKey: PAYSTACK_KEY_PUBLIC });
 
 AppRegistry.registerComponent(appName, () => App);
+AppRegistry.registerHeadlessTask('RNFirebaseBackgroundMessage', () => BackgroundMessaging);

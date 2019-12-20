@@ -11,7 +11,7 @@ import ridesReducer from './services/rides/reducer';
 import cardsReducer from './services/cards/reducer';
 import * as authTypes from './services/auth/constants';
 
-import AppwithNavigationState from './screens';
+import { AppWithNavigationState } from './screens';
 
 const storage = FSStorage(DocumentDir, 'parkmonitor');
 
@@ -55,7 +55,7 @@ const appReducer = combineReducers({
   // ui: persistReducer(uiPersistConfig, uiReducer),
 });
 
-const navReducer = createNavigationReducer(AppwithNavigationState);
+const navReducer = createNavigationReducer(AppWithNavigationState);
 
 export default combineReducers({
   app: persistReducer(appPersistConfig, appReducer),
