@@ -1,27 +1,31 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Item, Input, Label } from 'native-base';
+import { View, StyleSheet, TextInput } from 'react-native';
+import BaseStyles from 'theme/base';
+import { RegularText } from 'components/Text';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 const styles = StyleSheet.create({
-  inputContainer: {
-    marginVertical: 10,
+  TextInput: {
+    height: RFValue(30),
+    margin: 0,
+    padding: 0,
+    fontSize: RFValue(18),
+    fontFamily: 'DMSans-Medium',
+    color: '#2C3F56',
   },
 });
 
-const TextInput = (props) => {
-  const { label, input: { onChange, onBlur, onFocus }, ...rest } = props;
+export default props => {
+  const {
+    label,
+    field: { name },
+    form: { handleChange },
+    ...rest
+  } = props;
   return (
-    <View style={styles.inputContainer}>
-      <Item floatingLabel>
-        <Label>{label}</Label>
-        <Input
-          onChange={onChange}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          {...rest}
-        />
-      </Item>
+    <View style={BaseStyles.input}>
+      <RegularText customstyle={{ fontSize: RFValue(12) }}>{label}</RegularText>
+      <TextInput style={styles.TextInput} onChangeText={handleChange(name)} {...rest} />
     </View>
   );
 };
-export default TextInput;

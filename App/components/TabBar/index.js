@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
 import posed, { Transition } from 'react-native-pose';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import colors from '../../constants/colors';
+import colors from 'constants/colors';
 
 const { width } = Dimensions.get('window');
 
