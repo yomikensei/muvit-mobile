@@ -152,6 +152,9 @@ android {
 }
 
 dependencies {
+    implementation project(':@react-native-firebase_app')
+    implementation project(':@react-native-firebase_analytics')
+    implementation project(':react-native-image-crop-picker')
     implementation project(':react-native-push-notification')
     implementation project(':@react-native-firebase_messaging')
     implementation project(':react-native-sentry')

@@ -114,6 +114,29 @@
 		67116A1D3307439C85C5CE63 /* libRNSentry-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDB8825C2ABD4AD6857FD553 /* libRNSentry-tvOS.a */; };
 		1A9EAF83549745C6A1060528 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C60B7293E4BD477B99E13652 /* libz.tbd */; };
 		367E59DFAD0F4395A1253363 /* libRNFBMessaging.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 246E78E7F6BC4393B36DC94D /* libRNFBMessaging.a */; };
+		126FE9489CA1454DBF0B4266 /* libimageCropPicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B80F86C8CE214207A51026CF /* libimageCropPicker.a */; };
+		4F3577F180AB40798148DECA /* DMSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4B74DE43A23437FB1DA7FCB /* DMSans-Bold.ttf */; };
+		F314011D9C8E4BF7BE881C4B /* DMSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3896EA6A9B249759F922D62 /* DMSans-Medium.ttf */; };
+		F81375CD570B4D5CA41EA8B7 /* DMSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D492D2A65864F68B6D05B8F /* DMSans-Regular.ttf */; };
+		60A359DAB5BF480A944AA88D /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A9DFFB15C16C4921B444C269 /* Roboto-Black.ttf */; };
+		6D43F9C0B0B0415F9171BD5A /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 23651BA60A404398B26F4CEC /* Roboto-BlackItalic.ttf */; };
+		47D344FE813E4C77B3680B31 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7447E28F9D2C4497A814083D /* Roboto-Bold.ttf */; };
+		B15A4F4951694FE78633C13D /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C26717F9C42A4ED6BCAD1F48 /* Roboto-BoldItalic.ttf */; };
+		C3B924BD6C8349C49C9E50AB /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A6014C4C52B45BD9CA38CDC /* Roboto-Italic.ttf */; };
+		BF7F40CAF89C47CAB0ABFB2D /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B0CDFE267D164A7181883A19 /* Roboto-Light.ttf */; };
+		012777BE0FCF45C497927DCC /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2800B40F170547E0838CCBFD /* Roboto-LightItalic.ttf */; };
+		76823851A4154471B374C868 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 97BB30B12F8C4B5B834F45FA /* Roboto-Medium.ttf */; };
+		38C62A7062954CFEBDCC3A8F /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A032BC468ABF471A80863254 /* Roboto-MediumItalic.ttf */; };
+		AC2CA5B2D07743BA9F5B6185 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 60FBB89E23404582ADF9B52B /* Roboto-Regular.ttf */; };
+		7356E14890EA40B4945698C8 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18FE346F6B7249DDA0E0BEE6 /* Roboto-Thin.ttf */; };
+		3097FB5E2C4745CCA3F80B86 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0BA3BE5F4E0949918CBFC67C /* Roboto-ThinItalic.ttf */; };
+		2A144A8294F145849862DAF1 /* Roboto_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C20F9FADEFD347CA9A5754F9 /* Roboto_medium.ttf */; };
+		ECD9C2A764BE4E9B8A1E5A40 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED3F7C1880EB47458973BBFE /* Roboto.ttf */; };
+		7E9F3FDFC5F749D79BFE7AAE /* libRNFBAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32949FFB7E5A4243B905221A /* libRNFBAnalytics.a */; };
+		3B231F6752564054B7E8A7FD /* libRNFBApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D204022C4D384044A93D3944 /* libRNFBApp.a */; };
+		F930D45F24324EEF97250B49 /* DMSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E4DF7A063884C94B4D7AA05 /* DMSans-BoldItalic.ttf */; };
+		139E2D65750249B3A0B2813A /* DMSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61ADE32BA5724A3B9EC13C85 /* DMSans-Italic.ttf */; };
+		46DA9F0B9E414552B25500C0 /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F477E42A07C454283B639F2 /* DMSans-MediumItalic.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -506,6 +529,32 @@
 		C60B7293E4BD477B99E13652 /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 		BD5BB58262C34D658ABBDB76 /* RNFBMessaging.xcodeproj */ = {isa = PBXFileReference; name = "RNFBMessaging.xcodeproj"; path = "../node_modules/@react-native-firebase/messaging/ios/RNFBMessaging.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		246E78E7F6BC4393B36DC94D /* libRNFBMessaging.a */ = {isa = PBXFileReference; name = "libRNFBMessaging.a"; path = "libRNFBMessaging.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		1858959D20504A88B8AB16EA /* imageCropPicker.xcodeproj */ = {isa = PBXFileReference; name = "imageCropPicker.xcodeproj"; path = "../node_modules/react-native-image-crop-picker/ios/imageCropPicker.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		B80F86C8CE214207A51026CF /* libimageCropPicker.a */ = {isa = PBXFileReference; name = "libimageCropPicker.a"; path = "libimageCropPicker.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		C4B74DE43A23437FB1DA7FCB /* DMSans-Bold.ttf */ = {isa = PBXFileReference; name = "DMSans-Bold.ttf"; path = "../assets/fonts/DMSans-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E3896EA6A9B249759F922D62 /* DMSans-Medium.ttf */ = {isa = PBXFileReference; name = "DMSans-Medium.ttf"; path = "../assets/fonts/DMSans-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4D492D2A65864F68B6D05B8F /* DMSans-Regular.ttf */ = {isa = PBXFileReference; name = "DMSans-Regular.ttf"; path = "../assets/fonts/DMSans-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A9DFFB15C16C4921B444C269 /* Roboto-Black.ttf */ = {isa = PBXFileReference; name = "Roboto-Black.ttf"; path = "../assets/fonts/Roboto-Black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		23651BA60A404398B26F4CEC /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-BlackItalic.ttf"; path = "../assets/fonts/Roboto-BlackItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7447E28F9D2C4497A814083D /* Roboto-Bold.ttf */ = {isa = PBXFileReference; name = "Roboto-Bold.ttf"; path = "../assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C26717F9C42A4ED6BCAD1F48 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-BoldItalic.ttf"; path = "../assets/fonts/Roboto-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		3A6014C4C52B45BD9CA38CDC /* Roboto-Italic.ttf */ = {isa = PBXFileReference; name = "Roboto-Italic.ttf"; path = "../assets/fonts/Roboto-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B0CDFE267D164A7181883A19 /* Roboto-Light.ttf */ = {isa = PBXFileReference; name = "Roboto-Light.ttf"; path = "../assets/fonts/Roboto-Light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2800B40F170547E0838CCBFD /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-LightItalic.ttf"; path = "../assets/fonts/Roboto-LightItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		97BB30B12F8C4B5B834F45FA /* Roboto-Medium.ttf */ = {isa = PBXFileReference; name = "Roboto-Medium.ttf"; path = "../assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A032BC468ABF471A80863254 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-MediumItalic.ttf"; path = "../assets/fonts/Roboto-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		60FBB89E23404582ADF9B52B /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		18FE346F6B7249DDA0E0BEE6 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; name = "Roboto-Thin.ttf"; path = "../assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		0BA3BE5F4E0949918CBFC67C /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-ThinItalic.ttf"; path = "../assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		C20F9FADEFD347CA9A5754F9 /* Roboto_medium.ttf */ = {isa = PBXFileReference; name = "Roboto_medium.ttf"; path = "../node_modules/native-base/Fonts/Roboto_medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		ED3F7C1880EB47458973BBFE /* Roboto.ttf */ = {isa = PBXFileReference; name = "Roboto.ttf"; path = "../node_modules/native-base/Fonts/Roboto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		A3C0E9635DEB430F8A63C25C /* RNFBAnalytics.xcodeproj */ = {isa = PBXFileReference; name = "RNFBAnalytics.xcodeproj"; path = "../node_modules/@react-native-firebase/analytics/ios/RNFBAnalytics.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		32949FFB7E5A4243B905221A /* libRNFBAnalytics.a */ = {isa = PBXFileReference; name = "libRNFBAnalytics.a"; path = "libRNFBAnalytics.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		0872978486FD4551A0D67F84 /* RNFBApp.xcodeproj */ = {isa = PBXFileReference; name = "RNFBApp.xcodeproj"; path = "../node_modules/@react-native-firebase/app/ios/RNFBApp.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		D204022C4D384044A93D3944 /* libRNFBApp.a */ = {isa = PBXFileReference; name = "libRNFBApp.a"; path = "libRNFBApp.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		5E4DF7A063884C94B4D7AA05 /* DMSans-BoldItalic.ttf */ = {isa = PBXFileReference; name = "DMSans-BoldItalic.ttf"; path = "../assets/fonts/DMSans-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		61ADE32BA5724A3B9EC13C85 /* DMSans-Italic.ttf */ = {isa = PBXFileReference; name = "DMSans-Italic.ttf"; path = "../assets/fonts/DMSans-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		9F477E42A07C454283B639F2 /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; name = "DMSans-MediumItalic.ttf"; path = "../assets/fonts/DMSans-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -545,6 +594,9 @@
 				54F22C46D5214E8C8CE4AB63 /* libRNSentry.a in Frameworks */,
 				1A9EAF83549745C6A1060528 /* libz.tbd in Frameworks */,
 				367E59DFAD0F4395A1253363 /* libRNFBMessaging.a in Frameworks */,
+				126FE9489CA1454DBF0B4266 /* libimageCropPicker.a in Frameworks */,
+				7E9F3FDFC5F749D79BFE7AAE /* libRNFBAnalytics.a in Frameworks */,
+				3B231F6752564054B7E8A7FD /* libRNFBApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +801,9 @@
 				31DD37A4E586436DAD3B5DE7 /* RNSnackbar.xcodeproj */,
 				1CB46F9A97D8401C9E565B86 /* RNSentry.xcodeproj */,
 				BD5BB58262C34D658ABBDB76 /* RNFBMessaging.xcodeproj */,
+				1858959D20504A88B8AB16EA /* imageCropPicker.xcodeproj */,
+				A3C0E9635DEB430F8A63C25C /* RNFBAnalytics.xcodeproj */,
+				0872978486FD4551A0D67F84 /* RNFBApp.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -860,6 +915,26 @@
 				1850734F8CB144D68DC1B02F /* Proxima Nova Thin.otf */,
 				AB6564436F7E4037A4771680 /* ProximaNova-Regular.otf */,
 				0922906C881242FEB4095B33 /* ProximaNovaAltBold.otf */,
+				C4B74DE43A23437FB1DA7FCB /* DMSans-Bold.ttf */,
+				E3896EA6A9B249759F922D62 /* DMSans-Medium.ttf */,
+				4D492D2A65864F68B6D05B8F /* DMSans-Regular.ttf */,
+				A9DFFB15C16C4921B444C269 /* Roboto-Black.ttf */,
+				23651BA60A404398B26F4CEC /* Roboto-BlackItalic.ttf */,
+				7447E28F9D2C4497A814083D /* Roboto-Bold.ttf */,
+				C26717F9C42A4ED6BCAD1F48 /* Roboto-BoldItalic.ttf */,
+				3A6014C4C52B45BD9CA38CDC /* Roboto-Italic.ttf */,
+				B0CDFE267D164A7181883A19 /* Roboto-Light.ttf */,
+				2800B40F170547E0838CCBFD /* Roboto-LightItalic.ttf */,
+				97BB30B12F8C4B5B834F45FA /* Roboto-Medium.ttf */,
+				A032BC468ABF471A80863254 /* Roboto-MediumItalic.ttf */,
+				60FBB89E23404582ADF9B52B /* Roboto-Regular.ttf */,
+				18FE346F6B7249DDA0E0BEE6 /* Roboto-Thin.ttf */,
+				0BA3BE5F4E0949918CBFC67C /* Roboto-ThinItalic.ttf */,
+				C20F9FADEFD347CA9A5754F9 /* Roboto_medium.ttf */,
+				ED3F7C1880EB47458973BBFE /* Roboto.ttf */,
+				5E4DF7A063884C94B4D7AA05 /* DMSans-BoldItalic.ttf */,
+				61ADE32BA5724A3B9EC13C85 /* DMSans-Italic.ttf */,
+				9F477E42A07C454283B639F2 /* DMSans-MediumItalic.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1380,6 +1455,26 @@
 				8539685669F3478BB03787C5 /* Proxima Nova Thin.otf in Resources */,
 				CE07EB9D53444B81BA4EE91E /* ProximaNova-Regular.otf in Resources */,
 				DBB03FB3F10243D5904C6867 /* ProximaNovaAltBold.otf in Resources */,
+				4F3577F180AB40798148DECA /* DMSans-Bold.ttf in Resources */,
+				F314011D9C8E4BF7BE881C4B /* DMSans-Medium.ttf in Resources */,
+				F81375CD570B4D5CA41EA8B7 /* DMSans-Regular.ttf in Resources */,
+				60A359DAB5BF480A944AA88D /* Roboto-Black.ttf in Resources */,
+				6D43F9C0B0B0415F9171BD5A /* Roboto-BlackItalic.ttf in Resources */,
+				47D344FE813E4C77B3680B31 /* Roboto-Bold.ttf in Resources */,
+				B15A4F4951694FE78633C13D /* Roboto-BoldItalic.ttf in Resources */,
+				C3B924BD6C8349C49C9E50AB /* Roboto-Italic.ttf in Resources */,
+				BF7F40CAF89C47CAB0ABFB2D /* Roboto-Light.ttf in Resources */,
+				012777BE0FCF45C497927DCC /* Roboto-LightItalic.ttf in Resources */,
+				76823851A4154471B374C868 /* Roboto-Medium.ttf in Resources */,
+				38C62A7062954CFEBDCC3A8F /* Roboto-MediumItalic.ttf in Resources */,
+				AC2CA5B2D07743BA9F5B6185 /* Roboto-Regular.ttf in Resources */,
+				7356E14890EA40B4945698C8 /* Roboto-Thin.ttf in Resources */,
+				3097FB5E2C4745CCA3F80B86 /* Roboto-ThinItalic.ttf in Resources */,
+				2A144A8294F145849862DAF1 /* Roboto_medium.ttf in Resources */,
+				ECD9C2A764BE4E9B8A1E5A40 /* Roboto.ttf in Resources */,
+				F930D45F24324EEF97250B49 /* DMSans-BoldItalic.ttf in Resources */,
+				139E2D65750249B3A0B2813A /* DMSans-Italic.ttf in Resources */,
+				46DA9F0B9E414552B25500C0 /* DMSans-MediumItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1542,6 +1637,9 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1555,6 +1653,9 @@
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
+					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
 				);
 			};
 			name = Debug;
@@ -1590,6 +1691,9 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1603,6 +1707,9 @@
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
+					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
 				);
 			};
 			name = Release;
@@ -1635,6 +1742,9 @@
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
+					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
 				);
 			};
 			name = Debug;
@@ -1666,6 +1776,9 @@
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
+					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
 				);
 			};
 			name = Release;
@@ -1709,6 +1822,9 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1722,6 +1838,9 @@
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
+					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
 				);
 			};
 			name = Debug;
@@ -1765,6 +1884,9 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1778,6 +1900,9 @@
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
+					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
 				);
 			};
 			name = Release;
@@ -1820,6 +1945,9 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1833,6 +1961,9 @@
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
+					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
 				);
 			};
 			name = Debug;
@@ -1875,6 +2006,9 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1888,6 +2022,9 @@
 					"$(SRCROOT)/../node_modules/react-native-snackbar/ios",
 					"$(SRCROOT)/../node_modules/react-native-sentry/ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\messaging\ios\RNFBMessaging",
+					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
+					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
 				);
 			};
 			name = Release;

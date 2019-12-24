@@ -6,12 +6,12 @@ import Splash from './screens/Splash';
 
 export default createStackNavigator(
   {
-    Splash: {
-      screen: Splash,
-      navigationOptions: {
-        header: null,
-      },
-    },
+    //   Splash: {
+    //     screen: Splash,
+    //     navigationOptions: {
+    //       header: null,
+    //     },
+    //   },
     Landing: {
       screen: Landing,
       navigationOptions: {
@@ -32,6 +32,6 @@ export default createStackNavigator(
     },
   },
   {
-    initialRouteName: 'Splash',
-  },
+    initialRouteName: 'Landing',
+  }
 );

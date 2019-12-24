@@ -3,6 +3,7 @@ package com.muvit;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnative.ivpusic.imagepicker.PickerPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import io.invertase.firebase.messaging.ReactNativeFirebaseMessagingPackage;
 import io.sentry.RNSentryPackage;
@@ -35,6 +36,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactNativeFirebaseAppPackage(),
+            new PickerPackage(),
             new ReactNativePushNotificationPackage(),
             new ReactNativeFirebaseMessagingPackage(),
             new RNSentryPackage(),
@@ -45,8 +48,7 @@ public class MainApplication extends Application implements ReactApplication {
             new VectorIconsPackage(),
             new ReactNativeConfigPackage(),
             new RNFSPackage(),
-            new RNGestureHandlerPackage(),
-            new ReactNativeFirebaseAppPackage()
+            new RNGestureHandlerPackage()
       );
     }
 

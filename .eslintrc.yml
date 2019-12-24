@@ -2,6 +2,7 @@ parser: babel-eslint
 extends: airbnb
 env:
   es6: true
+  node: true
 plugins:
   - react
   - jsx-a11y
@@ -31,7 +32,7 @@ rules:
   react/prefer-stateless-function: off
   react/no-unescaped-entities: off
   react/prop-types: off
-globals:
+  react/destructuring-assignmentglobals: off
   it: 0
   expect: 0
   describe: 0

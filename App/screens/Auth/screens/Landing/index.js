@@ -1,7 +1,11 @@
 /* eslint-disable global-require */
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import * as Animatable from 'react-native-animatable';
+import { BoldText, MediumText } from 'components/Text';
+import BaseStyles from 'theme/base';
+import { RFValue } from 'react-native-responsive-fontsize';
 import colors from '../../../../constants/colors.json';
 
 const styles = StyleSheet.create({
@@ -49,21 +53,38 @@ class Landing extends Component {
       navigation: { navigate },
     } = this.props;
     return (
-      <View style={styles.container}>
-        <Image
-          source={require('../../../../assets/images/muvit-illustration.png')}
-          style={styles.image}
-          resizeMode="contain"
-        />
-        <Text style={styles.text}>Quick deliveries anytime, anywhere</Text>
-
-        <TouchableOpacity style={styles.button} onPress={() => navigate('Signup')}>
-          <Text style={styles.text_button}>
-            Get started
-          </Text>
-          <Icon style={styles.icon_button} name="angle-double-right" size={20} color="white" />
-        </TouchableOpacity>
-      </View>
+      <ImageBackground
+        source={require('../../../../assets/images/bg-landing.jpg')}
+        style={{
+          flex: 1,
+          paddingHorizontal: RFValue(30),
+          paddingTop: RFValue(36),
+          justifyContent: 'space-between',
+        }}
+      >
+        <BoldText customstyle={{ color: '#FFF', fontSize: RFValue(30), textAlign: 'center' }}>
+          Muvit
+        </BoldText>
+        <View style={{ marginBottom: RFValue(66) }}>
+          <Animatable.View
+            duration={500}
+            animation="slideInLeft"
+            style={{ width: '100%', marginBottom: RFValue(17) }}
+          >
+            <TouchableOpacity
+              onPress={() => navigate('Signup')}
+              style={{ ...BaseStyles.button, backgroundColor: '#FFF' }}
+            >
+              <MediumText>Get Started</MediumText>
+            </TouchableOpacity>
+          </Animatable.View>
+          <Animatable.View duration={500} animation="slideInRight" style={{ width: '100%' }}>
+            <TouchableOpacity onPress={() => navigate('Login')} style={BaseStyles.button}>
+              <MediumText customstyle={{ color: '#FFF' }}>Login</MediumText>
+            </TouchableOpacity>
+          </Animatable.View>
+        </View>
+      </ImageBackground>
     );
   }
 }
