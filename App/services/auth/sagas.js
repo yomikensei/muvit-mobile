@@ -16,13 +16,27 @@ import { clearState, saveState } from '../../localStorage';
 
 function* login({ credentials }) {
   try {
+    const fcm_token = yield firebase.messaging().getToken();
+    const os = yield DeviceInfo.getBaseOs();
+    const os_api_level = yield DeviceInfo.getApiLevel();
+    const manufacturer = yield DeviceInfo.getManufacturer();
+    const device = {
+      fcm_token,
+      manufacturer,
+      model: DeviceInfo.getModel(),
+      os,
+      os_version: DeviceInfo.getSystemVersion(),
+      os_api_level,
+      uuid: DeviceInfo.getUniqueId(),
+    };
+
     const {
       data: {
         data: { user, token },
       },
     } = yield call(api, {
       url: '/user/login',
-      data: credentials,
+      data: { ...credentials, device },
       method: 'post',
     });
     yield put(actions.loginSuccess({ authInfo: { user } }));
@@ -52,7 +66,7 @@ function* signup({ credentials }) {
     const os = yield DeviceInfo.getBaseOs();
     const os_api_level = yield DeviceInfo.getApiLevel();
     const manufacturer = yield DeviceInfo.getManufacturer();
-    const _device = {
+    const device = {
       fcm_token,
       manufacturer,
       model: DeviceInfo.getModel(),
@@ -68,7 +82,7 @@ function* signup({ credentials }) {
       },
     } = yield call(api, {
       url: '/user/signup',
-      data: { ...credentials, role: ['user'], device: _device },
+      data: { ...credentials, role: ['user'], device },
       method: 'post',
     });
 

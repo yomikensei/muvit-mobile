@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { View, StyleSheet, Text, TouchableOpacity, ActivityIndicator } from 'react-native';
-import TextInput from '../../../../../../components/TextInput';
-import colors from '../../../../../../constants/colors.json';
-import { getSignup } from '../../../../../../services/auth/reducer';
-import { Field, Form } from 'formik';
+import React from 'react';
+import { TouchableOpacity, ActivityIndicator } from 'react-native';
+import { Field } from 'formik';
+import { RFValue } from 'react-native-responsive-fontsize';
 import BaseStyles from 'theme/base';
 import { MediumText } from 'components/Text';
-import { RFValue } from 'react-native-responsive-fontsize';
+import TextInput from 'components/TextInput';
 
 export default props => {
   const { handleSubmit, handleChange, isLoading } = props;

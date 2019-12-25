@@ -1,68 +1,47 @@
 /* eslint-disable no-shadow */
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { View, Alert, ScrollView } from 'react-native';
+import BaseStyles from 'theme/base';
+import TopNav from 'components/TopNav';
+import { Formik } from 'formik';
+import { loginRequest } from 'services/auth/actions';
+import { getLogin } from 'services/auth/reducer';
 import LoginForm from './components/LoginForm';
-import colors from '../../../../constants/colors.json';
-import { loginRequest } from '../../../../services/auth/actions';
 
-const styles = StyleSheet.create({
-  container: {
-    justifyContent: 'center',
-    height: '100%',
-  },
-  text: {
-    fontSize: 30,
-    marginLeft: '10%',
-    fontWeight: 'bold',
-    color: '#000000',
-  },
-  section_form: {
-    alignItems: 'center',
-    marginVertical: 20,
-  },
-  linkText: {
-    color: colors.primary,
-    textAlign: 'center',
-  },
-});
+const initialValues = {
+  email: '',
+  password: '',
+};
 
-class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.login = this.login.bind(this);
-  }
+const Login = props => {
+  const { navigation, isLoading } = props;
 
-  login = (values) => {
+  const login = values => {
     if (values.password && values.email) {
-      const { loginRequest } = this.props;
+      const { loginRequest } = props;
       loginRequest({ credentials: values });
     } else {
-      Alert.alert(
-        '',
-        'Please ensure all fields on the form are filled',
-        [],
-        { cancelable: true },
-      );
+      Alert.alert('', 'Please ensure all fields on the form are filled', [], { cancelable: true });
     }
   };
 
-  render() {
-    const {
-      navigation: { navigate },
-    } = this.props;
-    return (
-      <View style={styles.container}>
-        <Text style={styles.text}>Welcome back.</Text>
-        <View style={styles.section_form}>
-          <LoginForm onSubmit={this.login} />
-        </View>
-        <TouchableOpacity onPress={() => navigate('Signup')}>
-          <Text style={styles.linkText}>Don't have an account?</Text>
-        </TouchableOpacity>
-      </View>
-    );
-  }
-}
+  return (
+    <View style={BaseStyles.background}>
+      <TopNav navigation={navigation} title="Login" info="please fill in all details" />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={login}
+          render={_props => <LoginForm {...{ ..._props, isLoading }} />}
+        />
+      </ScrollView>
+    </View>
+  );
+};
 
-export default connect(null, { loginRequest })(Login);
+const mapStateToProps = state => ({
+  isLoading: getLogin(state).inProgress,
+});
+
+export default connect(mapStateToProps, { loginRequest })(Login);

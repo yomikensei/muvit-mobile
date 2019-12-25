@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import { View, Alert, ScrollView } from 'react-native';
 import { signupRequest } from 'services/auth/actions';
