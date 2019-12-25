@@ -13,7 +13,7 @@ export default props => {
   } = props;
 
   return (
-    <View style={{ width: '100%', marginBottom: RFValue(46) }}>
+    <View style={{ width: '100%', marginBottom: RFValue(30) }}>
       <View
         style={{
           flexDirection: 'row',

@@ -10,7 +10,7 @@ import { MediumText } from 'components/Text';
 import { RFValue } from 'react-native-responsive-fontsize';
 
 export default props => {
-  const { handleSubmit, values, handleChange } = props;
+  const { handleSubmit, handleChange, isLoading } = props;
   return (
     <>
       <Field
@@ -63,8 +63,13 @@ export default props => {
       <TouchableOpacity
         onPress={handleSubmit}
         style={{ ...BaseStyles.button, marginBottom: RFValue(50) }}
+        disabled={isLoading}
       >
-        <MediumText customstyle={{ color: '#FFF' }}>Continue</MediumText>
+        {isLoading ? (
+          <ActivityIndicator size={25} color="#FFF" />
+        ) : (
+          <MediumText customstyle={{ color: '#FFF' }}>Continue</MediumText>
+        )}
       </TouchableOpacity>
     </>
   );

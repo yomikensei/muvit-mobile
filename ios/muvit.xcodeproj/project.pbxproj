@@ -137,6 +137,8 @@
 		F930D45F24324EEF97250B49 /* DMSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5E4DF7A063884C94B4D7AA05 /* DMSans-BoldItalic.ttf */; };
 		139E2D65750249B3A0B2813A /* DMSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 61ADE32BA5724A3B9EC13C85 /* DMSans-Italic.ttf */; };
 		46DA9F0B9E414552B25500C0 /* DMSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F477E42A07C454283B639F2 /* DMSans-MediumItalic.ttf */; };
+		F6A0189005E54C78AECE5AE5 /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4AAFE45068094165A60833C7 /* libRNDeviceInfo.a */; };
+		8ED6098A690B40DBA53B14DA /* libRNDeviceInfo-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26010B1AEA68484D8B43380D /* libRNDeviceInfo-tvOS.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -555,6 +557,9 @@
 		5E4DF7A063884C94B4D7AA05 /* DMSans-BoldItalic.ttf */ = {isa = PBXFileReference; name = "DMSans-BoldItalic.ttf"; path = "../assets/fonts/DMSans-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		61ADE32BA5724A3B9EC13C85 /* DMSans-Italic.ttf */ = {isa = PBXFileReference; name = "DMSans-Italic.ttf"; path = "../assets/fonts/DMSans-Italic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		9F477E42A07C454283B639F2 /* DMSans-MediumItalic.ttf */ = {isa = PBXFileReference; name = "DMSans-MediumItalic.ttf"; path = "../assets/fonts/DMSans-MediumItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		E742A95DBF1E40CEBB5BB156 /* RNDeviceInfo.xcodeproj */ = {isa = PBXFileReference; name = "RNDeviceInfo.xcodeproj"; path = "../node_modules/react-native-device-info/ios/RNDeviceInfo.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		4AAFE45068094165A60833C7 /* libRNDeviceInfo.a */ = {isa = PBXFileReference; name = "libRNDeviceInfo.a"; path = "libRNDeviceInfo.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		26010B1AEA68484D8B43380D /* libRNDeviceInfo-tvOS.a */ = {isa = PBXFileReference; name = "libRNDeviceInfo-tvOS.a"; path = "libRNDeviceInfo-tvOS.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -597,6 +602,7 @@
 				126FE9489CA1454DBF0B4266 /* libimageCropPicker.a in Frameworks */,
 				7E9F3FDFC5F749D79BFE7AAE /* libRNFBAnalytics.a in Frameworks */,
 				3B231F6752564054B7E8A7FD /* libRNFBApp.a in Frameworks */,
+				F6A0189005E54C78AECE5AE5 /* libRNDeviceInfo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +623,7 @@
 				E4566C226844448C8DCFE8B4 /* libReactNativeConfig-tvOS.a in Frameworks */,
 				267557A7673348F989F344AB /* libRNVectorIcons-tvOS.a in Frameworks */,
 				67116A1D3307439C85C5CE63 /* libRNSentry-tvOS.a in Frameworks */,
+				8ED6098A690B40DBA53B14DA /* libRNDeviceInfo-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -804,6 +811,7 @@
 				1858959D20504A88B8AB16EA /* imageCropPicker.xcodeproj */,
 				A3C0E9635DEB430F8A63C25C /* RNFBAnalytics.xcodeproj */,
 				0872978486FD4551A0D67F84 /* RNFBApp.xcodeproj */,
+				E742A95DBF1E40CEBB5BB156 /* RNDeviceInfo.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -1640,6 +1648,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1656,6 +1666,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
+					"$(SRCROOT)\..\node_modules\react-native-device-info\ios\RNDeviceInfo",
 				);
 			};
 			name = Debug;
@@ -1694,6 +1705,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1710,6 +1723,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
+					"$(SRCROOT)\..\node_modules\react-native-device-info\ios\RNDeviceInfo",
 				);
 			};
 			name = Release;
@@ -1745,6 +1759,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
+					"$(SRCROOT)\..\node_modules\react-native-device-info\ios\RNDeviceInfo",
 				);
 			};
 			name = Debug;
@@ -1779,6 +1794,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
+					"$(SRCROOT)\..\node_modules\react-native-device-info\ios\RNDeviceInfo",
 				);
 			};
 			name = Release;
@@ -1825,6 +1841,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1841,6 +1859,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
+					"$(SRCROOT)\..\node_modules\react-native-device-info\ios\RNDeviceInfo",
 				);
 			};
 			name = Debug;
@@ -1887,6 +1906,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1903,6 +1924,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
+					"$(SRCROOT)\..\node_modules\react-native-device-info\ios\RNDeviceInfo",
 				);
 			};
 			name = Release;
@@ -1948,6 +1970,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1964,6 +1988,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
+					"$(SRCROOT)\..\node_modules\react-native-device-info\ios\RNDeviceInfo",
 				);
 			};
 			name = Debug;
@@ -2009,6 +2034,8 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2025,6 +2052,7 @@
 					"$(SRCROOT)\..\node_modules\react-native-image-crop-picker\ios/**",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\analytics\ios\RNFBAnalytics",
 					"$(SRCROOT)\..\node_modules\@react-native-firebase\app\ios\RNFBApp",
+					"$(SRCROOT)\..\node_modules\react-native-device-info\ios\RNDeviceInfo",
 				);
 			};
 			name = Release;

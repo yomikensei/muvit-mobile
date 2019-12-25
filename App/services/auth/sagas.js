@@ -2,6 +2,8 @@
 import { call, put, takeLatest, select } from 'redux-saga/effects';
 import { NavigationActions } from 'react-navigation';
 import { reset } from 'redux-form';
+import DeviceInfo from 'react-native-device-info';
+import { firebase } from '@react-native-firebase/messaging';
 import Snackbar from 'react-native-snackbar';
 import { fetchDeliveriesRequest } from 'services/deliveries/actions';
 import { fetchCardsRequest } from 'services/cards/actions';
@@ -14,7 +16,11 @@ import { clearState, saveState } from '../../localStorage';
 
 function* login({ credentials }) {
   try {
-    const { data: { data: { user, token } } } = yield call(api, {
+    const {
+      data: {
+        data: { user, token },
+      },
+    } = yield call(api, {
       url: '/user/login',
       data: credentials,
       method: 'post',
@@ -27,7 +33,7 @@ function* login({ credentials }) {
     yield put(
       NavigationActions.navigate({
         routeName: 'Home',
-      }),
+      })
     );
     yield put(reset('loginForm'));
   } catch (error) {
@@ -42,22 +48,40 @@ function* login({ credentials }) {
 
 function* signup({ credentials }) {
   try {
-    const { data: { user, token } } = yield call(api, {
+    const fcm_token = yield firebase.messaging().getToken();
+    const os = yield DeviceInfo.getBaseOs();
+    const os_api_level = yield DeviceInfo.getApiLevel();
+    const manufacturer = yield DeviceInfo.getManufacturer();
+    const _device = {
+      fcm_token,
+      manufacturer,
+      model: DeviceInfo.getModel(),
+      os,
+      os_version: DeviceInfo.getSystemVersion(),
+      os_api_level,
+      uuid: DeviceInfo.getUniqueId(),
+    };
+
+    const {
+      data: {
+        data: { user, token },
+      },
+    } = yield call(api, {
       url: '/user/signup',
-      data: credentials,
+      data: { ...credentials, role: ['user'], device: _device },
       method: 'post',
     });
+
     yield put(actions.signupSuccess({ authInfo: { user } }));
     yield saveState({ user, token });
     yield put(
       NavigationActions.navigate({
         routeName: 'Home',
-      }),
+      })
     );
-    yield put(reset('signupForm'));
-  } catch (error) {
-    yield put(actions.signupFailure());
-    console.log(error.response);
+  } catch (e) {
+    yield put(actions.signupFailure({}));
+    console.log(e.response ? e.response : e);
   }
 }
 

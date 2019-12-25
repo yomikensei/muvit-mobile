@@ -1,8 +1,9 @@
 /* eslint-disable no-shadow */
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { View, Alert, ScrollView } from 'react-native';
 import { signupRequest } from 'services/auth/actions';
+import { getSignup } from 'services/auth/reducer';
 import BaseStyles from 'theme/base';
 import TopNav from 'components/TopNav';
 import { Formik } from 'formik';
@@ -19,24 +20,19 @@ const initialValues = {
 };
 
 const Signup = props => {
-  const { navigation } = props;
+  const { navigation, isLoading } = props;
 
   const signup = async values => {
-    try {
-    } catch (e) {
-      console.log(e);
+    const { prepass, confirmation, firstname, lastname, phone, email } = values;
+    if (prepass && confirmation && firstname && lastname && phone && email) {
+      if (prepass !== confirmation) {
+        Alert.alert('', 'Passwords do not match', [], { cancelable: true });
+      } else props.signupRequest({ credentials: values });
+    } else {
+      Alert.alert('', 'Please ensure all fields on the form are filled', [], {
+        cancelable: true,
+      });
     }
-
-    console.log(values);
-    // const { prepass, confirmation, firstname, lastname, phone, email } = values;
-    // const { signupRequest } = props;
-    // if (prepass && confirmation && firstname && lastname && phone && email) {
-    //   if (prepass !== confirmation) {
-    //     Alert.alert('', 'Passwords do not match', [], { cancelable: true });
-    //   } else signupRequest({ credentials: values });
-    // } else {
-    //   Alert.alert('', 'Please ensure all fields on the form are filled', [], { cancelable: true });
-    // }
   };
 
   return (
@@ -46,11 +42,15 @@ const Signup = props => {
         <Formik
           initialValues={initialValues}
           onSubmit={signup}
-          render={props => <SignupForm {...props} />}
+          render={_props => <SignupForm {...{ ..._props, isLoading }} />}
         />
       </ScrollView>
     </View>
   );
 };
 
-export default connect(null, { signupRequest })(Signup);
+const mapStateToProps = state => ({
+  isLoading: getSignup(state).inProgress,
+});
+
+export default connect(mapStateToProps, { signupRequest })(Signup);

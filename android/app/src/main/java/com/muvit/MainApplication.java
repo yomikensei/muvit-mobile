@@ -3,6 +3,8 @@ package com.muvit;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import codes.simen.IMEI.IMEI;
+import com.learnium.RNDeviceInfo.RNDeviceInfo;
 import com.reactnative.ivpusic.imagepicker.PickerPackage;
 import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import io.invertase.firebase.messaging.ReactNativeFirebaseMessagingPackage;
@@ -36,6 +38,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new IMEI(),
+            new RNDeviceInfo(),
             new ReactNativeFirebaseAppPackage(),
             new PickerPackage(),
             new ReactNativePushNotificationPackage(),

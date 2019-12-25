@@ -6374,6 +6374,11 @@ react-native-credit-card@^0.1.9:
     payment "^2.0.3"
     react-native-flip-card "^3.3.0"
 
+react-native-device-info@^5.4.0:
+  version "5.4.0"
+  resolved "https://registry.yarnpkg.com/react-native-device-info/-/react-native-device-info-5.4.0.tgz#c837afdfc7947eef0a09c1bf2f3beb127d31458b"
+  integrity sha512-57IZQ7IavRlNZvI1cKypMkjRPa7nmLK6jYVSrvPMYX2VrCszmgJKlP90cZZaX0FObtNt1yYuKAOkBqyjkNrTIA==
+
 react-native-drawer@2.5.1:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/react-native-drawer/-/react-native-drawer-2.5.1.tgz#08b9314184f48c724f1b467f8859797369798654"
@@ -6434,6 +6439,11 @@ react-native-image-crop-picker@^0.26.1:
   version "0.26.1"
   resolved "https://registry.yarnpkg.com/react-native-image-crop-picker/-/react-native-image-crop-picker-0.26.1.tgz#3499ff5d4a09c9a9e927eb4f6ff936015ff594f1"
   integrity sha512-5JdOjQS2V5L/vfb8+jPTUYx4VZPLvhZTyCUjiG0BZCbh+N1L24Kj2C+8EOuWS7xXXHrz5Bpe/eq5lQO1Efc+Yw==
+
+react-native-imei@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-imei/-/react-native-imei-0.2.0.tgz#431c680930401949dd62826ce8d1974770168090"
+  integrity sha512-TPVXPqpcPK0e3r3jdGoDwHVyEIsOTOwbkajGCgQCrw01dZkUa3x2UcTuhm1YmoXTrULWYtJlqseGoyjDOm+lHQ==
 
 react-native-iphone-x-helper@^1.0.2, react-native-iphone-x-helper@^1.0.3:
   version "1.2.1"
