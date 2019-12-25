@@ -49,7 +49,6 @@ function* login({ credentials }) {
         routeName: 'Home',
       })
     );
-    yield put(reset('loginForm'));
   } catch (error) {
     console.log(error.response);
     yield put(actions.loginFailure({ error: error.response.data.message }));

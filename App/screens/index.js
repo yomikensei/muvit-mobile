@@ -73,6 +73,7 @@ const HomeStack = createStackNavigator(
   },
   {
     initialRouteName: 'HomeTab',
+    headerMode: 'none',
   }
 );
 
