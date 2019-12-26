@@ -9,9 +9,14 @@ export default props => {
   const { handleChange, isLoading, handleSubmit } = props;
   return (
     <View>
-      <Field name="origin" component={PlaceInput} label="Origin" handleChange={handleChange} />
       <Field
-        name="destination"
+        name="location_origin"
+        component={PlaceInput}
+        label="Origin"
+        handleChange={handleChange}
+      />
+      <Field
+        name="location_destination"
         component={PlaceInput}
         label="Destination"
         handleChange={handleChange}
@@ -25,7 +30,7 @@ export default props => {
         {isLoading ? (
           <ActivityIndicator size={25} color="#FFF" />
         ) : (
-          <MediumText customstyle={{ color: '#FFF' }}>Continue</MediumText>
+          <MediumText customstyle={{ color: '#FFF' }}>Fetch Pricing</MediumText>
         )}
       </TouchableOpacity>
     </View>

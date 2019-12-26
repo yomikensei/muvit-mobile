@@ -6,9 +6,11 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import BaseStyles from 'theme/base';
 import { BoldText, MediumText, RegularText } from 'components/Text';
 import { RFValue } from 'react-native-responsive-fontsize';
+import Colors from 'theme/colors.json';
 import NewDelivery from './NewDelivery';
 import NewRide from './NewRide';
-import Colors from 'theme/colors.json';
+import RidePricing from './RidePricing';
+import DeliveryPricing from './DeliveryPricing';
 
 const mapOptions = {
   enableHighAccuracy: true,
@@ -55,6 +57,7 @@ const styles = StyleSheet.create({
 export default () => {
   const [coordinates, setCoordinates] = useState({ latitude: 0, longitude: 0 });
   const [isLocationLoading, setIsLocationLoading] = useState(false);
+  const [details, setDetails] = useState({});
 
   const fetchLocationData = async () => {
     setIsLocationLoading(true);
@@ -118,19 +121,21 @@ export default () => {
           </BoldText>
         </View>
 
-        <ActionPrompt />
+        <ActionPrompt {...{ details, setDetails }} />
       </View>
     </View>
   );
 };
 
-const ActionPrompt = () => {
+const ActionPrompt = ({ setDetails, details }) => {
   const [state, setState] = useState('CREATE');
   const [type, setType] = useState('RIDE');
 
   const titleMap = {
     CREATE_RIDE: 'Need to move stuff quick?',
     CREATE_DELIVERY: 'Need to get somewhere?',
+    PRICING_RIDE: 'Ride pricing',
+    PRICING_DELIVERY: 'Delivery pricing',
   };
 
   return (
@@ -150,6 +155,7 @@ const ActionPrompt = () => {
           <TouchableOpacity
             onPress={() => {
               setType('RIDE');
+              setState('CREATE');
             }}
           >
             <RegularText
@@ -167,6 +173,7 @@ const ActionPrompt = () => {
           <TouchableOpacity
             onPress={() => {
               setType('DELIVERY');
+              setState('CREATE');
             }}
           >
             <RegularText
@@ -184,17 +191,21 @@ const ActionPrompt = () => {
         </View>
       </View>
 
-      <PromptControl {...{ state, type }} />
+      <PromptControl {...{ setDetails, details, state, setState, type }} />
     </View>
   );
 };
 
-const PromptControl = ({ state, type }) => {
+const PromptControl = ({ setDetails, details, type, state, setState }) => {
   switch (`${state}_${type}`) {
     case 'CREATE_DELIVERY':
-      return <NewDelivery />;
+      return <NewDelivery {...{ setDetails, setState }} />;
     case 'CREATE_RIDE':
-      return <NewRide />;
+      return <NewRide {...{ setDetails, setState }} />;
+    case 'PRICING_RIDE':
+      return <RidePricing {...{ details }} />;
+    case 'PRICING_DELIVERY':
+      return <DeliveryPricing {...{ details }} />;
 
     default:
       return <View />;

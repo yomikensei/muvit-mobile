@@ -3,7 +3,7 @@ import { NavigationActions } from 'react-navigation';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import Snackbar from 'react-native-snackbar';
 import { getSelectedCard } from 'services/cards/reducer';
-import api from '../api';
+import api from 'services/api';
 import * as actions from './actions';
 import * as types from './constants';
 

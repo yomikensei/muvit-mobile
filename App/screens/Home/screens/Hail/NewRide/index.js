@@ -1,13 +1,33 @@
 import React, { useState } from 'react';
 import { Formik } from 'formik';
+import api from 'services/api';
 import Form from './Form';
 
-export default () => {
+export default ({ setDetails, setState }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const submit = async values => {
+
+  const fetchInfo = async values => {
     setIsLoading(true);
+    const {
+      location_origin: { placeID: location_origin },
+      location_destination: { placeID: location_destination },
+    } = values;
     try {
-      console.log(values);
+      const {
+        data: {
+          data: { details },
+        },
+      } = await api({
+        method: 'POST',
+        url: '/ride/info',
+        data: {
+          location_origin,
+          location_destination,
+          return_trip: false,
+        },
+      });
+      setDetails({ ...details, ...values, return_trip: false });
+      setState('PRICING');
     } catch (e) {
       console.log(e.response ? e.response : e);
     }
@@ -16,7 +36,7 @@ export default () => {
 
   return (
     <>
-      <Formik initialValues={{}} onSubmit={submit}>
+      <Formik initialValues={{}} onSubmit={fetchInfo}>
         {_props => (
           <Form
             {...{
