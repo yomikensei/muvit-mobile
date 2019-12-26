@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Dimensions, StyleSheet, View, TouchableOpacity } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
@@ -59,13 +60,9 @@ export default () => {
     setIsLocationLoading(true);
     try {
       Geolocation.getCurrentPosition(
-        result => {
-          console.log(result);
-          setCoordinates({ latitude: result.coords.latitude, longitude: result.coords.longitude });
-        },
-        e => {
-          console.log(e.response ? e.response : e);
-        },
+        result =>
+          setCoordinates({ latitude: result.coords.latitude, longitude: result.coords.longitude }),
+        e => console.log(e.response ? e.response : e),
         mapOptions
       );
     } catch (e) {
@@ -133,7 +130,7 @@ const ActionPrompt = () => {
 
   const titleMap = {
     CREATE_RIDE: 'Need to move stuff quick?',
-    CREATE_DELIVERY: 'Need to get somewhere ASAP?',
+    CREATE_DELIVERY: 'Need to get somewhere?',
   };
 
   return (

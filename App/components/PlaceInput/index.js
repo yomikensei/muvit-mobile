@@ -23,14 +23,14 @@ class PlaceInput extends Component {
   selectLocation = ({ address, location, placeID, name }) => {
     const {
       field: { name: _name },
-      form: { handleChange },
+      form: { setFieldValue },
     } = this.props;
     const selectedLocation = { address, location, placeID, name };
     this.setState({
       selectedLocation,
       pristine: false,
     });
-    handleChange(_name)(selectedLocation);
+    setFieldValue(_name, selectedLocation);
   };
 
   // eslint-disable-next-line class-methods-use-this
@@ -43,7 +43,7 @@ class PlaceInput extends Component {
         country: 'NG',
         initialQuery: !pristine ? self.state.selectedLocation.name : '',
       },
-      ['name', 'address', 'location', 'placeID'],
+      ['name', 'address', 'location', 'placeID']
     )
       .then(place => {
         self.selectLocation(place);
