@@ -1,11 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { reduxForm, Field } from 'redux-form';
-import { View, Text, TouchableOpacity, StyleSheet, ActivityIndicator } from 'react-native';
-import CardInput from '../../../../../../../../components/CardInput';
-import colors from '../../../../../../../../constants/colors.json';
-import { getCreateCard } from '../../../../../../../../services/cards/reducer';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Field, reduxForm } from "redux-form";
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import CardInput from "../../../../../../../../components/CardInput";
+import { getCreateCard } from "../../../../../../../../services/cards/reducer";
 
 const styles = StyleSheet.create({
   cardInput: {

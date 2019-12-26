@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native';
-import { RFValue } from 'react-native-responsive-fontsize';
-import Colors from './colors';
+import { StyleSheet } from "react-native";
+import { RFValue } from "react-native-responsive-fontsize";
+import Colors from "./colors";
 
 export default StyleSheet.create({
   button: {
@@ -33,6 +33,9 @@ export default StyleSheet.create({
     paddingTop: RFValue(36),
     paddingHorizontal: RFValue(29),
   },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
   dashBackground: {
     flex: 1,
     backgroundColor: '#0058BF',
@@ -40,12 +43,12 @@ export default StyleSheet.create({
   },
   input: {
     width: '100%',
-    height: RFValue(67),
+    height: RFValue(57),
     backgroundColor: Colors.secondary,
-    borderRadius: RFValue(10),
-    paddingHorizontal: RFValue(17),
+    borderRadius: RFValue(9),
+    paddingHorizontal: RFValue(16.5),
     justifyContent: 'center',
-    marginBottom: RFValue(17),
+    marginBottom: RFValue(15),
   },
   dashTop: {
     paddingHorizontal: RFValue(27),

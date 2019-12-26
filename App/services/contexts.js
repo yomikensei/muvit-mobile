@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 export const PersistorContext = React.createContext();
 export const PersistorProvider = PersistorContext.Provider;

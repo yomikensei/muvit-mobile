@@ -1,10 +1,10 @@
 /* eslint-disable global-require */
-import React from 'react';
-import { View, TouchableOpacity, ImageBackground } from 'react-native';
-import * as Animatable from 'react-native-animatable';
-import { BoldText, MediumText } from 'components/Text';
-import BaseStyles from 'theme/base';
-import { RFValue } from 'react-native-responsive-fontsize';
+import React from "react";
+import { ImageBackground, TouchableOpacity, View } from "react-native";
+import * as Animatable from "react-native-animatable";
+import { BoldText, MediumText } from "components/Text";
+import BaseStyles from "theme/base";
+import { RFValue } from "react-native-responsive-fontsize";
 
 export default props => {
   const {

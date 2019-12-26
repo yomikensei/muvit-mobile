@@ -1,6 +1,6 @@
-import React from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import moment from 'moment';
+import React from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import moment from "moment";
 
 const styles = StyleSheet.create({
   card: {

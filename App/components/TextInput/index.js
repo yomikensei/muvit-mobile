@@ -1,15 +1,15 @@
-import React from 'react';
-import { View, StyleSheet, TextInput } from 'react-native';
-import BaseStyles from 'theme/base';
-import { RegularText } from 'components/Text';
-import { RFValue } from 'react-native-responsive-fontsize';
+import React from "react";
+import { StyleSheet, TextInput, View } from "react-native";
+import BaseStyles from "theme/base";
+import { RegularText } from "components/Text";
+import { RFValue } from "react-native-responsive-fontsize";
 
 const styles = StyleSheet.create({
   TextInput: {
-    height: RFValue(30),
+    height: RFValue(25),
     margin: 0,
     padding: 0,
-    fontSize: RFValue(18),
+    fontSize: RFValue(16),
     fontFamily: 'DMSans-Medium',
     color: '#2C3F56',
   },
@@ -24,7 +24,7 @@ export default props => {
   } = props;
   return (
     <View style={BaseStyles.input}>
-      <RegularText customstyle={{ fontSize: RFValue(12) }}>{label}</RegularText>
+      <RegularText customstyle={{ fontSize: RFValue(10) }}>{label}</RegularText>
       <TextInput style={styles.TextInput} onChangeText={handleChange(name)} {...rest} />
     </View>
   );

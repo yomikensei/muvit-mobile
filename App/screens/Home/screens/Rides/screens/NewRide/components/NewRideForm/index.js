@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-vars */
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ActivityIndicator } from 'react-native';
-import { Field, reduxForm } from 'redux-form';
-import { connect } from 'react-redux';
-import { getFetchPricing } from 'services/rides/reducer';
-import PlaceInput from 'components/PlaceInput';
-import PickerInput from 'components/PickerInput';
+import React, { Component } from "react";
+import { ActivityIndicator, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Field, reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import { getFetchPricing } from "services/rides/reducer";
+import PlaceInput from "components/PlaceInput";
+import PickerInput from "components/PickerInput";
 
 const styles = StyleSheet.create({
   container: {

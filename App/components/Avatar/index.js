@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { View, StyleSheet } from 'react-native';
-import colors from '../../constants/colors.json';
+import React from "react";
+import PropTypes from "prop-types";
+import { StyleSheet, View } from "react-native";
+import colors from "../../constants/colors.json";
 
 const Avatar = (props) => {
   const { width, height, borderColor, borderWidth, backgroundColor } = props;

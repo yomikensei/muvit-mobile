@@ -1,6 +1,6 @@
-import PushNotification from 'react-native-push-notification';
-import React from 'react';
-import { firebase } from '@react-native-firebase/messaging';
+import PushNotification from "react-native-push-notification";
+import React from "react";
+import { firebase } from "@react-native-firebase/messaging";
 
 export default WrappedComponent => {
   return class NotificationWrapper extends React.PureComponent {

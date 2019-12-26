@@ -1,17 +1,17 @@
-import { combineReducers } from 'redux';
-import { reducer as formReducer } from 'redux-form';
-import { persistReducer } from 'redux-persist';
-import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
-import FSStorage, { DocumentDir } from 'redux-persist-fs-storage';
-import { createNavigationReducer } from 'react-navigation-redux-helpers';
+import { combineReducers } from "redux";
+import { reducer as formReducer } from "redux-form";
+import { persistReducer } from "redux-persist";
+import autoMergeLevel2 from "redux-persist/lib/stateReconciler/autoMergeLevel2";
+import FSStorage, { DocumentDir } from "redux-persist-fs-storage";
+import { createNavigationReducer } from "react-navigation-redux-helpers";
 
-import authReducer from './services/auth/reducer';
-import deliveriesReducer from './services/deliveries/reducer';
-import ridesReducer from './services/rides/reducer';
-import cardsReducer from './services/cards/reducer';
-import * as authTypes from './services/auth/constants';
+import authReducer from "./services/auth/reducer";
+import deliveriesReducer from "./services/deliveries/reducer";
+import ridesReducer from "./services/rides/reducer";
+import cardsReducer from "./services/cards/reducer";
+import * as authTypes from "./services/auth/constants";
 
-import { AppWithNavigationState } from './screens';
+import { AppWithNavigationState } from "./screens";
 
 const storage = FSStorage(DocumentDir, 'parkmonitor');
 

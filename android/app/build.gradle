@@ -166,6 +166,8 @@ dependencies {
     implementation project(':@react-native-community_async-storage')
     implementation project(path: ":@react-native-firebase_app")
     implementation project(path: ":@react-native-firebase_analytics")
+    implementation project(':react-native-maps')
+    implementation project(':react-native-geolocation-service')
     implementation project(':react-native-vector-icons')
     implementation project(':react-native-config')
     implementation project(':react-native-fs')

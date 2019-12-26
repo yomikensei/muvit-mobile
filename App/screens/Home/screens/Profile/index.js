@@ -1,12 +1,12 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { ScrollView, StyleSheet, Dimensions } from 'react-native';
-import { View, Text, Container, Content, List, ListItem, Icon } from 'native-base';
-import AppHeader from 'components/AppHeader';
-import Avatar from 'components/Avatar';
-import colors from 'constants/colors.json';
-import { getUser } from 'services/auth/reducer';
-import { logout } from 'services/auth/actions';
+import React from "react";
+import { connect } from "react-redux";
+import { Dimensions, ScrollView, StyleSheet } from "react-native";
+import { Container, Content, Icon, List, ListItem, Text, View } from "native-base";
+import AppHeader from "components/AppHeader";
+import Avatar from "components/Avatar";
+import colors from "constants/colors.json";
+import { getUser } from "services/auth/reducer";
+import { logout } from "services/auth/actions";
 
 const { height: screenHeight, width: screenWidth } = Dimensions.get('window');
 

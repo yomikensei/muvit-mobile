@@ -1,11 +1,11 @@
 /* eslint-disable no-shadow */
-import React from 'react';
-import { connect } from 'react-redux';
-import { View, StyleSheet, Alert } from 'react-native';
-import { Container } from 'native-base';
-import AppHeader from '../../../../../../components/AppHeader';
-import CreateCardForm from './components/CreateCardForm';
-import { createCardRequest } from '../../../../../../services/cards/actions';
+import React from "react";
+import { connect } from "react-redux";
+import { Alert, StyleSheet, View } from "react-native";
+import { Container } from "native-base";
+import AppHeader from "../../../../../../components/AppHeader";
+import CreateCardForm from "./components/CreateCardForm";
+import { createCardRequest } from "../../../../../../services/cards/actions";
 
 const styles = StyleSheet.create({
   container: {

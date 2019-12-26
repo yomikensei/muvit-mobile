@@ -1,10 +1,10 @@
 /* eslint-disable global-require */
-import React, { PureComponent } from 'react';
-import { StyleSheet, TouchableOpacity } from 'react-native';
-import { Header, Body, Text, Icon, Right } from 'native-base';
-import colors from 'constants/colors.json';
+import React, { PureComponent } from "react";
+import { StyleSheet, TouchableOpacity } from "react-native";
+import { Body, Header, Icon, Right, Text } from "native-base";
+import colors from "constants/colors.json";
 // eslint-disable-next-line import/no-unresolved
-import { clearState } from 'app/localStorage';
+import { clearState } from "app/localStorage";
 
 const styles = StyleSheet.create({
   header: {

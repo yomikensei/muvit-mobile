@@ -1,8 +1,7 @@
-import { createStackNavigator } from 'react-navigation';
-import Login from './screens/Login';
-import Signup from './screens/Signup';
-import Landing from './screens/Landing';
-import Splash from './screens/Splash';
+import { createStackNavigator } from "react-navigation";
+import Login from "./screens/Login";
+import Signup from "./screens/Signup";
+import Landing from "./screens/Landing";
 
 export default createStackNavigator(
   {

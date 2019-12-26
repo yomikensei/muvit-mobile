@@ -1,19 +1,19 @@
-import React from 'react';
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import { createBottomTabNavigator, createAppContainer } from 'react-navigation';
-import { RFValue } from 'react-native-responsive-fontsize';
-import ListDeliveries from './screens/Deliveries/screens/ListDeliveries';
-import Profile from './screens/Profile';
-import ListCards from './screens/Cards/screens/ListCards';
-import ListRides from './screens/Rides/screens/ListRides';
+import React from "react";
+import Icon from "react-native-vector-icons/FontAwesome5";
+import { createAppContainer, createBottomTabNavigator } from "react-navigation";
+import { RFValue } from "react-native-responsive-fontsize";
+import ListDeliveries from "./screens/Deliveries/screens/ListDeliveries";
+import Profile from "./screens/Profile";
+import ListCards from "./screens/Cards/screens/ListCards";
+import Hail from "./screens/Hail";
 
 const App = createBottomTabNavigator(
   {
-    Rides: {
-      screen: ListRides,
+    Hail: {
+      screen: Hail,
       navigationOptions: () => ({
         header: null,
-        tabBarLabel: 'Rides',
+        tabBarLabel: 'Hail',
         tabBarIcon: ({ tintColor }) => <Icon name="motorcycle" size={18} color={tintColor} />,
       }),
     },
@@ -58,7 +58,7 @@ const App = createBottomTabNavigator(
         marginBottom: 7,
       },
     },
-    initialRouteName: 'Rides',
+    initialRouteName: 'Hail',
   }
 );
 

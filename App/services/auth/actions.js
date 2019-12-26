@@ -1,4 +1,4 @@
-import * as types from './constants';
+import * as types from "./constants";
 
 export const signupRequest = ({ credentials }) => ({
   type: types.SIGNUP_REQUEST,

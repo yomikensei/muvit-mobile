@@ -1,8 +1,8 @@
 /* eslint-disable camelcase */
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import CreditCard from 'react-native-credit-card';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import CreditCard from "react-native-credit-card";
+import Icon from "react-native-vector-icons/FontAwesome5";
 
 const styles = StyleSheet.create({
   view: {

@@ -1,18 +1,17 @@
 /* eslint-disable no-unused-vars */
-import { call, put, takeLatest, select } from 'redux-saga/effects';
-import { NavigationActions } from 'react-navigation';
-import { reset } from 'redux-form';
-import DeviceInfo from 'react-native-device-info';
-import { firebase } from '@react-native-firebase/messaging';
-import Snackbar from 'react-native-snackbar';
-import { fetchDeliveriesRequest } from 'services/deliveries/actions';
-import { fetchCardsRequest } from 'services/cards/actions';
-import { fetchRidesRequest } from 'services/rides/actions';
+import { call, put, takeLatest } from "redux-saga/effects";
+import { NavigationActions } from "react-navigation";
+import DeviceInfo from "react-native-device-info";
+import { firebase } from "@react-native-firebase/messaging";
+import Snackbar from "react-native-snackbar";
+import { fetchDeliveriesRequest } from "services/deliveries/actions";
+import { fetchCardsRequest } from "services/cards/actions";
+import { fetchRidesRequest } from "services/rides/actions";
 
-import * as types from './constants';
-import * as actions from './actions';
-import api from '../api';
-import { clearState, saveState } from '../../localStorage';
+import * as types from "./constants";
+import * as actions from "./actions";
+import api from "../api";
+import { saveState } from "../../localStorage";
 
 function* login({ credentials }) {
   try {

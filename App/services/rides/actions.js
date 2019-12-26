@@ -1,4 +1,4 @@
-import * as types from './constants';
+import * as types from "./constants";
 
 export const fetchRidesRequest = (page = 1) => ({
   type: types.FETCH_RIDES_REQUEST,
