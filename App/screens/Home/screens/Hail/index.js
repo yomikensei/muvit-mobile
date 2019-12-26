@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { ActivityIndicator, Dimensions, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, Dimensions, StyleSheet, View, TouchableOpacity } from 'react-native';
 import Geolocation from 'react-native-geolocation-service';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import BaseStyles from 'theme/base';
-import { BoldText } from 'components/Text';
+import { BoldText, MediumText, RegularText } from 'components/Text';
 import { RFValue } from 'react-native-responsive-fontsize';
 import NewDelivery from './NewDelivery';
+import NewRide from './NewRide';
+import Colors from 'theme/colors.json';
 
 const mapOptions = {
   enableHighAccuracy: true,
@@ -64,7 +66,7 @@ export default () => {
         e => {
           console.log(e.response ? e.response : e);
         },
-        mapOptions,
+        mapOptions
       );
     } catch (e) {
       console.log(e.response ? e.response : e);
@@ -127,9 +129,64 @@ export default () => {
 
 const ActionPrompt = () => {
   const [state, setState] = useState('CREATE');
-  const [type, setType] = useState('DELIVERY');
+  const [type, setType] = useState('RIDE');
+
+  const titleMap = {
+    CREATE_RIDE: 'Need to move stuff quick?',
+    CREATE_DELIVERY: 'Need to get somewhere ASAP?',
+  };
+
   return (
     <View style={styles.action_prompt}>
+      <View
+        style={{
+          marginBottom: RFValue(15),
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+        }}
+      >
+        <MediumText customstyle={{ fontSize: RFValue(15) }}>
+          {titleMap[`${state}_${type}`]}
+        </MediumText>
+        <View style={{ display: 'flex', flexDirection: 'row' }}>
+          <TouchableOpacity
+            onPress={() => {
+              setType('RIDE');
+            }}
+          >
+            <RegularText
+              customstyle={{
+                fontSize: RFValue(10),
+                marginRight: RFValue(10),
+                padding: RFValue(5),
+                borderRadius: 9,
+                backgroundColor: type === 'RIDE' ? Colors.secondary : '#F9F9F9',
+              }}
+            >
+              ride
+            </RegularText>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              setType('DELIVERY');
+            }}
+          >
+            <RegularText
+              customstyle={{
+                fontSize: RFValue(10),
+                marginRight: RFValue(10),
+                padding: RFValue(5),
+                borderRadius: 9,
+                backgroundColor: type === 'DELIVERY' ? Colors.secondary : '#F9F9F9',
+              }}
+            >
+              delivery
+            </RegularText>
+          </TouchableOpacity>
+        </View>
+      </View>
+
       <PromptControl {...{ state, type }} />
     </View>
   );
@@ -139,6 +196,8 @@ const PromptControl = ({ state, type }) => {
   switch (`${state}_${type}`) {
     case 'CREATE_DELIVERY':
       return <NewDelivery />;
+    case 'CREATE_RIDE':
+      return <NewRide />;
 
     default:
       return <View />;

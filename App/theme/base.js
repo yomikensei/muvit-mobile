@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native';
 import { RFValue } from 'react-native-responsive-fontsize';
-import Colors from './colors';
+import Colors from './colors.json';
 
 export default StyleSheet.create({
   button: {
