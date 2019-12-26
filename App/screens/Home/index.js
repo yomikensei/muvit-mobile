@@ -2,10 +2,11 @@ import React from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { createAppContainer, createBottomTabNavigator } from 'react-navigation';
 import { RFValue } from 'react-native-responsive-fontsize';
-import ListDeliveries from './screens/Deliveries/screens/ListDeliveries';
 import Profile from './screens/Profile';
 import ListCards from './screens/Cards/screens/ListCards';
 import Hail from './screens/Hail';
+import History from './screens/History';
+import Payment from './screens/Payment';
 
 const App = createBottomTabNavigator(
   {
@@ -17,18 +18,18 @@ const App = createBottomTabNavigator(
         tabBarIcon: ({ tintColor }) => <Icon name="motorcycle" size={18} color={tintColor} />,
       }),
     },
-    Delivery: {
-      screen: ListDeliveries,
+    History: {
+      screen: History,
       navigationOptions: () => ({
-        tabBarLabel: 'Deliveries',
-        tabBarIcon: ({ tintColor }) => <Icon name="box-open" size={18} color={tintColor} />,
+        tabBarLabel: 'History',
+        tabBarIcon: ({ tintColor }) => <Icon name="clock" size={18} color={tintColor} />,
       }),
     },
 
-    Cards: {
-      screen: ListCards,
+    Payment: {
+      screen: Payment,
       navigationOptions: () => ({
-        tabBarLabel: 'Cards',
+        tabBarLabel: 'Payment',
         tabBarIcon: ({ tintColor }) => <Icon name="credit-card" size={18} color={tintColor} />,
       }),
     },
@@ -36,7 +37,7 @@ const App = createBottomTabNavigator(
       screen: Profile,
       navigationOptions: () => ({
         tabBarLabel: 'Profile',
-        tabBarIcon: ({ tintColor }) => <Icon name="cogs" size={18} color={tintColor} />,
+        tabBarIcon: ({ tintColor }) => <Icon name="user" size={18} color={tintColor} />,
       }),
     },
   },
@@ -59,7 +60,7 @@ const App = createBottomTabNavigator(
       },
     },
     initialRouteName: 'Hail',
-  },
+  }
 );
 
 export default createAppContainer(App);
