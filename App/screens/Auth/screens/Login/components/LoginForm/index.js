@@ -1,10 +1,10 @@
-import React from "react";
-import { Field } from "formik";
-import { ActivityIndicator, TouchableOpacity } from "react-native";
-import { RFValue } from "react-native-responsive-fontsize";
-import BaseStyles from "theme/base";
-import { MediumText } from "components/Text";
-import TextInput from "components/TextInput";
+import React from 'react';
+import { Field } from 'formik';
+import { ActivityIndicator, TouchableOpacity } from 'react-native';
+import { RFValue } from 'react-native-responsive-fontsize';
+import BaseStyles from 'theme/base';
+import { MediumText } from 'components/Text';
+import TextInput from 'components/TextInput';
 
 export default props => {
   const { handleSubmit, handleChange, isLoading } = props;

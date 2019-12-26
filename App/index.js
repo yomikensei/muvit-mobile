@@ -1,13 +1,13 @@
 /* eslint-disable global-require */
-import React, { useEffect } from "react";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/lib/integration/react";
-import * as Font from "expo-font";
-import { Ionicons } from "@expo/vector-icons";
-import { PersistorProvider } from "./services/contexts";
-import Navigator from "./screens";
+import React, { useEffect } from 'react';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/lib/integration/react';
+import * as Font from 'expo-font';
+import { Ionicons } from '@expo/vector-icons';
+import { PersistorProvider } from './services/contexts';
+import Navigator from './screens';
 
-import configureStore from "./configureStore";
+import configureStore from './configureStore';
 
 const reduxStore = configureStore();
 

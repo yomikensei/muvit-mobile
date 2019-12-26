@@ -1,12 +1,12 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
-import { NavigationActions } from "react-navigation";
-import { call, put, takeLatest } from "redux-saga/effects";
-import RNPaystack from "react-native-paystack";
-import Snackbar from "react-native-snackbar";
-import api from "../api";
-import * as actions from "./actions";
-import * as types from "./constants";
+import { NavigationActions } from 'react-navigation';
+import { call, put, takeLatest } from 'redux-saga/effects';
+import RNPaystack from 'react-native-paystack';
+import Snackbar from 'react-native-snackbar';
+import api from '../api';
+import * as actions from './actions';
+import * as types from './constants';
 
 
 function* fetchCards({ page }) {

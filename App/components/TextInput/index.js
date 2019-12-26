@@ -1,8 +1,8 @@
-import React from "react";
-import { StyleSheet, TextInput, View } from "react-native";
-import BaseStyles from "theme/base";
-import { RegularText } from "components/Text";
-import { RFValue } from "react-native-responsive-fontsize";
+import React from 'react';
+import { StyleSheet, TextInput, View } from 'react-native';
+import BaseStyles from 'theme/base';
+import { RegularText } from 'components/Text';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 const styles = StyleSheet.create({
   TextInput: {

@@ -1,14 +1,14 @@
-import { applyMiddleware, createStore } from "redux";
-import { persistStore } from "redux-persist";
-import createSagaMiddleware from "redux-saga";
-import { createReactNavigationReduxMiddleware } from "react-navigation-redux-helpers";
+import { applyMiddleware, createStore } from 'redux';
+import { persistStore } from 'redux-persist';
+import createSagaMiddleware from 'redux-saga';
+import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
 
 
-import startsWith from "lodash/startsWith";
-import { createLogger } from "redux-logger";
+import startsWith from 'lodash/startsWith';
+import { createLogger } from 'redux-logger';
 
-import rootSaga from "./rootSaga";
-import rootReducer from "./rootReducer";
+import rootSaga from './rootSaga';
+import rootReducer from './rootReducer';
 // import { clearState } from './localStorage';
 
 const middlewares = [];

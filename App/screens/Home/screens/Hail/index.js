@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { ActivityIndicator, Dimensions, StyleSheet, View } from "react-native";
-import Geolocation from "react-native-geolocation-service";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
-import BaseStyles from "theme/base";
-import { BoldText } from "components/Text";
-import { RFValue } from "react-native-responsive-fontsize";
-import NewDelivery from "./NewDelivery";
+import React, { useEffect, useState } from 'react';
+import { ActivityIndicator, Dimensions, StyleSheet, View } from 'react-native';
+import Geolocation from 'react-native-geolocation-service';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import BaseStyles from 'theme/base';
+import { BoldText } from 'components/Text';
+import { RFValue } from 'react-native-responsive-fontsize';
+import NewDelivery from './NewDelivery';
 
 const mapOptions = {
   enableHighAccuracy: true,
@@ -64,7 +64,7 @@ export default () => {
         e => {
           console.log(e.response ? e.response : e);
         },
-        mapOptions
+        mapOptions,
       );
     } catch (e) {
       console.log(e.response ? e.response : e);

@@ -1,15 +1,15 @@
 /* eslint-disable no-unused-vars */
-import { all, delay, put, select, take } from "redux-saga/effects";
-import { PermissionsAndroid } from "react-native";
-import * as authSaga from "./services/auth/sagas";
-import * as cardsSaga from "./services/cards/sagas";
-import * as deliveriesSaga from "./services/deliveries/sagas";
-import * as paymentsSaga from "./services/payments/sagas";
-import * as ridesSaga from "./services/rides/sagas";
-import { getIsLoggedIn } from "./services/auth/reducer";
-import { fetchDeliveriesRequest } from "./services/deliveries/actions";
-import { fetchCardsRequest } from "./services/cards/actions";
-import { fetchRidesRequest } from "./services/rides/actions";
+import { all, delay, put, select, take } from 'redux-saga/effects';
+import { PermissionsAndroid } from 'react-native';
+import * as authSaga from './services/auth/sagas';
+import * as cardsSaga from './services/cards/sagas';
+import * as deliveriesSaga from './services/deliveries/sagas';
+import * as paymentsSaga from './services/payments/sagas';
+import * as ridesSaga from './services/rides/sagas';
+import { getIsLoggedIn } from './services/auth/reducer';
+import { fetchDeliveriesRequest } from './services/deliveries/actions';
+import { fetchCardsRequest } from './services/cards/actions';
+import { fetchRidesRequest } from './services/rides/actions';
 
 async function requestApplicationPermissions() {
   try {

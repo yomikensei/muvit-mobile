@@ -1,8 +1,8 @@
-import React, { PureComponent } from "react";
-import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import posed, { Transition } from "react-native-pose";
-import Icon from "react-native-vector-icons/FontAwesome5";
-import colors from "constants/colors";
+import React, { PureComponent } from 'react';
+import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import posed, { Transition } from 'react-native-pose';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import colors from 'constants/colors';
 
 const { width } = Dimensions.get('window');
 

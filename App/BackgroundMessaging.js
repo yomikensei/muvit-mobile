@@ -1,6 +1,6 @@
 /* eslint-disable no/* eslint-disable no-case-declarations,no-case-declarations */
 /* eslint-disable no-unused-vars */
-import PushNotification from "react-native-push-notification";
+import PushNotification from 'react-native-push-notification';
 
 export default async notification => {
   console.log('432423', notification);

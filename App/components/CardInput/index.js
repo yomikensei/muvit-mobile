@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
-import { StyleSheet } from "react-native";
-import { CreditCardInput } from "react-native-credit-card-input";
+import React from 'react';
+import { StyleSheet } from 'react-native';
+import { CreditCardInput } from 'react-native-credit-card-input';
 
 const styles = StyleSheet.create({
   inputContainer: {

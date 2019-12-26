@@ -1,7 +1,7 @@
-import React from "react";
-import { View } from "react-native";
-import { Field } from "formik";
-import PlaceInput from "components/PlaceInput";
+import React from 'react';
+import { View } from 'react-native';
+import { Field } from 'formik';
+import PlaceInput from 'components/PlaceInput';
 
 export default props => {
   const { handleChange } = props;

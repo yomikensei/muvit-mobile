@@ -1,13 +1,13 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Dimensions, FlatList, StyleSheet, Text, View } from "react-native";
-import { Container } from "native-base";
-import IconMD from "react-native-vector-icons/MaterialIcons";
-import IconFA from "react-native-vector-icons/FontAwesome5";
-import FAB from "react-native-fab";
-import colors from "constants/colors.json";
-import { getRides } from "services/rides/reducer";
-import RideItem from "./components/RideItem";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Dimensions, FlatList, StyleSheet, Text, View } from 'react-native';
+import { Container } from 'native-base';
+import IconMD from 'react-native-vector-icons/MaterialIcons';
+import IconFA from 'react-native-vector-icons/FontAwesome5';
+import FAB from 'react-native-fab';
+import colors from 'constants/colors.json';
+import { getRides } from 'services/rides/reducer';
+import RideItem from './components/RideItem';
 
 const { height } = Dimensions.get('window');
 
@@ -45,7 +45,7 @@ class ListRides extends React.Component {
     } = this.props;
     return (
       <Container style={styles.container}>
-        {/*<AppHeader headerText="Ride History" icon="md-list-box" />*/}
+        {/* <AppHeader headerText="Ride History" icon="md-list-box" /> */}
         <FlatList
           data={rides.reverse()}
           keyExtractor={(item, index) => index.toString()}

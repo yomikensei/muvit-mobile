@@ -1,8 +1,8 @@
 /* eslint-disable global-require */
-import React from "react";
-import { Image, TouchableOpacity, View } from "react-native";
-import { RFValue } from "react-native-responsive-fontsize";
-import { BoldText, RegularText } from "components/Text";
+import React from 'react';
+import { Image, TouchableOpacity, View } from 'react-native';
+import { RFValue } from 'react-native-responsive-fontsize';
+import { BoldText, RegularText } from 'components/Text';
 
 export default props => {
   const { title, navigation, info } = props;

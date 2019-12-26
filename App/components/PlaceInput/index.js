@@ -1,10 +1,10 @@
 /* eslint-disable react/no-unused-state */
-import React, { Component } from "react";
-import { TouchableOpacity } from "react-native";
-import RNGooglePlaces from "react-native-google-places";
-import BaseStyles from "theme/base";
-import { RegularText } from "components/Text";
-import { RFValue } from "react-native-responsive-fontsize";
+import React, { Component } from 'react';
+import { TouchableOpacity } from 'react-native';
+import RNGooglePlaces from 'react-native-google-places';
+import BaseStyles from 'theme/base';
+import { RegularText } from 'components/Text';
+import { RFValue } from 'react-native-responsive-fontsize';
 
 class PlaceInput extends Component {
   // eslint-disable-next-line class-methods-use-this
@@ -43,7 +43,7 @@ class PlaceInput extends Component {
         country: 'NG',
         initialQuery: !pristine ? self.state.selectedLocation.name : '',
       },
-      ['name', 'address', 'location', 'placeID']
+      ['name', 'address', 'location', 'placeID'],
     )
       .then(place => {
         self.selectLocation(place);

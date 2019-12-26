@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
-import { Container } from "native-base";
-import moment from "moment";
-import { getRide } from "services/rides/reducer";
-import AppHeader from "components/AppHeader";
-import colors from "constants/colors.json";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Container } from 'native-base';
+import moment from 'moment';
+import { getRide } from 'services/rides/reducer';
+import AppHeader from 'components/AppHeader';
+import colors from 'constants/colors.json';
 
 const styles = StyleSheet.create({
   container: {

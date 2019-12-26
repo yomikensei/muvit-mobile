@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Formik } from "formik";
-import { MediumText } from "components/Text";
+import React, { useState } from 'react';
+import { Formik } from 'formik';
+import { MediumText } from 'components/Text';
 
-import { RFValue } from "react-native-responsive-fontsize";
-import Form from "./Form";
+import { RFValue } from 'react-native-responsive-fontsize';
+import Form from './Form';
 
 export default () => {
   const [isLoading, setIsLoading] = useState(false);

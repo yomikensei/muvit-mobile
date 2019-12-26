@@ -1,6 +1,6 @@
-import axios from "axios";
-import apiConfig from "./config";
-import { loadState } from "../../localStorage";
+import axios from 'axios';
+import apiConfig from './config';
+import { loadState } from '../../localStorage';
 
 const api = async (payload) => {
   const result = await loadState();

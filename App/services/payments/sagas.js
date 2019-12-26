@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable no-unused-vars */
-import { takeLatest } from "redux-saga/effects";
-import * as types from "./constants";
+import { takeLatest } from 'redux-saga/effects';
+import * as types from './constants';
 
 
 function* fetchPayments({ page }) {

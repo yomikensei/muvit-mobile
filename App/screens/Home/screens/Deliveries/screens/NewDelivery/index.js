@@ -1,11 +1,11 @@
 /* eslint-disable no-shadow */
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { fetchDeliveryPricingRequest } from "services/deliveries/actions";
-import { StyleSheet, View } from "react-native";
-import { Container } from "native-base";
-import AppHeader from "components/AppHeader";
-import NewDeliveryForm from "./components/NewDeliveryForm";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchDeliveryPricingRequest } from 'services/deliveries/actions';
+import { StyleSheet, View } from 'react-native';
+import { Container } from 'native-base';
+import AppHeader from 'components/AppHeader';
+import NewDeliveryForm from './components/NewDeliveryForm';
 
 const styles = StyleSheet.create({
   container: {

@@ -1,9 +1,9 @@
-import React from "react";
-import { FlatList, StyleSheet } from "react-native";
-import { Container } from "native-base";
-import AppHeader from "../../../../../../components/AppHeader";
-import ItemCard from "./components/PaymentItem";
-import colors from "../../../../../../constants/colors.json";
+import React from 'react';
+import { FlatList, StyleSheet } from 'react-native';
+import { Container } from 'native-base';
+import AppHeader from '../../../../../../components/AppHeader';
+import ItemCard from './components/PaymentItem';
+import colors from '../../../../../../constants/colors.json';
 
 const styles = StyleSheet.create({
   container: {

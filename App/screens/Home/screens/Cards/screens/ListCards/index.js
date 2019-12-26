@@ -1,16 +1,16 @@
 /* eslint-disable no-shadow */
-import React from "react";
-import { connect } from "react-redux";
-import { Dimensions, FlatList, StyleSheet, Text, View } from "react-native";
-import { Container } from "native-base";
-import IconFA from "react-native-vector-icons/FontAwesome5";
-import IconMD from "react-native-vector-icons/MaterialIcons";
-import FAB from "react-native-fab";
-import AppHeader from "components/AppHeader";
-import colors from "constants/colors.json";
-import { getCards, getSelectedCard } from "services/cards/reducer";
-import { selectCard } from "services/cards/actions";
-import CardItem from "./components/CardItem";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Dimensions, FlatList, StyleSheet, Text, View } from 'react-native';
+import { Container } from 'native-base';
+import IconFA from 'react-native-vector-icons/FontAwesome5';
+import IconMD from 'react-native-vector-icons/MaterialIcons';
+import FAB from 'react-native-fab';
+import AppHeader from 'components/AppHeader';
+import colors from 'constants/colors.json';
+import { getCards, getSelectedCard } from 'services/cards/reducer';
+import { selectCard } from 'services/cards/actions';
+import CardItem from './components/CardItem';
 
 const { height } = Dimensions.get('window');
 

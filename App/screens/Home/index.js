@@ -1,11 +1,11 @@
-import React from "react";
-import Icon from "react-native-vector-icons/FontAwesome5";
-import { createAppContainer, createBottomTabNavigator } from "react-navigation";
-import { RFValue } from "react-native-responsive-fontsize";
-import ListDeliveries from "./screens/Deliveries/screens/ListDeliveries";
-import Profile from "./screens/Profile";
-import ListCards from "./screens/Cards/screens/ListCards";
-import Hail from "./screens/Hail";
+import React from 'react';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import { createAppContainer, createBottomTabNavigator } from 'react-navigation';
+import { RFValue } from 'react-native-responsive-fontsize';
+import ListDeliveries from './screens/Deliveries/screens/ListDeliveries';
+import Profile from './screens/Profile';
+import ListCards from './screens/Cards/screens/ListCards';
+import Hail from './screens/Hail';
 
 const App = createBottomTabNavigator(
   {
@@ -59,7 +59,7 @@ const App = createBottomTabNavigator(
       },
     },
     initialRouteName: 'Hail',
-  }
+  },
 );
 
 export default createAppContainer(App);

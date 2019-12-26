@@ -1,8 +1,8 @@
 /* eslint-disable no-shadow */
-import React from "react";
-import { ActivityIndicator } from "react-native";
-import { connect } from "react-redux";
-import { getIsLoggedIn } from "services/auth/reducer";
+import React from 'react';
+import { ActivityIndicator } from 'react-native';
+import { connect } from 'react-redux';
+import { getIsLoggedIn } from 'services/auth/reducer';
 
 class AuthLoadingScreen extends React.Component {
   componentDidMount() {

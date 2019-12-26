@@ -1,17 +1,17 @@
 /* eslint-disable no-unused-vars */
-import { call, put, takeLatest } from "redux-saga/effects";
-import { NavigationActions } from "react-navigation";
-import DeviceInfo from "react-native-device-info";
-import { firebase } from "@react-native-firebase/messaging";
-import Snackbar from "react-native-snackbar";
-import { fetchDeliveriesRequest } from "services/deliveries/actions";
-import { fetchCardsRequest } from "services/cards/actions";
-import { fetchRidesRequest } from "services/rides/actions";
+import { call, put, takeLatest } from 'redux-saga/effects';
+import { NavigationActions } from 'react-navigation';
+import DeviceInfo from 'react-native-device-info';
+import { firebase } from '@react-native-firebase/messaging';
+import Snackbar from 'react-native-snackbar';
+import { fetchDeliveriesRequest } from 'services/deliveries/actions';
+import { fetchCardsRequest } from 'services/cards/actions';
+import { fetchRidesRequest } from 'services/rides/actions';
 
-import * as types from "./constants";
-import * as actions from "./actions";
-import api from "../api";
-import { saveState } from "../../localStorage";
+import * as types from './constants';
+import * as actions from './actions';
+import api from '../api';
+import { saveState } from '../../localStorage';
 
 function* login({ credentials }) {
   try {
@@ -46,7 +46,7 @@ function* login({ credentials }) {
     yield put(
       NavigationActions.navigate({
         routeName: 'Home',
-      })
+      }),
     );
   } catch (error) {
     console.log(error.response);
@@ -89,7 +89,7 @@ function* signup({ credentials }) {
     yield put(
       NavigationActions.navigate({
         routeName: 'Home',
-      })
+      }),
     );
   } catch (e) {
     yield put(actions.signupFailure({}));

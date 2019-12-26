@@ -1,13 +1,13 @@
 /* eslint-disable no-shadow */
-import React from "react";
-import { connect } from "react-redux";
-import { Alert, ScrollView, View } from "react-native";
-import { signupRequest } from "services/auth/actions";
-import { getSignup } from "services/auth/reducer";
-import BaseStyles from "theme/base";
-import TopNav from "components/TopNav";
-import { Formik } from "formik";
-import SignupForm from "./components/SignupForm";
+import React from 'react';
+import { connect } from 'react-redux';
+import { Alert, ScrollView, View } from 'react-native';
+import { signupRequest } from 'services/auth/actions';
+import { getSignup } from 'services/auth/reducer';
+import BaseStyles from 'theme/base';
+import TopNav from 'components/TopNav';
+import { Formik } from 'formik';
+import SignupForm from './components/SignupForm';
 
 const initialValues = {
   firstname: '',

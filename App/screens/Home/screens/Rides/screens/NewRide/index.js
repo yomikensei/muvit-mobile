@@ -1,11 +1,11 @@
 /* eslint-disable no-shadow */
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { fetchRidePricingRequest } from "services/rides/actions";
-import { ScrollView, StyleSheet, View } from "react-native";
-import { Container } from "native-base";
-import AppHeader from "components/AppHeader";
-import NewRideForm from "./components/NewRideForm";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { fetchRidePricingRequest } from 'services/rides/actions';
+import { ScrollView, StyleSheet, View } from 'react-native';
+import { Container } from 'native-base';
+import AppHeader from 'components/AppHeader';
+import NewRideForm from './components/NewRideForm';
 
 const styles = StyleSheet.create({
   container: {

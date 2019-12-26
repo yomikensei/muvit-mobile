@@ -1,12 +1,12 @@
 /* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
-import React, { PureComponent } from "react";
-import { connect } from "react-redux";
-import { ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { Container } from "native-base";
-import { createDeliveryRequest } from "services/deliveries/actions";
-import AppHeader from "components/AppHeader";
-import { getCreateDelivery } from "services/deliveries/reducer";
+import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { ActivityIndicator, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Container } from 'native-base';
+import { createDeliveryRequest } from 'services/deliveries/actions';
+import AppHeader from 'components/AppHeader';
+import { getCreateDelivery } from 'services/deliveries/reducer';
 
 const styles = StyleSheet.create({
   container: {

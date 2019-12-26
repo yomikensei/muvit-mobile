@@ -1,7 +1,7 @@
-import React from "react";
-import { StyleSheet, Text } from "react-native";
-import { RFValue } from "react-native-responsive-fontsize";
-import Colors from "theme/colors";
+import React from 'react';
+import { StyleSheet, Text } from 'react-native';
+import { RFValue } from 'react-native-responsive-fontsize';
+import Colors from 'theme/colors';
 
 const styles = StyleSheet.create({
   default: {
