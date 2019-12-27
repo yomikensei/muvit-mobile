@@ -77,6 +77,7 @@ export default props => {
       <ContentControl
         {...{
           tab,
+          fetchCards,
           cards: Object.values(cards),
           transactions: Object.values(transactions),
           isFetchCardsLoading,
@@ -146,10 +147,13 @@ const ContentControl = ({
   transactions,
   isFetchCardsLoading,
   isFetchTransactionsLoading,
+  fetchCards,
 }) => {
   switch (tab) {
     case 'CARDS':
-      return <CardsList {...{ data: cards, isLoading: isFetchCardsLoading }} />;
+      return (
+        <CardsList {...{ data: cards, isLoading: isFetchCardsLoading, fetchData: fetchCards }} />
+      );
 
     case 'TRANSACTIONS':
       return (

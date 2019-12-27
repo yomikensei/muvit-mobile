@@ -6,13 +6,14 @@ import Colors from 'theme/colors.json';
 import { RegularText } from 'components/Text';
 import CardItem from './CardItem';
 
-export default ({ isLoading, data }) => (
+export default ({ isLoading, data, fetchData }) => (
   <View>
-    {isLoading ? (
+    {isLoading && data.length === 0 ? (
       <ActivityIndicator size={30} color={Colors.primary} />
     ) : (
       <ScrollView showsVerticalScrollIndicator={false}>
         <FlatList
+          refreshing={isLoading && data.length === 0}
           data={data}
           renderItem={({ item, index }) => (
             <CardItem {...{ ...item, backgroundColor: schemeDark2[index % 12] }} />
@@ -23,6 +24,7 @@ export default ({ isLoading, data }) => (
               No cards available, you can add one by clicking the button in the bottom right
             </RegularText>
           )}
+          onRefresh={fetchData}
         />
       </ScrollView>
     )}
