@@ -46,7 +46,7 @@ function* login({ credentials }) {
     yield put(
       NavigationActions.navigate({
         routeName: 'Home',
-      }),
+      })
     );
   } catch (error) {
     console.log(error.response);
@@ -89,12 +89,24 @@ function* signup({ credentials }) {
     yield put(
       NavigationActions.navigate({
         routeName: 'Home',
-      }),
+      })
     );
   } catch (e) {
     yield put(actions.signupFailure({}));
     console.log(e.response ? e.response : e);
   }
+}
+
+export function* logout() {
+  yield put(
+    NavigationActions.navigate({
+      routeName: 'Login',
+    })
+  );
+}
+
+export function* logoutSaga() {
+  yield takeLatest(types.LOGOUT, logout);
 }
 
 export function* loginSaga() {

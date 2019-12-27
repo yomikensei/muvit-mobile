@@ -48,6 +48,7 @@ export default function* rootSaga() {
   yield all([
     authSaga.loginSaga(),
     authSaga.signupSaga(),
+    authSaga.logoutSaga(),
     cardsSaga.fetchCardsSaga(),
     cardsSaga.createCardSaga(),
     deliveriesSaga.fetchDeliveriesSaga(),
