@@ -1,13 +1,30 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ScrollView, FlatList } from 'react-native';
+import { ActivityIndicator } from 'react-native-paper';
+import { schemeDark2 } from 'd3-scale-chromatic';
+import Colors from 'theme/colors.json';
 import { RegularText } from 'components/Text';
+import CardItem from './CardItem';
 
-export default ({ isLoading, data }) => {
-  console.log(data);
-
-  return (
-    <View>
-      <RegularText>Cards List</RegularText>
-    </View>
-  );
-};
+export default ({ isLoading, data }) => (
+  <View>
+    {isLoading ? (
+      <ActivityIndicator size={30} color={Colors.primary} />
+    ) : (
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <FlatList
+          data={data}
+          renderItem={({ item, index }) => (
+            <CardItem {...{ ...item, backgroundColor: schemeDark2[index % 12] }} />
+          )}
+          keyExtractor={item => item.id}
+          ListEmptyComponent={() => (
+            <RegularText>
+              No cards available, you can add one by clicking the button in the bottom right
+            </RegularText>
+          )}
+        />
+      </ScrollView>
+    )}
+  </View>
+);
