@@ -43,6 +43,7 @@
     "react-native-keyboard-aware-scrollview": "^2.1.0",
     "react-native-maps": "0.26.1",
     "react-native-material-menu": "^0.6.6",
+    "react-native-modal": "^11.5.3",
     "react-native-paper": "^2.16.0",
     "react-native-paystack": "^3.3.0",
     "react-native-pose": "^0.9.1",

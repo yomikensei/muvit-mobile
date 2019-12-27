@@ -8,7 +8,7 @@ export default props => {
   const { title, navigation, info } = props;
 
   return (
-    <View style={{ width: '100%', marginBottom: RFValue(46) }}>
+    <View style={{ width: '100%', marginBottom: RFValue(10) }}>
       <View
         style={{
           flexDirection: 'row',
@@ -28,9 +28,11 @@ export default props => {
         <BoldText customstyle={{ fontSize: RFValue(20) }}>{title}</BoldText>
         <View style={{ width: RFValue(20), height: RFValue(20) }} />
       </View>
-      <RegularText customstyle={{ color: '#B2B8BD', fontSize: RFValue(12), textAlign: 'center' }}>
-        {info}
-      </RegularText>
+      {info && (
+        <RegularText customstyle={{ color: '#B2B8BD', fontSize: RFValue(12), textAlign: 'center' }}>
+          {info}
+        </RegularText>
+      )}
     </View>
   );
 };

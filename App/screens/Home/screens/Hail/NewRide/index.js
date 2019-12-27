@@ -18,8 +18,8 @@ export default ({ setDetails, setState }) => {
           data: { details },
         },
       } = await api({
-        method: 'POST',
         url: '/ride/info',
+        method: 'POST',
         data: {
           location_origin,
           location_destination,

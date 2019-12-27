@@ -3,7 +3,6 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import { createAppContainer, createBottomTabNavigator } from 'react-navigation';
 import { RFValue } from 'react-native-responsive-fontsize';
 import Profile from './screens/Profile';
-import ListCards from './screens/Cards/screens/ListCards';
 import Hail from './screens/Hail';
 import History from './screens/History';
 import Payment from './screens/Payment';
@@ -30,7 +29,7 @@ const App = createBottomTabNavigator(
       screen: Payment,
       navigationOptions: () => ({
         tabBarLabel: 'Payment',
-        tabBarIcon: ({ tintColor }) => <Icon name="credit-card" size={18} color={tintColor} />,
+        tabBarIcon: ({ tintColor }) => <Icon name="money-bill" size={18} color={tintColor} />,
       }),
     },
     Settings: {

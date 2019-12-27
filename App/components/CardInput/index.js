@@ -8,21 +8,24 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   labelStyle: {
-    fontFamily: 'Raleway-Bold',
+    fontFamily: 'DMSans-Bold',
   },
   inputStyle: {
-    fontFamily: 'Raleway-SemiBold',
+    fontFamily: 'DMSans-Regular',
   },
 });
 
-
-const CardInput = (props) => {
-  const { input: { onChange, onFocus } } = props;
+const CardInput = props => {
+  const {
+    field: { name },
+    form: { setFieldValue },
+  } = props;
   return (
     <CreditCardInput
-      cardFontFamily="Raleway-SemiBold"
-      onChange={onChange}
-      onFocus={onFocus}
+      cardFontFamily="DMSans-Regular"
+      onChange={e => {
+        setFieldValue(name, e);
+      }}
       labelStyle={styles.labelStyle}
       inputStyle={styles.inputStyle}
     />

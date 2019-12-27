@@ -20,7 +20,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   tabButton: {
-    width: RFValue(67),
+    paddingHorizontal: RFValue(7),
     height: RFValue(29),
     borderRadius: RFValue(10),
     backgroundColor: '#FFF',
