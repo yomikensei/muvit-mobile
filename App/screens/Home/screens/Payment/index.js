@@ -85,9 +85,8 @@ export default props => {
       />
       <NewCardDialog
         isShown={showCreateCardDialog}
-        close={() => {
-          setShowCreateCardDialog(false);
-        }}
+        close={() => setShowCreateCardDialog(false)}
+        fetchCards={fetchCards}
       />
       {tab === 'CARDS' && (
         <FAB

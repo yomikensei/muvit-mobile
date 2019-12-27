@@ -28,9 +28,9 @@ async function requestApplicationPermissions() {
 }
 
 export function* fetchData() {
-  yield put(fetchCardsRequest());
-  yield put(fetchDeliveriesRequest());
-  yield put(fetchRidesRequest());
+  // yield put(fetchCardsRequest());
+  // yield put(fetchDeliveriesRequest());
+  // yield put(fetchRidesRequest());
 }
 
 function* pullData() {

@@ -1,22 +1,81 @@
 import React, { useState } from 'react';
-import { View, Dimensions, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, Dimensions, TouchableOpacity, ActivityIndicator, Alert } from 'react-native';
 import { MediumText } from 'components/Text';
 import Modal from 'react-native-modal';
 import BaseStyles from 'theme/base';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { Formik, Field } from 'formik';
 import CardInput from 'components/CardInput';
+import api from 'services/api';
+import RNPaystack from 'react-native-paystack';
+import Snackbar from 'react-native-snackbar';
 
 const { height, width } = Dimensions.get('window');
 
-export default ({ isShown = true, close }) => {
+const verifyCard = card => {
+  if (!card) return false;
+  if (!card.values) return false;
+  const {
+    status: { number, expiry, cvc },
+  } = card;
+  if ((number === 'valid', expiry === 'valid', cvc === 'valid')) return true;
+  return false;
+};
+
+export default ({ isShown, close, fetchCards }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const submit = async values => {
+  const submit = async ({ card }) => {
     setIsLoading(true);
     try {
-      console.log(values);
+      if (verifyCard(card)) {
+        const {
+          values: { number: cardNumber, cvc, expiry },
+        } = card;
+        const expiryMonth = expiry.slice(0, 2);
+        const expiryYear = expiry.slice(3, 5);
+
+        const payload = {
+          cardNumber,
+          cvc,
+          expiryMonth,
+          expiryYear,
+        };
+        const {
+          data: {
+            data: { access_code: accessCode },
+          },
+        } = await api({
+          url: '/card/initialize',
+          method: 'GET',
+        });
+        const { reference } = await RNPaystack.chargeCardWithAccessCode({
+          ...payload,
+          accessCode,
+        });
+        await api({
+          method: 'POST',
+          url: '/card',
+          data: {
+            transaction_reference: reference,
+          },
+        });
+        fetchCards();
+        close();
+        Snackbar.show({
+          title: 'Card added successfully',
+          duration: Snackbar.LENGTH_SHORT,
+        });
+      } else {
+        Alert.alert('Invalid card details', 'Please ensure all fields on the form are filled', [], {
+          cancelable: true,
+        });
+      }
     } catch (e) {
       console.log(e.response ? e.response : e);
+      Snackbar.show({
+        title: 'Failed to add card, please check your card details',
+        duration: Snackbar.LENGTH_SHORT,
+      });
     }
     setIsLoading(false);
   };
@@ -53,8 +112,8 @@ export default ({ isShown = true, close }) => {
                   onPress={handleSubmit}
                   style={{
                     ...BaseStyles.button,
-                    height: RFValue(35),
-                    borderRadius: 9,
+                    height: RFValue(40),
+                    borderRadius: 5,
                   }}
                   disabled={isLoading}
                 >
