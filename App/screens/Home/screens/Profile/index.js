@@ -1,23 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Dimensions, ScrollView, StyleSheet, Image, TouchableOpacity } from 'react-native';
-import { Container, Content, Icon, List, ListItem, Text, View } from 'native-base';
-import AppHeader from 'components/AppHeader';
-import Avatar from 'components/Avatar';
-import colors from 'constants/colors.json';
+import { Image, TouchableOpacity } from 'react-native';
+import { View } from 'native-base';
+
 import { getUser } from 'services/auth/reducer';
 import { logout } from 'services/auth/actions';
 import BaseStyles from 'theme/base';
 import DashNav from 'components/DashNav';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { RegularText, BoldText } from 'components/Text';
-import Colors from 'theme/colors';
-
-const { height: screenHeight, width: screenWidth } = Dimensions.get('window');
+import Colors from 'theme/colors.json';
 
 const Profile = props => {
   const {
-    user: { firstname, lastname, email, phone },
+    user: { firstname, lastname, email, phone, id },
     logout: Logout,
     navigation,
   } = props;
@@ -25,13 +21,13 @@ const Profile = props => {
     <View style={BaseStyles.background}>
       <DashNav navigation={navigation} title="Profile" />
       <Image
-        source={{ uri: 'https://i.pravatar.cc/300' }}
+        source={{ uri: `https://api.adorable.io/avatars/285/${id}` }}
         style={{
           width: RFValue(128),
           height: RFValue(128),
           borderRadius: RFValue(64),
           borderWidth: RFValue(7),
-          borderColor: '#EFF3F6',
+          borderColor: Colors.secondary,
           alignSelf: 'center',
           marginBottom: RFValue(19),
         }}
@@ -39,7 +35,7 @@ const Profile = props => {
       <RegularText
         customstyle={{
           fontSize: RFValue(22),
-          color: '#FFF',
+          color: Colors.black,
           textAlign: 'center',
           marginBottom: RFValue(5),
         }}
@@ -49,7 +45,7 @@ const Profile = props => {
       <BoldText
         customstyle={{
           fontSize: RFValue(25),
-          color: '#FFF',
+          color: Colors.black,
           textAlign: 'center',
           marginBottom: RFValue(5),
         }}
@@ -59,12 +55,12 @@ const Profile = props => {
       <RegularText
         customstyle={{
           fontSize: RFValue(14),
-          color: 'rgba(255,255,255,0.8)',
+          color: Colors.black,
           textAlign: 'center',
           marginBottom: RFValue(20),
         }}
       >
-        johnsmith@muvit.com
+        {email}
       </RegularText>
       <View style={{ paddingHorizontal: RFValue(24) }}>
         <Action backgroundColor="#1969C5" title="Edit Profile" />
