@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Image, TouchableOpacity } from 'react-native';
-import { View } from 'native-base';
+import { View, Image, TouchableOpacity, } from 'react-native';
 
 import { getUser } from 'services/auth/reducer';
 import { logout } from 'services/auth/actions';
@@ -71,10 +70,6 @@ const Profile = props => {
   );
 };
 
-const mapStateToProps = state => ({
-  user: getUser(state),
-});
-
 const Action = ({ title, action, backgroundColor }) => (
   <TouchableOpacity
     style={{
@@ -93,5 +88,9 @@ const Action = ({ title, action, backgroundColor }) => (
     <RegularText customstyle={{ color: '#FFF', fontSize: RFValue(16) }}>{title}</RegularText>
   </TouchableOpacity>
 );
+
+const mapStateToProps = state => ({
+  user: getUser(state),
+});
 
 export default connect(mapStateToProps, { logout })(Profile);

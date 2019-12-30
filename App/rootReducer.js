@@ -13,7 +13,7 @@ import * as authTypes from './services/auth/constants';
 
 import { AppWithNavigationState } from './screens';
 
-const storage = FSStorage(DocumentDir, 'parkmonitor');
+const storage = FSStorage(DocumentDir, 'muvit');
 
 const entitiesReducer = (state, action) => {
   const reducer = combineReducers({

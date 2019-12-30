@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import * as Font from 'expo-font';
 import { Ionicons } from '@expo/vector-icons';
-import { PersistorProvider } from './services/contexts';
-import Navigator from './screens';
+import { PersistorProvider } from 'services/contexts';
+import Navigator from 'screens';
 
 import configureStore from './configureStore';
 
