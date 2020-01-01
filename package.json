@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "node node_modules/react-native/local-cli/cli.js start --port 8082",
     "start-ios": "node node_modules/react-native/local-cli/cli.js run-ios",
     "start-android": "node node_modules/react-native/local-cli/cli.js run-android",
     "release-ios": "node node_modules/react-native/local-cli/cli.js run-ios --variant release",

@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default () => {
+export default ({ navigation }) => {
   const [coordinates, setCoordinates] = useState({ latitude: 0, longitude: 0 });
   const [isLocationLoading, setIsLocationLoading] = useState(false);
   const [details, setDetails] = useState({});
@@ -78,6 +78,8 @@ export default () => {
     fetchLocationData();
   }, []);
 
+  
+  
   return (
     <View style={styles.background}>
       {isLocationLoading ? (
@@ -121,20 +123,20 @@ export default () => {
           </BoldText>
         </View>
 
-        <ActionPrompt {...{ details, setDetails }} />
+        <ActionPrompt {...{ details, setDetails, navigation }} />
       </View>
     </View>
   );
 };
 
-const ActionPrompt = ({ setDetails, details }) => {
+const ActionPrompt = ({ setDetails, details, navigation }) => {
   const [state, setState] = useState('CREATE');
   const [type, setType] = useState('RIDE');
 
   const titleMap = {
-    CREATE_RIDE: 'Need to move stuff quick?',
-    CREATE_DELIVERY: 'Need to get somewhere?',
+    CREATE_RIDE: 'Need to get somewhere?',
     PRICING_RIDE: 'Ride pricing',
+    CREATE_DELIVERY: 'Need to move stuff quick?',
     PRICING_DELIVERY: 'Delivery pricing',
   };
 
@@ -191,21 +193,21 @@ const ActionPrompt = ({ setDetails, details }) => {
         </View>
       </View>
 
-      <PromptControl {...{ setDetails, details, state, setState, type }} />
+      <PromptControl {...{ setDetails, details, state, setState, type, navigation }} />
     </View>
   );
 };
 
-const PromptControl = ({ setDetails, details, type, state, setState }) => {
+const PromptControl = ({ setDetails, details, type, state, setState, navigation }) => {
   switch (`${state}_${type}`) {
     case 'CREATE_DELIVERY':
       return <NewDelivery {...{ setDetails, setState }} />;
     case 'CREATE_RIDE':
       return <NewRide {...{ setDetails, setState }} />;
     case 'PRICING_RIDE':
-      return <RidePricing {...{ details }} />;
+      return <RidePricing {...{ details, navigation }} />;
     case 'PRICING_DELIVERY':
-      return <DeliveryPricing {...{ details }} />;
+      return <DeliveryPricing {...{ details, navigation }} />;
 
     default:
       return <View />;

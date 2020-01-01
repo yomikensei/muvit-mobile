@@ -89,15 +89,13 @@ export default props => {
         close={() => setShowCreateCardDialog(false)}
         fetchCards={fetchCards}
       />
-      {tab === 'CARDS' && (
-        <FAB
-          visible
-          onClickAction={() => setShowCreateCardDialog(true)}
-          buttonColor={Colors.primary}
-          iconTextColor="#FFFFFF"
-          iconTextComponent={<Icon name="credit-card" />}
-        />
-      )}
+      <FAB
+        visible={tab === 'CARDS'}
+        onClickAction={() => setShowCreateCardDialog(true)}
+        buttonColor={Colors.primary}
+        iconTextColor="#FFFFFF"
+        iconTextComponent={<Icon name="credit-card" />}
+      />
     </View>
   );
 };

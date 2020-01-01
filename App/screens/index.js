@@ -17,10 +17,25 @@ import OrderRide from './Home/screens/Rides/screens/NewRide';
 import ViewRidePricing from './Home/screens/Rides/screens/ViewRidePricing';
 import ViewRide from './Home/screens/Rides/screens/ViewRide';
 
+import OngoingOrder from './Home/screens/Hail/OngoingOrder';
+import Searching from './Home/screens/Hail/Searching';
+
 const HomeStack = createStackNavigator(
   {
     HomeTab: {
       screen: Home,
+      navigationOptions: () => ({
+        header: null,
+      }),
+    },
+    Searching: {
+      screen: Searching,
+      navigationOptions: () => ({
+        header: null,
+      }),
+    },
+    OngoingOrder: {
+      screen: OngoingOrder,
       navigationOptions: () => ({
         header: null,
       }),
