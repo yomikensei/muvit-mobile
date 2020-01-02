@@ -59,6 +59,8 @@ const App = createBottomTabNavigator(
       },
     },
     initialRouteName: 'Hail',
+    lazy: false,
+    resetOnBlur: true
   }
 );
 

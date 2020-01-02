@@ -81,17 +81,14 @@ export default ({ details, navigation: { navigate } }) => {
       <TouchableOpacity
         style={{
           ...BaseStyles.button,
-          backgroundColor: isOrdered ? Colors.secondary : Colors.primary,
         }}
-        disabled={isLoading || isOrdered}
+        disabled={isLoading}
         onPress={orderRide}
       >
         {isLoading ? (
           <ActivityIndicator size={25} color="#FFF" />
         ) : (
-          <MediumText customstyle={{ color: '#FFF' }}>
-            {!isOrdered ? 'Order Ride' : 'Ride has bee ordered'}
-          </MediumText>
+          <MediumText customstyle={{ color: '#FFF' }}>Order Ride </MediumText>
         )}
       </TouchableOpacity>
     </View>
