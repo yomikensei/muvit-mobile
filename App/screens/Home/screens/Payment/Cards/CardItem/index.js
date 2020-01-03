@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, TouchableOpacity, Image } from 'react-native';
-import { RegularText, BoldText } from 'components/Text';
-import { RFValue } from 'react-native-responsive-fontsize';
+import {View} from 'react-native';
+import {BoldText, RegularText} from 'components/Text';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 export default ({ card_type, bank, last4, backgroundColor }) => {
   return (
@@ -12,19 +12,13 @@ export default ({ card_type, bank, last4, backgroundColor }) => {
         backgroundColor,
         borderRadius: RFValue(10),
         paddingEnd: RFValue(13.49),
-        flexDirection: 'row-reverse',
+        flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
         paddingStart: RFValue(22),
         marginBottom: RFValue(14),
       }}
     >
-      <TouchableOpacity>
-        <Image
-          source={require('../../../../../../assets/icons/exit2.png')}
-          style={{ width: RFValue(20), height: RFValue(20) }}
-        />
-      </TouchableOpacity>
       <View>
         <BoldText customstyle={{ color: '#FFF', fontSize: RFValue(25) }}>
           {`**** **** **** ${last4}`}
@@ -34,6 +28,12 @@ export default ({ card_type, bank, last4, backgroundColor }) => {
           {card_type.toUpperCase()}
         </RegularText>
       </View>
+      {/*<TouchableOpacity>*/}
+      {/*  <Image*/}
+      {/*    source={require('../../../../../../assets/icons/exit2.png')}*/}
+      {/*    style={{ width: RFValue(20), height: RFValue(20) }}*/}
+      {/*  />*/}
+      {/*</TouchableOpacity>*/}
     </View>
   );
 };

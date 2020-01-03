@@ -1,32 +1,91 @@
-import React, { useState, useEffect } from 'react';
-import { View, TouchableOpacity } from 'react-native';
-import { MediumText } from 'components/Text';
+import React, {useEffect, useState} from 'react';
+import {FlatList, ScrollView, TouchableOpacity, View} from 'react-native';
+import {MediumText, RegularText} from 'components/Text';
 import DashNav from 'components/DashNav';
 import Colors from 'theme/colors.json';
-import { RFValue } from 'react-native-responsive-fontsize';
+import {RFValue} from 'react-native-responsive-fontsize';
 import BaseStyles from 'theme/base';
-import RidesList from './Rides';
-import DeliveriesList from './Deliveries';
+import api from 'services/api';
+import HistoryItem from './HistoryItem';
 
 export default props => {
   const [tab, setTab] = useState('RIDES');
+  const [rides, setRides] = useState({});
+  const [deliveries, setDeliveries] = useState({});
+  const [isRidesLoading, setIsRidesLoading] = useState(false);
+  const [isDeliveriesLoading, setIsDeliveriesLoading] = useState(false);
 
   const { navigation } = props;
 
-  const fetchRides = async () => {};
+  const fetchRides = async () => {
+    setIsRidesLoading(true);
+    try {
+      const {
+        data: { data },
+      } = await api({
+        url: '/ride',
+        method: 'GET',
+      });
+      const _data = {};
+      data.forEach(item => {
+        _data[item.id] = item;
+      });
+      setRides(_data);
+    } catch (e) {
+      console.log(e.response ? e.response : e);
+    }
+    setIsRidesLoading(false);
+  };
 
-  const fetchDeliveries = async () => {};
+  const fetchDeliveries = async () => {
+    setIsDeliveriesLoading(true);
+    try {
+      const {
+        data: { data },
+      } = await api({
+        url: '/delivery',
+        method: 'GET',
+      });
+      const _data = {};
+      data.forEach(item => {
+        _data[item.id] = item;
+      });
+      setDeliveries(_data);
+    } catch (e) {
+      console.log(e.response ? e.response : e);
+    }
+    setIsDeliveriesLoading(false);
+  };
 
   useEffect(() => {
     fetchRides();
     fetchDeliveries();
-  });
+  }, []);
 
   return (
     <View style={BaseStyles.background}>
-      <DashNav navigation={navigation} title="History" />
+      <DashNav
+        navigation={navigation}
+        title="History"
+        info="Rides and deliveries history for all time"
+      />
       <Tabs {...{ tab, setTab }} />
-      <ContentControl {...{ tab, fetchRides, fetchDeliveries }} />
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <FlatList
+          refreshing={
+            ((tab === 'RIDES' && isRidesLoading) ||
+              (tab === 'DELIVERIES' && isDeliveriesLoading)) &&
+            Object.values(tab === 'RIDES' ? rides : deliveries).length === 0
+          }
+          data={Object.values(tab === 'RIDES' ? rides : deliveries)}
+          renderItem={({ item }) => <HistoryItem {...{ ...item }} />}
+          keyExtractor={item => item.id}
+          ListEmptyComponent={() => (
+            <RegularText>{`You haven't completed any ${tab.toLowerCase()} yet`}</RegularText>
+          )}
+          onRefresh={tab === 'RIDES' ? fetchRides : fetchDeliveries}
+        />
+      </ScrollView>
     </View>
   );
 };
@@ -69,16 +128,3 @@ const Tabs = ({ tab, setTab }) => (
     </TouchableOpacity>
   </View>
 );
-
-const ContentControl = ({ tab }) => {
-  switch (tab) {
-    case 'RIDES':
-      return <RidesList />;
-
-    case 'DELIVERIES':
-      return <DeliveriesList />;
-
-    default:
-      return <View />;
-  }
-};

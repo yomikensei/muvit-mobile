@@ -5,9 +5,13 @@ import {RFValue} from 'react-native-responsive-fontsize';
 import moment from 'moment';
 import Colors from 'theme/colors';
 import {currencyFormatter} from 'util';
-import _ from 'lodash';
 
-export default ({ type, code, createdAt, amount, description }) => {
+export default ({
+  location_origin: { name: location_origin },
+  location_destination: { name: location_destination },
+  createdAt,
+  bill,
+}) => {
   return (
     <View
       style={{
@@ -19,13 +23,12 @@ export default ({ type, code, createdAt, amount, description }) => {
         backgroundColor: Colors.black,
       }}
     >
-      <MediumText customstyle={{ color: '#FFF', fontSize: RFValue(18) }}>{`${_.capitalize(
-        type
-      )}: ₦ ${currencyFormatter(amount)}`}</MediumText>
-      <RegularText customstyle={{ color: '#FFF', fontSize: RFValue(14) }}>{`#${code}`}</RegularText>
-      <RegularText
-        customstyle={{ color: '#FFF', fontSize: RFValue(14) }}
-      >{`${description}`}</RegularText>
+      <MediumText customstyle={{ color: '#FFF', fontSize: RFValue(18) }}>
+        {`${location_origin} to ${location_destination}`}
+      </MediumText>
+      <RegularText customstyle={{ color: '#FFF', fontSize: RFValue(14) }}>{`₦ ${currencyFormatter(
+        bill
+      )}`}</RegularText>
       <RegularText customstyle={{ color: '#FFF', fontSize: RFValue(14) }}>
         {moment(createdAt).format('dddd, MMMM Do YYYY, h:mm a')}
       </RegularText>

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { View, TouchableOpacity } from 'react-native';
-import { MediumText } from 'components/Text';
+import React, {useEffect, useState} from 'react';
+import {TouchableOpacity, View} from 'react-native';
+import {MediumText} from 'components/Text';
 import DashNav from 'components/DashNav';
 import Colors from 'theme/colors.json';
-import { RFValue } from 'react-native-responsive-fontsize';
+import {RFValue} from 'react-native-responsive-fontsize';
 
 import BaseStyles from 'theme/base';
 import FAB from 'react-native-fab';
@@ -78,6 +78,7 @@ export default props => {
         {...{
           tab,
           fetchCards,
+          fetchTransactions,
           cards: Object.values(cards),
           transactions: Object.values(transactions),
           isFetchCardsLoading,
@@ -146,6 +147,7 @@ const ContentControl = ({
   isFetchCardsLoading,
   isFetchTransactionsLoading,
   fetchCards,
+  fetchTransactions,
 }) => {
   switch (tab) {
     case 'CARDS':
@@ -155,7 +157,13 @@ const ContentControl = ({
 
     case 'TRANSACTIONS':
       return (
-        <TransactionsList {...{ data: transactions, isLoading: isFetchTransactionsLoading }} />
+        <TransactionsList
+          {...{
+            data: transactions,
+            isLoading: isFetchTransactionsLoading,
+            fetchData: fetchTransactions,
+          }}
+        />
       );
 
     default:
