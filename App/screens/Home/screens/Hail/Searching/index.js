@@ -1,12 +1,13 @@
 import React from 'react';
-import { View } from 'react-native';
-import { RegularText } from 'components/Text';
+import {ActivityIndicator, View} from 'react-native';
 import DashNav from 'components/DashNav';
 import BaseStyles from 'theme/base';
+import Colors from 'theme/colors';
 
 export default ({ navigation }) => (
   <View style={BaseStyles.background}>
     <DashNav navigation={navigation} title="Searching for Driver" />
-    <RegularText>Searching for driver</RegularText>
+
+    <ActivityIndicator style={{ paddingVertical: 90 }} size={65} color={Colors.black} />
   </View>
 );

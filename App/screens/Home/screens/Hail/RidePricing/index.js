@@ -1,17 +1,15 @@
-import React, { useState } from 'react';
-import { MediumText, RegularText } from 'components/Text';
-import { ActivityIndicator, TouchableOpacity, View } from 'react-native';
+import React, {useState} from 'react';
+import {MediumText, RegularText} from 'components/Text';
+import {ActivityIndicator, TouchableOpacity, View} from 'react-native';
 import BaseStyles from 'theme/base';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Snackbar from 'react-native-snackbar';
-import { RFValue } from 'react-native-responsive-fontsize';
-import { currencyFormatter } from 'util';
-import Colors from 'theme/colors.json';
+import {RFValue} from 'react-native-responsive-fontsize';
+import {currencyFormatter} from 'util';
 import api from 'services/api';
 
 export default ({ details, navigation: { navigate } }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [isOrdered, setIsOrdered] = useState(false);
 
   const orderRide = async () => {
     setIsLoading(true);
@@ -24,13 +22,14 @@ export default ({ details, navigation: { navigate } }) => {
           payment_method: 'cash',
         },
       });
-      console.log(data);
-      setIsOrdered(true);
       navigate('Searching');
     } catch (e) {
       console.log(e.response ? e.response : e);
+      let message = 'Failed to order ride, please try again later';
+      if (e.response)
+        if (e.response.data) if (e.response.data.message) message = e.response.data.message;
       Snackbar.show({
-        title: 'Failed to order ride, please try again later',
+        title: message,
         duration: Snackbar.LENGTH_LONG,
       });
     }

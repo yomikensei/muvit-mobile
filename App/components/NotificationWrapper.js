@@ -1,9 +1,8 @@
 import PushNotification from 'react-native-push-notification';
-import { connect } from 'react-redux';
-import { NavigationActions } from 'react-navigation';
+import {connect} from 'react-redux';
+import {NavigationActions} from 'react-navigation';
 import React from 'react';
-import { firebase } from '@react-native-firebase/messaging';
-import { logout } from 'services/auth/actions';
+import {firebase} from '@react-native-firebase/messaging';
 
 export default WrappedComponent =>
   connect(
@@ -38,6 +37,42 @@ export default WrappedComponent =>
                 });
                 self.props.navigate('Hail');
                 break;
+
+              case 'RIDE_ACCEPTED':
+              case 'DELIVERY_ACCEPTED':
+                PushNotification.localNotification({
+                  largeIcon: 'ic_launcher',
+                  smallIcon: 'ic_launcher_round',
+                  vibration: 300,
+                  title: 'Order Accepted',
+                  message: 'A driver is currently en-route to your location',
+                });
+                self.props.navigate('OngoingOrder');
+                break;
+
+              case 'RIDE_COMMENCED':
+              case 'DELIVERY_COMMENCED':
+                PushNotification.localNotification({
+                  largeIcon: 'ic_launcher',
+                  smallIcon: 'ic_launcher_round',
+                  vibration: 300,
+                  title: 'Order ongoing',
+                  message: 'Your order has now been commenced',
+                });
+                self.props.navigate('OngoingOrder');
+                break;
+
+              case 'COMPLETED':
+                PushNotification.localNotification({
+                  largeIcon: 'ic_launcher',
+                  smallIcon: 'ic_launcher_round',
+                  vibration: 300,
+                  title: 'Order completed',
+                  message: 'Your order has been completed',
+                });
+                self.props.navigate('Hail');
+                break;
+                
 
               default:
                 break;

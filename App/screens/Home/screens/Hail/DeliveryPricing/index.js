@@ -1,14 +1,41 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import api from 'services/api';
-import { MediumText, RegularText } from 'components/Text';
-import { ActivityIndicator, Text, TouchableOpacity, View } from 'react-native';
+import {MediumText, RegularText} from 'components/Text';
+import {ActivityIndicator, TouchableOpacity, View} from 'react-native';
 import BaseStyles from 'theme/base';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { RFValue } from 'react-native-responsive-fontsize';
-import { currencyFormatter } from 'util';
+import {RFValue} from 'react-native-responsive-fontsize';
+import {currencyFormatter} from 'util';
+import Snackbar from 'react-native-snackbar';
 
-export default ({ details }) => {
+export default ({ details, navigation: { navigate } }) => {
   const [isLoading, setIsLoading] = useState(false);
+
+  const orderDelivery = async () => {
+    setIsLoading(true);
+    try {
+      const { data } = await api({
+        url: '/delivery',
+        method: 'POST',
+        data: {
+          ...details,
+          payment_method: 'cash',
+        },
+      });
+      navigate('Searching');
+    } catch (e) {
+      console.log(e.response ? e.response : e);
+      console.log(e.response ? e.response : e);
+      let message = 'Failed to order delivery, please try again later';
+      if (e.response)
+        if (e.response.data) if (e.response.data.message) message = e.response.data.message;
+      Snackbar.show({
+        title: message,
+        duration: Snackbar.LENGTH_LONG,
+      });
+    }
+    setIsLoading(false);
+  };
 
   return (
     <View style={{ marginTop: RFValue(10) }}>
@@ -51,11 +78,15 @@ export default ({ details }) => {
           </RegularText>
         </View>
       </View>
-      <TouchableOpacity style={{ ...BaseStyles.button }} disabled={isLoading}>
+      <TouchableOpacity
+        onPress={orderDelivery}
+        style={{ ...BaseStyles.button }}
+        disabled={isLoading}
+      >
         {isLoading ? (
           <ActivityIndicator size={25} color="#FFF" />
         ) : (
-          <MediumText customstyle={{ color: '#FFF' }}>Order Ride</MediumText>
+          <MediumText customstyle={{ color: '#FFF' }}>Order Delivery</MediumText>
         )}
       </TouchableOpacity>
     </View>
