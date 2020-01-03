@@ -1,21 +1,11 @@
-import { createAppContainer, createStackNavigator, createSwitchNavigator } from 'react-navigation';
-import { createReduxContainer } from 'react-navigation-redux-helpers';
-import { connect } from 'react-redux';
+import {createAppContainer, createStackNavigator, createSwitchNavigator} from 'react-navigation';
+import {createReduxContainer} from 'react-navigation-redux-helpers';
+import {connect} from 'react-redux';
 import NotificationWrapper from '../components/NotificationWrapper';
 
 import AuthStack from './Auth';
 import Home from './Home';
 import AuthLoadingScreen from './AuthLoadingScreen';
-
-import CreateCard from './Home/screens/Cards/screens/CreateCard';
-
-import NewDelivery from './Home/screens/Deliveries/screens/NewDelivery';
-import ViewDeliveryPricing from './Home/screens/Deliveries/screens/ViewDeliveryPricing';
-import ViewDelivery from './Home/screens/Deliveries/screens/ViewDelivery';
-
-import OrderRide from './Home/screens/Rides/screens/NewRide';
-import ViewRidePricing from './Home/screens/Rides/screens/ViewRidePricing';
-import ViewRide from './Home/screens/Rides/screens/ViewRide';
 
 import OngoingOrder from './Home/screens/Hail/OngoingOrder';
 import Searching from './Home/screens/Hail/Searching';
@@ -36,48 +26,6 @@ const HomeStack = createStackNavigator(
     },
     OngoingOrder: {
       screen: OngoingOrder,
-      navigationOptions: () => ({
-        header: null,
-      }),
-    },
-    CreateCard: {
-      screen: CreateCard,
-      navigationOptions: () => ({
-        header: null,
-      }),
-    },
-    NewDelivery: {
-      screen: NewDelivery,
-      navigationOptions: () => ({
-        header: null,
-      }),
-    },
-    ViewDeliveryPricing: {
-      screen: ViewDeliveryPricing,
-      navigationOptions: () => ({
-        header: null,
-      }),
-    },
-    ViewDelivery: {
-      screen: ViewDelivery,
-      navigationOptions: () => ({
-        header: null,
-      }),
-    },
-    OrderRide: {
-      screen: OrderRide,
-      navigationOptions: () => ({
-        header: null,
-      }),
-    },
-    ViewRidePricing: {
-      screen: ViewRidePricing,
-      navigationOptions: () => ({
-        header: null,
-      }),
-    },
-    ViewRide: {
-      screen: ViewRide,
       navigationOptions: () => ({
         header: null,
       }),

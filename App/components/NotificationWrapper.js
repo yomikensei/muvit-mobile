@@ -24,8 +24,7 @@ export default WrappedComponent =>
         const self = this;
         PushNotification.configure({
           onNotification(notification) {
-            console.log('notification', notification);
-
+            console.log(notification);
             switch (notification.action) {
               case 'DRIVERS_UNAVAILABLE':
                 PushNotification.localNotification({
@@ -47,7 +46,10 @@ export default WrappedComponent =>
                   title: 'Order Accepted',
                   message: 'A driver is currently en-route to your location',
                 });
-                self.props.navigate('OngoingOrder');
+                self.props.navigate('OngoingOrder', {
+                  id: notification.ride ? notification.ride : notification.delivery,
+                  type: notification.ride ? 'ride' : 'delivery',
+                });
                 break;
 
               case 'RIDE_COMMENCED':
@@ -59,7 +61,10 @@ export default WrappedComponent =>
                   title: 'Order ongoing',
                   message: 'Your order has now been commenced',
                 });
-                self.props.navigate('OngoingOrder');
+                self.props.navigate('OngoingOrder', {
+                  id: notification.ride ? notification.ride : notification.delivery,
+                  type: notification.ride ? 'ride' : 'delivery',
+                });
                 break;
 
               case 'COMPLETED':
@@ -72,7 +77,6 @@ export default WrappedComponent =>
                 });
                 self.props.navigate('Hail');
                 break;
-                
 
               default:
                 break;
@@ -86,5 +90,5 @@ export default WrappedComponent =>
 
 const mapStateToProps = state => ({});
 const mapDispatchToProps = dispatch => ({
-  navigate: routeName => dispatch(NavigationActions.navigate({ routeName })),
+  navigate: (routeName, params) => dispatch(NavigationActions.navigate({ routeName, params })),
 });
