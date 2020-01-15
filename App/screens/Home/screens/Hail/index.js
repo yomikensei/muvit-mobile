@@ -1,6 +1,7 @@
 /* eslint-disable implicit-arrow-linebreak */
 import React, { useEffect, useState } from 'react';
 import { ActivityIndicator, Dimensions, StyleSheet, View, TouchableOpacity } from 'react-native';
+import * as Animatable from 'react-native-animatable';
 import Geolocation from 'react-native-geolocation-service';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import BaseStyles from 'theme/base';
@@ -78,8 +79,6 @@ export default ({ navigation }) => {
     fetchLocationData();
   }, []);
 
-  
-  
   return (
     <View style={styles.background}>
       {isLocationLoading ? (
@@ -108,7 +107,7 @@ export default ({ navigation }) => {
       )}
 
       <View style={styles.container}>
-        <View style={styles.header}>
+        <Animatable.View style={styles.header} delay={3500} duration={500} animation="bounceOutUp">
           <BoldText
             customstyle={{
               fontSize: RFValue(20),
@@ -121,7 +120,7 @@ export default ({ navigation }) => {
           >
             Hail a driver
           </BoldText>
-        </View>
+        </Animatable.View>
 
         <ActionPrompt {...{ details, setDetails, navigation }} />
       </View>
