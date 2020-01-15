@@ -16,7 +16,7 @@ export default ({ isLoading, data, fetchData }) => (
           data={data}
           renderItem={({ item }) => <TransactionItem {...item} />}
           keyExtractor={item => item.id}
-          ListEmptyComponent={() => <RegularText>No transactions available</RegularText>}
+          ListEmptyComponent={() => <RegularText customstyle={{ textAlign: 'center' }}>No transactions available</RegularText>}
           onRefresh={fetchData}
         />
       </ScrollView>

@@ -1,9 +1,9 @@
-import React, {useEffect, useState} from 'react';
-import {FlatList, ScrollView, TouchableOpacity, View} from 'react-native';
-import {MediumText, RegularText} from 'components/Text';
+import React, { useEffect, useState } from 'react';
+import { FlatList, ScrollView, TouchableOpacity, View } from 'react-native';
+import { MediumText, RegularText } from 'components/Text';
 import DashNav from 'components/DashNav';
 import Colors from 'theme/colors.json';
-import {RFValue} from 'react-native-responsive-fontsize';
+import { RFValue } from 'react-native-responsive-fontsize';
 import BaseStyles from 'theme/base';
 import api from 'services/api';
 import HistoryItem from './HistoryItem';
@@ -81,7 +81,9 @@ export default props => {
           renderItem={({ item }) => <HistoryItem {...{ ...item }} />}
           keyExtractor={item => item.id}
           ListEmptyComponent={() => (
-            <RegularText>{`You haven't completed any ${tab.toLowerCase()} yet`}</RegularText>
+            <RegularText
+              customstyle={{ textAlign: 'center' }}
+            >{`You haven't completed any ${tab.toLowerCase()} yet`}</RegularText>
           )}
           onRefresh={tab === 'RIDES' ? fetchRides : fetchDeliveries}
         />
