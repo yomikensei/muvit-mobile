@@ -13,13 +13,13 @@ export default props => {
       <Field
         name="location_origin"
         component={PlaceInput}
-        label="Pickup"
+        label="Pickup point"
         handleChange={handleChange}
       />
       <Field
         name="location_destination"
         component={PlaceInput}
-        label="Delivery"
+        label="Delivery point"
         handleChange={handleChange}
       />
       <TouchableOpacity

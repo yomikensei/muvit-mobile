@@ -12,7 +12,7 @@ export default props => {
       <Field
         name="location_origin"
         component={PlaceInput}
-        label="Origin"
+        label="Pickup point"
         handleChange={handleChange}
       />
       <Field

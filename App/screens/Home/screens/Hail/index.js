@@ -132,6 +132,11 @@ const ActionPrompt = ({ setDetails, details, navigation }) => {
   const [state, setState] = useState('CREATE');
   const [type, setType] = useState('RIDE');
 
+  const clearSelection = () => {
+    setState('CREATE');
+    setDetails({});
+  };
+
   const titleMap = {
     CREATE_RIDE: 'Need to get somewhere?',
     PRICING_RIDE: 'Ride pricing',
@@ -192,21 +197,31 @@ const ActionPrompt = ({ setDetails, details, navigation }) => {
         </View>
       </View>
 
-      <PromptControl {...{ setDetails, details, state, setState, type, navigation }} />
+      <PromptControl
+        {...{ clearSelection, setDetails, details, state, setState, type, navigation }}
+      />
     </View>
   );
 };
 
-const PromptControl = ({ setDetails, details, type, state, setState, navigation }) => {
+const PromptControl = ({
+  clearSelection,
+  setDetails,
+  details,
+  type,
+  state,
+  setState,
+  navigation,
+}) => {
   switch (`${state}_${type}`) {
     case 'CREATE_DELIVERY':
-      return <NewDelivery {...{ setDetails, setState }} />;
+      return <NewDelivery {...{ setDetails, setState, clearSelection }} />;
     case 'CREATE_RIDE':
-      return <NewRide {...{ setDetails, setState }} />;
+      return <NewRide {...{ setDetails, setState, clearSelection }} />;
     case 'PRICING_RIDE':
-      return <RidePricing {...{ details, navigation }} />;
+      return <RidePricing {...{ details, setDetails, setState, navigation, clearSelection }} />;
     case 'PRICING_DELIVERY':
-      return <DeliveryPricing {...{ details, navigation }} />;
+      return <DeliveryPricing {...{ details, setDetails, setState, navigation, clearSelection }} />;
 
     default:
       return <View />;
