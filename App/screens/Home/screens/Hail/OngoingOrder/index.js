@@ -48,7 +48,7 @@ export default props => {
 
   useEffect(() => {
     fetchDetails();
-  });
+  }, []);
 
   return (
     <View style={BaseStyles.background}>
