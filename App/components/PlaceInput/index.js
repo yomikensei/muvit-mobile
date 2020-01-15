@@ -14,10 +14,21 @@ class PlaceInput extends Component {
       selectedLocation: null,
       pristine: true,
       error: null,
+      initialized: false,
     };
 
     this.openSearchModal = this.openSearchModal.bind(this);
     this.selectLocation = this.selectLocation.bind(this);
+  }
+
+  componentDidUpdate() {
+    const { field } = this.props;
+    if (field) {
+      const { name, value } = field;
+      if (!this.state.initialized && value) {
+        this.setState({ selectedLocation: value, initialized: true, pristine: false });
+      }
+    }
   }
 
   selectLocation = ({ address, location, placeID, name }) => {

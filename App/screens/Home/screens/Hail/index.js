@@ -4,6 +4,7 @@ import { ActivityIndicator, Dimensions, StyleSheet, View, TouchableOpacity } fro
 import * as Animatable from 'react-native-animatable';
 import Geolocation from 'react-native-geolocation-service';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import RNGooglePlaces from 'react-native-google-places';
 import BaseStyles from 'theme/base';
 import { BoldText, MediumText, RegularText } from 'components/Text';
 import { RFValue } from 'react-native-responsive-fontsize';
@@ -59,10 +60,18 @@ export default ({ navigation }) => {
   const [coordinates, setCoordinates] = useState({ latitude: 0, longitude: 0 });
   const [isLocationLoading, setIsLocationLoading] = useState(false);
   const [details, setDetails] = useState({});
+  const [currentPlace, setCurrentPlace] = useState(null);
 
   const fetchLocationData = async () => {
     setIsLocationLoading(true);
     try {
+      const { 0: place } = await RNGooglePlaces.getCurrentPlace([
+        'name',
+        'address',
+        'location',
+        'placeID',
+      ]);
+      setCurrentPlace(place);
       Geolocation.getCurrentPosition(
         result =>
           setCoordinates({ latitude: result.coords.latitude, longitude: result.coords.longitude }),
@@ -122,13 +131,13 @@ export default ({ navigation }) => {
           </BoldText>
         </Animatable.View>
 
-        <ActionPrompt {...{ details, setDetails, navigation }} />
+        <ActionPrompt {...{ details, setDetails, navigation, currentPlace }} />
       </View>
     </View>
   );
 };
 
-const ActionPrompt = ({ setDetails, details, navigation }) => {
+const ActionPrompt = ({ setDetails, details, navigation, currentPlace }) => {
   const [state, setState] = useState('CREATE');
   const [type, setType] = useState('RIDE');
 
@@ -198,7 +207,16 @@ const ActionPrompt = ({ setDetails, details, navigation }) => {
       </View>
 
       <PromptControl
-        {...{ clearSelection, setDetails, details, state, setState, type, navigation }}
+        {...{
+          clearSelection,
+          setDetails,
+          details,
+          state,
+          setState,
+          type,
+          navigation,
+          currentPlace,
+        }}
       />
     </View>
   );
@@ -212,12 +230,13 @@ const PromptControl = ({
   state,
   setState,
   navigation,
+  currentPlace,
 }) => {
   switch (`${state}_${type}`) {
     case 'CREATE_DELIVERY':
-      return <NewDelivery {...{ setDetails, setState, clearSelection }} />;
+      return <NewDelivery {...{ setDetails, setState, clearSelection, currentPlace }} />;
     case 'CREATE_RIDE':
-      return <NewRide {...{ setDetails, setState, clearSelection }} />;
+      return <NewRide {...{ setDetails, setState, clearSelection, currentPlace }} />;
     case 'PRICING_RIDE':
       return <RidePricing {...{ details, setDetails, setState, navigation, clearSelection }} />;
     case 'PRICING_DELIVERY':

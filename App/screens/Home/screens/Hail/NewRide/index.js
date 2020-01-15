@@ -3,9 +3,8 @@ import { Formik } from 'formik';
 import api from 'services/api';
 import Form from './Form';
 
-export default ({ setDetails, setState }) => {
+export default ({ setDetails, setState, currentPlace }) => {
   const [isLoading, setIsLoading] = useState(false);
-
   const fetchInfo = async values => {
     setIsLoading(true);
     const {
@@ -36,7 +35,11 @@ export default ({ setDetails, setState }) => {
 
   return (
     <>
-      <Formik initialValues={{}} onSubmit={fetchInfo}>
+      <Formik
+        enableReinitialize
+        initialValues={{ location_origin: currentPlace }}
+        onSubmit={fetchInfo}
+      >
         {_props => (
           <Form
             {...{
