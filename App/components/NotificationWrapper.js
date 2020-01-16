@@ -67,6 +67,18 @@ export default WrappedComponent =>
                 });
                 break;
 
+              case 'RIDE_CANCELLED':
+              case 'DELIVERY_CANCELLED':
+                PushNotification.localNotification({
+                  largeIcon: 'ic_launcher',
+                  smallIcon: 'ic_launcher_round',
+                  vibration: 300,
+                  title: 'Order cancelled',
+                  message: 'Your order has been cancelled',
+                });
+                self.props.navigate('Hail');
+                break;
+
               case 'COMPLETED':
                 PushNotification.localNotification({
                   largeIcon: 'ic_launcher',

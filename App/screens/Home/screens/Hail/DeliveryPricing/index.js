@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import api from 'services/api';
-import { MediumText, RegularText } from 'components/Text';
-import { ActivityIndicator, TouchableOpacity, View } from 'react-native';
+import {MediumText, RegularText} from 'components/Text';
+import {ActivityIndicator, TouchableOpacity, View} from 'react-native';
 import BaseStyles from 'theme/base';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import { RFValue } from 'react-native-responsive-fontsize';
-import { currencyFormatter } from 'util';
+import {RFValue} from 'react-native-responsive-fontsize';
+import {currencyFormatter} from 'util';
 import Snackbar from 'react-native-snackbar';
 
 export default ({ clearSelection, details, navigation: { navigate } }) => {
@@ -14,7 +14,11 @@ export default ({ clearSelection, details, navigation: { navigate } }) => {
   const orderDelivery = async () => {
     setIsLoading(true);
     try {
-      await api({
+      const {
+        data: {
+          data: { delivery },
+        },
+      } = await api({
         url: '/delivery',
         method: 'POST',
         data: {
@@ -22,7 +26,7 @@ export default ({ clearSelection, details, navigation: { navigate } }) => {
           payment_method: 'cash',
         },
       });
-      navigate('Searching');
+      navigate('Searching', { data: delivery, type: 'delivery' });
     } catch (e) {
       console.log(e.response ? e.response : e);
       console.log(e.response ? e.response : e);

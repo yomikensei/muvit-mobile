@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
-import { MediumText, RegularText } from 'components/Text';
-import { ActivityIndicator, TouchableOpacity, View } from 'react-native';
+import React, {useState} from 'react';
+import {MediumText, RegularText} from 'components/Text';
+import {ActivityIndicator, TouchableOpacity, View} from 'react-native';
 import BaseStyles from 'theme/base';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import Snackbar from 'react-native-snackbar';
-import { RFValue } from 'react-native-responsive-fontsize';
-import { currencyFormatter } from 'util';
+import {RFValue} from 'react-native-responsive-fontsize';
+import {currencyFormatter} from 'util';
 import api from 'services/api';
 
 export default ({ clearSelection, details, navigation: { navigate } }) => {
@@ -14,7 +14,11 @@ export default ({ clearSelection, details, navigation: { navigate } }) => {
   const orderRide = async () => {
     setIsLoading(true);
     try {
-      await api({
+      const {
+        data: {
+          data: { ride },
+        },
+      } = await api({
         url: '/ride',
         method: 'POST',
         data: {
@@ -22,7 +26,7 @@ export default ({ clearSelection, details, navigation: { navigate } }) => {
           payment_method: 'cash',
         },
       });
-      navigate('Searching');
+      navigate('Searching', { data: ride, type: 'ride' });
     } catch (e) {
       console.log(e.response ? e.response : e);
       let message = 'Failed to order ride, please try again later';
