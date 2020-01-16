@@ -74,7 +74,7 @@ export default WrappedComponent =>
                   smallIcon: 'ic_launcher_round',
                   vibration: 300,
                   title: 'Order cancelled',
-                  message: 'Your order has been cancelled',
+                  message: notification.title,
                 });
                 self.props.navigate('Hail');
                 break;

@@ -8,6 +8,7 @@ import {BoldText, MediumText, RegularText} from 'components/Text';
 import {currencyFormatter} from 'util';
 import Colors from 'theme/colors';
 import api from 'services/api';
+import _ from 'lodash';
 
 const styles = StyleSheet.create({
   item: {
@@ -136,7 +137,6 @@ export default props => {
                 >
                   Location
                 </MediumText>
-
                 <View
                   style={{
                     flexDirection: 'row',
